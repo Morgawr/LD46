@@ -13,7 +13,7 @@ public class PortalController : Interactable
 
     void OnTriggerExit2D(Collider2D other)
     {
-        controller.SignalIsOnInteractable(this);
+        controller.SignalIsOnInteractable(null);
     }
     
     public override void Interact()
