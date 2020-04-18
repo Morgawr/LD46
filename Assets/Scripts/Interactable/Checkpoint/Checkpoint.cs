@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Checkpoint : Interactable
 {
+    public string tagName;
 
     public override void Interact()
     {
@@ -12,6 +13,11 @@ public class Checkpoint : Interactable
         Debug.Log("Trigger Checkpoint interaction");
         //GameObject.findWithTag("Respawn");
 
-        controller.SetRespawn(SceneManager.GetActiveScene().name, this.name);
+        controller.SetRespawn(SceneManager.GetActiveScene().name, this.tagName);
+    }
+
+    public string GetTagName()
+    {
+        return this.tagName;
     }
 }

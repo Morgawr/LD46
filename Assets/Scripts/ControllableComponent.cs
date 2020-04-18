@@ -66,22 +66,26 @@ public class ControllableComponent : MonoBehaviour
 
     public void SetRespawn(string nameScene, string nameRespawn)
     {
-        Player.respawnName = nameRespawn;
         Player.respawnSceneName = nameScene;
+        Player.respawnName = nameRespawn;
     }
 
     public void Respawn()
     {
-        if(Player.respawnName != null && Player.respawnSceneName != null)
+        GameObject respawnManager = GameObject.FindWithTag("Respawn");
+
+        Checkpoint[] respawnList = respawnManager.GetComponentsInChildren<Checkpoint>();
+        
+        foreach (Checkpoint respawn in respawnList)
         {
-            GameObject respawn = GameObject.FindWithTag("Respawn");
-            Debug.Log(respawn.transform.position);
-            this.transform.position = respawn.transform.position;
+            if (respawn.GetTagName().Equals(Player.respawnName))
+            {
+                this.transform.position = respawn.transform.position;
+                return;
+            }
         }
-        else
-        {
-            this.transform.position = Vector3.zero;
-        }
+
+        this.transform.position = Vector3.zero;
     }
 
     void OnHurtWrapper() {
