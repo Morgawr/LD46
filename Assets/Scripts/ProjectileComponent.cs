@@ -35,11 +35,11 @@ public class ProjectileComponent : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject == Player.gameObject) {
-            Debug.Log("Collided with Player!");
-        }
         if(other.gameObject == transform.parent.gameObject)
             return;
+        if(other.gameObject == Player.gameObject) {
+            Player.GetComponent<HurtComponent>().GetHurt(this.GetComponentInParent<Transform>());
+        }
         Die();
     }
 }
