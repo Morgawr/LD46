@@ -6,6 +6,8 @@ public class EnemyAI : MonoBehaviour
 {
 
     public ControllableComponent Player;
+    public PatrolComponent patroller;
+    public Rigidbody2D body;
 
     public delegate void AttackRoutine();
 
@@ -15,12 +17,24 @@ public class EnemyAI : MonoBehaviour
     public float MeleeRange = 0;
     public float AttackSpeed = 0;
     public float ApproachChance = 0;
+    public Vector2 MaxMovementSpeed;
+    public float PatrolSpeed = 0;
+    public float AggroSpeed = 0;
+    public bool isFlying = false;
+
+    bool isFacingRight = true;
 
     protected ProjectileFactory projectileFactory; 
     bool hasJustAttacked = false;
     bool isPlayerSpotted = false;
 
     Timer attackTimer = new Timer();
+
+    public void FlipX() {
+        isFacingRight = !isFacingRight;
+        var oldScale = this.gameObject.transform.localScale;
+        this.gameObject.transform.localScale = new Vector3(-oldScale.x, oldScale.y, oldScale.z);
+    }
 
     protected virtual void Start() {
         
@@ -39,9 +53,26 @@ public class EnemyAI : MonoBehaviour
         return Vector2.Distance(transform.position, Player.transform.position);
     }
 
+    void FollowPoint(Transform targetPoint) {
+        if(this.transform.position.x < targetPoint.position.x && !isFacingRight) {
+            FlipX();
+        } else if(this.transform.position.x > targetPoint.position.x && isFacingRight) {
+            FlipX();
+        }
+
+        Vector2 force = (targetPoint.position - transform.position).normalized * PatrolSpeed;
+        if(!isFlying) {
+            force.y = 0;
+        }
+
+        body.AddForce(force * Time.deltaTime);
+    }
+
     protected virtual void Patrol() {
-        // Patrol routine
-        Debug.Log("patrolling");
+        if(patroller.ShouldGetNextPoint(this.transform)) {
+            patroller.TriggerNextPoint();
+        }
+        FollowPoint(patroller.GetCurrentPoint());
     }
 
     protected virtual void MeleeAttack() {
@@ -54,7 +85,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     protected virtual void ApproachPlayer() {
-        Debug.Log("Approaching player");
+        FollowPoint(Player.transform);
     }
 
     public virtual void PlayerSpotted(bool spotted) {
@@ -77,13 +108,14 @@ public class EnemyAI : MonoBehaviour
                 ApproachPlayer();
                 return;
             } 
-            if(MeleeAttacks.Count == 0) {
-                // We do nothing because we want to stay away from the player
-                // TODO: Maybe have logic to run away from player
-                return;
-            }
+            // TODO : have melee attack
+            //if(MeleeAttacks.Count == 0) {
+            //    // We do nothing because we want to stay away from the player
+            //    // TODO: Maybe have logic to run away from player
+            //    return;
+            //}
             var chance = Random.Range(0, 1);
-            if(chance <= ApproachChance) {
+            if(chance < ApproachChance) {
                 ApproachPlayer();
             }
         }
@@ -91,6 +123,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update() {
         RunAI();
+        body.velocity = VelocityClamper.ClampVelocity(body.velocity, MaxMovementSpeed);
     }
 
     void OnDrawGizmosSelected () {

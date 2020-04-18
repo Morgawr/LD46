@@ -208,10 +208,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bc6dd90c4e5484ea2ba2b1b6187e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 100
-  airSpeed: 15
-  maxVelocity: 5
-  jumpStrength: 200
+  moveSpeed: 5000
+  airSpeed: 300
+  maxVelocity: {x: 5, y: 20}
+  jumpStrength: 8000
   climbSpeed: 10
 --- !u!1001 &1621490513
 PrefabInstance:

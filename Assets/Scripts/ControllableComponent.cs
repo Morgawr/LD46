@@ -50,10 +50,6 @@ public class ControllableComponent : MonoBehaviour
         jumpTimer = new Timer();
     }
 
-    void ClampVelocity() {
-        body.velocity = new Vector2(Mathf.Clamp(body.velocity.x, -Player.maxVelocity, Player.maxVelocity), body.velocity.y);
-    }
-
     // Update is called once per frame
     void Update() {
 
@@ -90,6 +86,6 @@ public class ControllableComponent : MonoBehaviour
             transform.Translate(climbForce * Player.climbSpeed * Time.deltaTime);
         }
 
-        ClampVelocity();
+        body.velocity = VelocityClamper.ClampVelocity(body.velocity, Player.maxVelocity);
     }
 }
