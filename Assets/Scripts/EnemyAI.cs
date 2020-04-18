@@ -15,6 +15,8 @@ public class EnemyAI : MonoBehaviour
     public float MeleeRange = 0;
     public float AttackSpeed = 0;
     public float ApproachChance = 0;
+
+    protected ProjectileFactory projectileFactory; 
     bool hasJustAttacked = false;
     bool isPlayerSpotted = false;
 
@@ -22,6 +24,11 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void Start() {
         
+    }
+
+    AttackRoutine RandomAttackRoutine(List<AttackRoutine> attacks) {
+        var randChoice = (int)Mathf.Floor(Random.Range(0f, attacks.Count));
+        return attacks[randChoice];
     }
 
     void resetAttackCooldown() {
@@ -43,8 +50,7 @@ public class EnemyAI : MonoBehaviour
     }
     
     protected virtual void RangedAttack() {
-        // Ranged attack
-        Debug.Log("ranged attack");
+       RandomAttackRoutine(RangedAttacks)();
     }
 
     protected virtual void ApproachPlayer() {
