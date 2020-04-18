@@ -9,12 +9,12 @@ public class EnemyAI : MonoBehaviour
 
     public delegate void AttackRoutine();
 
-
-    public AttackRoutine[] RangedAttacks;
-    public AttackRoutine[] MeleeAttacks;
+    public List<AttackRoutine> RangedAttacks = new List<AttackRoutine>();
+    public List<AttackRoutine> MeleeAttacks = new List<AttackRoutine>();
 
     public float MeleeRange = 0;
     public float AttackSpeed = 0;
+    public float ApproachChance = 0;
     bool hasJustAttacked = false;
     bool isPlayerSpotted = false;
 
@@ -55,7 +55,7 @@ public class EnemyAI : MonoBehaviour
         isPlayerSpotted = spotted;
     }
 
-    void Update() {
+    void RunAI() {
         if(!isPlayerSpotted) {
             Patrol();
         } else if(!hasJustAttacked) {
@@ -67,9 +67,24 @@ public class EnemyAI : MonoBehaviour
             hasJustAttacked = true;
             StartCoroutine(attackTimer.Countdown(1f / AttackSpeed, new Timer.SideEffector(resetAttackCooldown)));
         } else {
-            // TODO: Add different logic for melee vs non-melee enemy types
-            ApproachPlayer();
+            if(RangedAttacks.Count == 0) {
+                ApproachPlayer();
+                return;
+            } 
+            if(MeleeAttacks.Count == 0) {
+                // We do nothing because we want to stay away from the player
+                // TODO: Maybe have logic to run away from player
+                return;
+            }
+            var chance = Random.Range(0, 1);
+            if(chance <= ApproachChance) {
+                ApproachPlayer();
+            }
         }
+    }
+
+    void Update() {
+        RunAI();
     }
 
     void OnDrawGizmosSelected () {
