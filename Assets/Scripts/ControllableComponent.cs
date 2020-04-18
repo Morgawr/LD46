@@ -19,7 +19,7 @@ public class ControllableComponent : MonoBehaviour
     bool isAttackCooldown = false;
 
     bool isOnLadder = false;
-    bool isOnInteractable = false;
+    Interactable OnInteractable = null;
 
     bool isFacingRight = true;
 
@@ -59,9 +59,9 @@ public class ControllableComponent : MonoBehaviour
         isOnLadder = start;
     }
 
-    public void SignalIsOnInteractable(bool start)
+    public void SignalIsOnInteractable(Interactable element)
     {
-        isOnInteractable = start;
+        OnInteractable = element;
     }
 
     void OnHurtWrapper() {
@@ -170,11 +170,11 @@ public class ControllableComponent : MonoBehaviour
             }
         }
 
-        if(isOnInteractable)
+        if(OnInteractable)
         {
             if (InputManager.IsPressed("up"))
             {
-                Debug.Log("Trigger portal interaction");
+                OnInteractable.Interact();
             }
         }
 
