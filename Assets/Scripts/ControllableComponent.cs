@@ -7,6 +7,7 @@ public class ControllableComponent : MonoBehaviour
 
     public Rigidbody2D body = null;
     public Collider2D avatarCollider = null;
+    public SlashComponent slashAttack = null;
 
     public Player Player;
 
@@ -15,6 +16,8 @@ public class ControllableComponent : MonoBehaviour
     bool isWalltouching = false;
 
     bool isOnLadder = false;
+
+    bool isFacingRight = true;
 
     // Enemy or platform?
     bool isTouchingSomething = false;
@@ -68,16 +71,29 @@ public class ControllableComponent : MonoBehaviour
         hurtComponent.OnHurtReaction = new HurtComponent.OnHurtReactionDel(OnHurtWrapper);
     }
 
+    void FlipPlayer() {
+        // TODO: Deal with sprite flipping etc
+        isFacingRight = !isFacingRight;
+        var oldScale = this.gameObject.transform.localScale;
+        this.gameObject.transform.localScale = new Vector3(-oldScale.x, oldScale.y, oldScale.z);
+    }
+
     // Update is called once per frame
     void Update() {
 
         if(!isWalltouching || CanMove()) {
             var actualMoveSpeed = (isInAir && !isOnLadder) ? Player.airSpeed : Player.moveSpeed;
 
-            if(InputManager.IsPressed("left")) 
+            if(InputManager.IsPressed("left"))  {
+                if(isFacingRight) 
+                    FlipPlayer();
                 body.AddForce(new Vector2(-1, 0) * actualMoveSpeed * Time.deltaTime, ForceMode2D.Impulse);
-            else if (InputManager.IsPressed("right"))
+            }
+            else if (InputManager.IsPressed("right")) {
+                if(!isFacingRight)
+                    FlipPlayer();
                 body.AddForce(new Vector2(1, 0) * actualMoveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            }
         }
 
         if(InputManager.IsPressed("jump") && CanMove() && !isJumpCooldown) {
@@ -107,6 +123,9 @@ public class ControllableComponent : MonoBehaviour
             // We should be able to attack here
             if(InputManager.IsPressed("attack")) {
                 Debug.Log("Attack!");
+                // TODO : Have attack cooldown based on attack speed and a timer
+                if(!slashAttack.isActiveAndEnabled)
+                    slashAttack.Slash(5);
             }
         }
 
