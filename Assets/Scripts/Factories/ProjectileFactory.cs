@@ -15,7 +15,6 @@ public class ProjectileFactory : MonoBehaviour
         if(target.position.x < parent.position.x) 
             flip = true;
         heading = target.position - parent.position;
-        Debug.Log(heading);
         var distance = Vector2.Distance(parent.position, target.position);
         proj.Direction = heading / distance;
         if(flip)

@@ -16,6 +16,9 @@ public class ControllableComponent : MonoBehaviour
 
     bool isOnLadder = false;
 
+    // Enemy or platform?
+    bool isTouchingSomething = false;
+
     Timer jumpTimer;
 
     void resetJumpCooldown() {
@@ -58,7 +61,7 @@ public class ControllableComponent : MonoBehaviour
     void Update() {
 
         if(!isWalltouching || CanMove()) {
-            var actualMoveSpeed = isInAir ? Player.airSpeed : Player.moveSpeed;
+            var actualMoveSpeed = (isInAir && !isOnLadder) ? Player.airSpeed : Player.moveSpeed;
 
             if(InputManager.IsPressed("left")) 
                 body.AddForce(new Vector2(-1, 0) * actualMoveSpeed * Time.deltaTime, ForceMode2D.Impulse);
@@ -84,12 +87,20 @@ public class ControllableComponent : MonoBehaviour
             if(InputManager.IsPressed("up")) {
                 climbForce = new Vector2(0, 1);
             }
-            if(InputManager.IsPressed("down")) {
+            if(InputManager.IsPressed("down") && isInAir && !isTouchingSomething) {
                 climbForce = new Vector2(0, -1);
             }
             transform.Translate(climbForce * Player.climbSpeed * Time.deltaTime);
         }
 
         body.velocity = VelocityClamper.ClampVelocity(body.velocity, Player.maxVelocity);
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        isTouchingSomething = true;
+    }
+
+    void OnCollisionExit2D(Collision2D other) {
+        isTouchingSomething = false;
     }
 }

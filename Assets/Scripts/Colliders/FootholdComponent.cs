@@ -13,7 +13,7 @@ public class FootholdComponent : MonoBehaviour
     }
 
     void Update() {
-        if(selfCollider.IsTouchingLayers(LayerMask.GetMask("FootholdLayer")))
+        if(selfCollider.IsTouchingLayers(LayerMask.GetMask("FootholdLayer", "EnemyLayer")))
             controller.SignalInAir(false);
         else 
             controller.SignalInAir(true);
