@@ -71,9 +71,6 @@ public class EnemyAI : MonoBehaviour
         }
 
         Vector2 force = (targetPoint.position - transform.position).normalized * speed;
-        if(!isFlying) {
-            force.y = 0;
-        }
 
         body.AddForce(force * Time.deltaTime);
     }
