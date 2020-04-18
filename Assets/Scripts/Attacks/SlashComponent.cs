@@ -31,7 +31,9 @@ public class SlashComponent : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Enemy") {
-            other.GetComponent<HurtComponent>().GetHurt(DamageDealer);
+            var hurtComponent = other.GetComponent<HurtComponent>();
+            if(hurtComponent != null)
+                hurtComponent.GetHurt(DamageDealer);
             if(AttackHitCallback != null)
                 AttackHitCallback();
             EndSlash();
