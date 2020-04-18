@@ -164,5 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 100
+  airSpeed: 15
   maxVelocity: 5
   jumpStrength: 200
+  climbSpeed: 10

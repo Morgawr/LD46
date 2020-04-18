@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - FootholdLayer
-  - 
-  - 
+  - LadderLayer
+  - PlayerLayer
   - 
   - 
   - 
