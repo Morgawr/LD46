@@ -215,6 +215,8 @@ MonoBehaviour:
   climbSpeed: 5
   attackSpeed: 1.5
   downAttackKnockbackStrength: 100
+  respawnName: 
+  respawnSceneName: 
 --- !u!1001 &1621490513
 PrefabInstance:
   m_ObjectHideFlags: 0
