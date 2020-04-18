@@ -85,6 +85,8 @@ public class ControllableComponent : MonoBehaviour
         var hurtComponent = this.GetComponent<HurtComponent>();
         hurtComponent.OnHurtReaction = new Delegates.EmptyDel(OnHurtWrapper);
 
+        this.GetComponent<AbstractVulnerableComponent>().OnDeath = new Delegates.EmptyDel(OnDeath);
+
         // When we hit something with a down attack, we are launched upwards
         downAttack.AttackHitCallback = new Delegates.EmptyDel(KnockbackOnDownAttack);
     }
@@ -187,5 +189,13 @@ public class ControllableComponent : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D other) {
         isTouchingSomething = false;
+    }
+
+    // This is what happens when the player dies
+    void OnDeath() {
+        // TODO: Have logic to respawn at the latest safe station
+        Debug.Log("We have died");
+        // Temporary teleport to origin
+        this.transform.position = Vector3.zero;
     }
 }
