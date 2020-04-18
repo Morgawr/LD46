@@ -14,6 +14,7 @@ public class ControllableComponent : MonoBehaviour
     bool isInAir = false;
     bool isJumpCooldown = false;
     bool isWalltouching = false;
+    bool isAttackCooldown = false;
 
     bool isOnLadder = false;
 
@@ -23,9 +24,14 @@ public class ControllableComponent : MonoBehaviour
     bool isTouchingSomething = false;
 
     Timer jumpTimer;
+    Timer attackTimer;
 
     void resetJumpCooldown() {
         isJumpCooldown = false;
+    }
+
+    void resetAttackCooldown() {
+        isAttackCooldown = false;
     }
 
     public bool CanMove() {
@@ -66,6 +72,7 @@ public class ControllableComponent : MonoBehaviour
     void Start() {
         Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         jumpTimer = new Timer();
+        attackTimer = new Timer();
 
         var hurtComponent = this.GetComponent<HurtComponent>();
         hurtComponent.OnHurtReaction = new Delegates.EmptyDel(OnHurtWrapper);
@@ -121,14 +128,14 @@ public class ControllableComponent : MonoBehaviour
             transform.Translate(climbForce * Player.climbSpeed * Time.deltaTime);
         } else {
             // We should be able to attack here
-            if(InputManager.IsPressed("attack")) {
-                Debug.Log("Attack!");
-                // TODO : Have attack cooldown based on attack speed and a timer
-                if(!slashAttack.isActiveAndEnabled)
+            if(InputManager.IsPressed("attack") && !isAttackCooldown) {
+                if(!slashAttack.isActiveAndEnabled) {
                     slashAttack.Slash(5);
+                    isAttackCooldown = true;
+                    StartCoroutine(attackTimer.Countdown(1/Player.attackSpeed, new Delegates.EmptyDel(resetAttackCooldown)));
+                }
             }
         }
-
 
         body.velocity = VelocityClamper.ClampVelocity(body.velocity, Player.maxVelocity);
     }

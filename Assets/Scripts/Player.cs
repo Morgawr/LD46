@@ -9,4 +9,6 @@ public class Player : MonoBehaviour
     public Vector2 maxVelocity;
     public float jumpStrength = 0;
     public float climbSpeed = 0;
+    // How many attackes we do per second
+    public float attackSpeed = 0;
 }
