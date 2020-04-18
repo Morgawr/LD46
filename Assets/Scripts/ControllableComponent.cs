@@ -17,6 +17,7 @@ public class ControllableComponent : MonoBehaviour
     bool isAttackCooldown = false;
 
     bool isOnLadder = false;
+    bool isOnInteractable = false;
 
     bool isFacingRight = true;
 
@@ -54,6 +55,11 @@ public class ControllableComponent : MonoBehaviour
             body.gravityScale = 1;
         }
         isOnLadder = start;
+    }
+
+    public void SignalIsOnInteractable(bool start)
+    {
+        isOnInteractable = start;
     }
 
     void OnHurtWrapper() {
@@ -134,6 +140,14 @@ public class ControllableComponent : MonoBehaviour
                     isAttackCooldown = true;
                     StartCoroutine(attackTimer.Countdown(1/Player.attackSpeed, new Delegates.EmptyDel(resetAttackCooldown)));
                 }
+            }
+        }
+
+        if(isOnInteractable)
+        {
+            if (InputManager.IsPressed("up"))
+            {
+                Debug.Log("Trigger portal interaction");
             }
         }
 
