@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Avatar
   - ProjectileFactory
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - PlatformLayer
   - EnemyLayer
   - ProjectileLayer
-  - 
+  - PlayerDetectorLayer
   - 
   - 
   - 

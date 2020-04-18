@@ -786,6 +786,10 @@ MonoBehaviour:
   body: {fileID: 966473631}
   avatarCollider: {fileID: 966473634}
   Player: {fileID: 0}
+  isInAir: 0
+  isJumpCooldown: 0
+  isWalltouching: 0
+  isOnLadder: 0
 --- !u!70 &966473634
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1651,10 +1655,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1198090584}
     m_Modifications:
-    - target: {fileID: 1229681057, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81, type: 3}
-      propertyPath: marginBeforeNextPoint
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8622341871199795440, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
         type: 3}
       propertyPath: player
@@ -1667,34 +1667,9 @@ PrefabInstance:
       objectReference: {fileID: 966473633}
     - target: {fileID: 8622341871785126948, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
         type: 3}
-      propertyPath: PatrolSpeed
-      value: 30000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8622341871785126948, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
-        type: 3}
-      propertyPath: MaxMovementSpeed.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8622341871785126948, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
-        type: 3}
-      propertyPath: MaxMovementSpeed.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8622341871785126948, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
-        type: 3}
       propertyPath: patroller
       value: 
       objectReference: {fileID: 582346364}
-    - target: {fileID: 8622341871785126948, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
-        type: 3}
-      propertyPath: ApproachChance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8622341871785126948, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
-        type: 3}
-      propertyPath: AggroSpeed
-      value: 50000
-      objectReference: {fileID: 0}
     - target: {fileID: 8622341871785126950, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1754,6 +1729,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyBase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622341871785127385, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81, type: 3}

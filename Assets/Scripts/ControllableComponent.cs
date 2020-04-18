@@ -56,9 +56,7 @@ public class ControllableComponent : MonoBehaviour
         float x = Random.Range(0, 20) % 2 == 0 ? 1 : -1;
 
         this.body.AddForce(new Vector2(x, y) * thrownForce, ForceMode2D.Impulse);
-        if(isOnLadder) {
-            SignalIsClimbing(false);
-        }
+        SignalIsClimbing(false);
     }
 
     // Start is called before the first frame update
@@ -93,6 +91,7 @@ public class ControllableComponent : MonoBehaviour
             if(avatarCollider.IsTouchingLayers(LayerMask.GetMask("LadderLayer"))) {
                 this.SignalIsClimbing(true);
             }
+            // TODO: Add portal exiting/interaction
         }
 
         if(isOnLadder) {
@@ -104,7 +103,13 @@ public class ControllableComponent : MonoBehaviour
                 climbForce = new Vector2(0, -1);
             }
             transform.Translate(climbForce * Player.climbSpeed * Time.deltaTime);
+        } else {
+            // We should be able to attack here
+            if(InputManager.IsPressed("attack")) {
+                Debug.Log("Attack!");
+            }
         }
+
 
         body.velocity = VelocityClamper.ClampVelocity(body.velocity, Player.maxVelocity);
     }

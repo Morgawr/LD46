@@ -19,6 +19,8 @@ public static class InputManager {
                 return Input.GetKey("s") || Input.GetKey("down") || vertAxis > 0.2;
             case "jump":
                 return Input.GetKey("space") || Input.GetButton("Jump");
+            case "attack":
+                return Input.GetKey("z") || Input.GetButton("Attack");
         }
         return false;
     }
