@@ -13,4 +13,7 @@ public class Player : MonoBehaviour
     public float attackSpeed = 0;
     // How strong we are launched upwards when we hit an enemy with a down attack
     public float downAttackKnockbackStrength = 0;
+
+    public string respawnName = null;
+    public string respwanSceneName = null;
 }

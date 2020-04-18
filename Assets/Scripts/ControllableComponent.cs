@@ -64,6 +64,12 @@ public class ControllableComponent : MonoBehaviour
         OnInteractable = element;
     }
 
+    public void SetRespawn(string nameScene, string nameRespawn)
+    {
+        Player.respawnName = nameRespawn;
+        Player.respwanSceneName = nameScene;
+    }
+
     void OnHurtWrapper() {
         var flicker = this.GetComponent<SpriteFlickerComponent>();
         flicker.StartFlicker();
