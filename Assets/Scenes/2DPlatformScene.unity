@@ -1006,6 +1006,7 @@ GameObject:
   - component: {fileID: 966473634}
   - component: {fileID: 966473632}
   - component: {fileID: 966473635}
+  - component: {fileID: 966473636}
   m_Layer: 10
   m_Name: Avatar
   m_TagString: Avatar
@@ -1113,6 +1114,18 @@ MonoBehaviour:
   sprite: {fileID: 1691504030}
   FlickerDuration: 0.01
   TotalDuration: 2
+--- !u!114 &966473636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966473629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70f615c98663d141995fe4a26c8193e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &992561944
 GameObject:
   m_ObjectHideFlags: 0
