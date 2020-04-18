@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2282649586364233010}
   - component: {fileID: 2282649586364233013}
-  - component: {fileID: 2282649586364233012}
+  - component: {fileID: 1024367877732964157}
   m_Layer: 18
   m_Name: Tips
   m_TagString: Enemy
@@ -201,7 +201,7 @@ PolygonCollider2D:
       - {x: 2.7882583, y: -0.6713569}
       - {x: 2.5724666, y: 1.0184357}
       - {x: 1.3393772, y: 0.025243044}
---- !u!114 &2282649586364233012
+--- !u!114 &1024367877732964157
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2282649586364233011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 569a3d759e3f52c479516f2a6b74cb9b, type: 3}
+  m_Script: {fileID: 11500000, guid: b2ec7b6a128a3b94c9de1674e180b5e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
