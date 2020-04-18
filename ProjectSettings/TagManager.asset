@@ -25,7 +25,7 @@ TagManager:
   - ProjectileLayer
   - PlayerDetectorLayer
   - PlayerAttackLayer
-  - 
+  - Interactable
   - 
   - 
   - 

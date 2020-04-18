@@ -19,6 +19,7 @@ public class ControllableComponent : MonoBehaviour
     bool isAttackCooldown = false;
 
     bool isOnLadder = false;
+    bool isOnInteractable = false;
 
     bool isFacingRight = true;
 
@@ -56,6 +57,11 @@ public class ControllableComponent : MonoBehaviour
             body.gravityScale = 1;
         }
         isOnLadder = start;
+    }
+
+    public void SignalIsOnInteractable(bool start)
+    {
+        isOnInteractable = start;
     }
 
     void OnHurtWrapper() {
@@ -161,6 +167,14 @@ public class ControllableComponent : MonoBehaviour
             // We should be able to attack here
             if(InputManager.IsPressed("attack") && !isAttackCooldown) {
                 HandleAttackLogic();
+            }
+        }
+
+        if(isOnInteractable)
+        {
+            if (InputManager.IsPressed("up"))
+            {
+                Debug.Log("Trigger portal interaction");
             }
         }
 
