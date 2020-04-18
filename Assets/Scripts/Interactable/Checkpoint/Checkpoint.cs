@@ -9,10 +9,7 @@ public class Checkpoint : Interactable
 
     public override void Interact()
     {
-        // TODO: Implement interaction with portal
         Debug.Log("Trigger Checkpoint interaction");
-        //GameObject.findWithTag("Respawn");
-
         controller.SetRespawn(SceneManager.GetActiveScene().name, this.tagName);
     }
 
