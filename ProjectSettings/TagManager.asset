@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Avatar
+  - ProjectileFactory
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - WallclimbLayer
   - PlatformLayer
   - EnemyLayer
-  - 
+  - ProjectileLayer
   - 
   - 
   - 

@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
 
     Timer attackTimer = new Timer();
 
-    void Start() {
+    protected virtual void Start() {
         
     }
 
@@ -28,8 +28,8 @@ public class EnemyAI : MonoBehaviour
         hasJustAttacked = false;
     }
 
-    float CalculateDistanceFromPlayer() {
-        return Physics2D.Distance(Player.GetComponent<Collider2D>(), this.GetComponent<Collider2D>()).distance;
+    protected float CalculateDistanceFromPlayer() {
+        return Vector2.Distance(transform.position, Player.transform.position);
     }
 
     protected virtual void Patrol() {
