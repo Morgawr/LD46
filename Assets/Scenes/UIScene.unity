@@ -212,7 +212,7 @@ MonoBehaviour:
   airSpeed: 300
   maxVelocity: {x: 5, y: 20}
   jumpStrength: 8000
-  climbSpeed: 10
+  climbSpeed: 5
 --- !u!1001 &1621490513
 PrefabInstance:
   m_ObjectHideFlags: 0

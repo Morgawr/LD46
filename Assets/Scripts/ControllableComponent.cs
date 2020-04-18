@@ -47,14 +47,27 @@ public class ControllableComponent : MonoBehaviour
         isOnLadder = start;
     }
 
+    void OnHurtWrapper() {
+        var flicker = this.GetComponent<SpriteFlickerComponent>();
+        flicker.StartFlicker();
+        // Get thrown in a random direction 45 degrees
+        float thrownForce = 100f;
+        float y = 0.7f; 
+        float x = Random.Range(0, 20) % 2 == 0 ? 1 : -1;
+
+        this.body.AddForce(new Vector2(x, y) * thrownForce, ForceMode2D.Impulse);
+        if(isOnLadder) {
+            SignalIsClimbing(false);
+        }
+    }
+
     // Start is called before the first frame update
     void Start() {
         Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         jumpTimer = new Timer();
 
-        var flicker = this.GetComponent<SpriteFlickerComponent>();
         var hurtComponent = this.GetComponent<HurtComponent>();
-        hurtComponent.OnHurtReaction = new HurtComponent.OnHurtReactionDel(flicker.StartFlicker);
+        hurtComponent.OnHurtReaction = new HurtComponent.OnHurtReactionDel(OnHurtWrapper);
     }
 
     // Update is called once per frame

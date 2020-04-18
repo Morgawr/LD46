@@ -220,10 +220,10 @@ MonoBehaviour:
   body: {fileID: 1837271811}
   MeleeRange: 4
   AttackSpeed: 0.5
-  ApproachChance: 0.5
-  MaxMovementSpeed: {x: 0, y: 0}
-  PatrolSpeed: 0
-  AggroSpeed: 0
+  ApproachChance: 0.1
+  MaxMovementSpeed: {x: 5, y: 5}
+  PatrolSpeed: 30000
+  AggroSpeed: 50000
   isFlying: 0
 --- !u!50 &1837271811
 Rigidbody2D:

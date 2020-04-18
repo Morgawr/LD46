@@ -1688,7 +1688,12 @@ PrefabInstance:
     - target: {fileID: 8622341871785126948, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
         type: 3}
       propertyPath: ApproachChance
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622341871785126948, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
+        type: 3}
+      propertyPath: AggroSpeed
+      value: 50000
       objectReference: {fileID: 0}
     - target: {fileID: 8622341871785126950, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
         type: 3}

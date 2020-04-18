@@ -27,8 +27,11 @@ public class EnemyAI : MonoBehaviour
     protected ProjectileFactory projectileFactory; 
     bool hasJustAttacked = false;
     bool isPlayerSpotted = false;
+    bool hasTriedToApproach = false;
+    bool isApproaching = false;
 
     Timer attackTimer = new Timer();
+    Timer approachTimer = new Timer();
 
     public void FlipX() {
         isFacingRight = !isFacingRight;
@@ -49,18 +52,23 @@ public class EnemyAI : MonoBehaviour
         hasJustAttacked = false;
     }
 
+    void resetApproachCooldown() {
+        hasTriedToApproach = false;
+        isApproaching = false;
+    }
+
     protected float CalculateDistanceFromPlayer() {
         return Vector2.Distance(transform.position, Player.transform.position);
     }
 
-    void FollowPoint(Transform targetPoint) {
+    void FollowPoint(Transform targetPoint, float speed) {
         if(this.transform.position.x < targetPoint.position.x && !isFacingRight) {
             FlipX();
         } else if(this.transform.position.x > targetPoint.position.x && isFacingRight) {
             FlipX();
         }
 
-        Vector2 force = (targetPoint.position - transform.position).normalized * PatrolSpeed;
+        Vector2 force = (targetPoint.position - transform.position).normalized * speed;
         if(!isFlying) {
             force.y = 0;
         }
@@ -72,7 +80,7 @@ public class EnemyAI : MonoBehaviour
         if(patroller.ShouldGetNextPoint(this.transform)) {
             patroller.TriggerNextPoint();
         }
-        FollowPoint(patroller.GetCurrentPoint());
+        FollowPoint(patroller.GetCurrentPoint(), PatrolSpeed);
     }
 
     protected virtual void MeleeAttack() {
@@ -85,7 +93,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     protected virtual void ApproachPlayer() {
-        FollowPoint(Player.transform);
+        FollowPoint(Player.transform, AggroSpeed);
     }
 
     public virtual void PlayerSpotted(bool spotted) {
@@ -96,6 +104,7 @@ public class EnemyAI : MonoBehaviour
         if(!isPlayerSpotted) {
             Patrol();
         } else if(!hasJustAttacked) {
+            isApproaching = false;
             if(CalculateDistanceFromPlayer() > MeleeRange) {
                 RangedAttack();
             } else {
@@ -114,8 +123,16 @@ public class EnemyAI : MonoBehaviour
             //    // TODO: Maybe have logic to run away from player
             //    return;
             //}
-            var chance = Random.Range(0, 1);
-            if(chance < ApproachChance) {
+            // Try to approach the player if you can
+            if(!hasTriedToApproach) {
+                var chance = Random.Range(0f, 1f);
+                if (chance < ApproachChance) {
+                    // Every half second try to see if you can approach the player or not
+                    isApproaching = true;
+                    StartCoroutine(approachTimer.Countdown(0.5f, new Timer.SideEffector(resetApproachCooldown)));
+                }
+            }
+            if(isApproaching) {
                 ApproachPlayer();
             }
         }
