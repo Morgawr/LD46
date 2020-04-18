@@ -64,6 +64,30 @@ public class ControllableComponent : MonoBehaviour
         OnInteractable = element;
     }
 
+    public void SetRespawn(string nameScene, string nameRespawn)
+    {
+        Player.respawnSceneName = nameScene;
+        Player.respawnName = nameRespawn;
+    }
+
+    public void Respawn()
+    {
+        GameObject respawnManager = GameObject.FindWithTag("Respawn");
+
+        Checkpoint[] respawnList = respawnManager.GetComponentsInChildren<Checkpoint>();
+        
+        foreach (Checkpoint respawn in respawnList)
+        {
+            if (respawn.GetTagName().Equals(Player.respawnName))
+            {
+                this.transform.position = respawn.transform.position;
+                return;
+            }
+        }
+
+        this.transform.position = Vector3.zero;
+    }
+
     void OnHurtWrapper() {
         var flicker = this.GetComponent<SpriteFlickerComponent>();
         flicker.StartFlicker();
@@ -192,10 +216,10 @@ public class ControllableComponent : MonoBehaviour
     }
 
     // This is what happens when the player dies
-    void OnDeath() {
+    public void OnDeath() {
         // TODO: Have logic to respawn at the latest safe station
         Debug.Log("We have died");
         // Temporary teleport to origin
-        this.transform.position = Vector3.zero;
+        this.Respawn();
     }
 }
