@@ -6,6 +6,7 @@ public class TmpMonsterAI : EnemyAI
 {
 
     protected override void Start() {
+        base.Start();
         projectileFactory = GameObject.FindGameObjectsWithTag("ProjectileFactory")[0].GetComponent<ProjectileFactory>();
         RangedAttacks.Add(new AttackRoutine(BasicProjectileRoutine));
     }

@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public ControllableComponent Player;
     public PatrolComponent patroller;
     public Rigidbody2D body;
+    public EnemyHealthComponent health;
 
     public delegate void AttackRoutine();
 
@@ -40,7 +41,8 @@ public class EnemyAI : MonoBehaviour
     }
 
     protected virtual void Start() {
-        
+        var hurtComponent = this.GetComponent<HurtComponent>();
+        hurtComponent.OnHurtReaction = new HurtComponent.OnHurtReactionDel(OnHurtWrapper);
     }
 
     AttackRoutine RandomAttackRoutine(List<AttackRoutine> attacks) {
@@ -98,6 +100,12 @@ public class EnemyAI : MonoBehaviour
 
     public virtual void PlayerSpotted(bool spotted) {
         isPlayerSpotted = spotted;
+    }
+
+    void OnHurtWrapper() {
+        Debug.Log("Test");
+        var flicker = this.GetComponent<SpriteFlickerComponent>();
+        flicker.StartFlicker();
     }
 
     void RunAI() {

@@ -24,6 +24,6 @@ public class HurtComponent : MonoBehaviour
             OnHurtReaction();
         }
         // TODO get damage (???) logic
-        Debug.Log("Got hit!");
+        Debug.Log("Got hit! " + this.name);
     }
 }
