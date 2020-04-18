@@ -15,5 +15,5 @@ public class Player : MonoBehaviour
     public float downAttackKnockbackStrength = 0;
 
     public string respawnName = null;
-    public string respwanSceneName = null;
+    public string respawnSceneName = null;
 }

@@ -67,7 +67,21 @@ public class ControllableComponent : MonoBehaviour
     public void SetRespawn(string nameScene, string nameRespawn)
     {
         Player.respawnName = nameRespawn;
-        Player.respwanSceneName = nameScene;
+        Player.respawnSceneName = nameScene;
+    }
+
+    public void Respawn()
+    {
+        if(Player.respawnName != null && Player.respawnSceneName != null)
+        {
+            GameObject respawn = GameObject.FindWithTag("Respawn");
+            Debug.Log(respawn.transform.position);
+            this.transform.position = respawn.transform.position;
+        }
+        else
+        {
+            this.transform.position = Vector3.zero;
+        }
     }
 
     void OnHurtWrapper() {
@@ -198,10 +212,10 @@ public class ControllableComponent : MonoBehaviour
     }
 
     // This is what happens when the player dies
-    void OnDeath() {
+    public void OnDeath() {
         // TODO: Have logic to respawn at the latest safe station
         Debug.Log("We have died");
         // Temporary teleport to origin
-        this.transform.position = Vector3.zero;
+        this.Respawn();
     }
 }

@@ -832,7 +832,7 @@ Transform:
   m_Children:
   - {fileID: 1981575731}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &686533082
 GameObject:
@@ -2269,6 +2269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1981575731}
   - component: {fileID: 1981575732}
+  - component: {fileID: 1981575733}
   m_Layer: 18
   m_Name: Tips
   m_TagString: Untagged
@@ -2300,7 +2301,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2344,6 +2345,19 @@ PolygonCollider2D:
       - {x: 2.7882583, y: -0.6713569}
       - {x: 2.5724666, y: 1.0184357}
       - {x: 1.3393772, y: 0.025243044}
+--- !u!114 &1981575733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981575730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ec7b6a128a3b94c9de1674e180b5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 966473633}
 --- !u!212 &1988407810 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 8622341871869138212, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
