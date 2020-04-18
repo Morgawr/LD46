@@ -68,7 +68,7 @@ public class ControllableComponent : MonoBehaviour
         jumpTimer = new Timer();
 
         var hurtComponent = this.GetComponent<HurtComponent>();
-        hurtComponent.OnHurtReaction = new HurtComponent.OnHurtReactionDel(OnHurtWrapper);
+        hurtComponent.OnHurtReaction = new Delegates.EmptyDel(OnHurtWrapper);
     }
 
     void FlipPlayer() {
@@ -100,7 +100,7 @@ public class ControllableComponent : MonoBehaviour
             body.AddForce(new Vector2(0, 1) * Player.jumpStrength);
             isJumpCooldown = true;
             this.SignalIsClimbing(false);
-            StartCoroutine(jumpTimer.Countdown(0.5f, new Timer.SideEffector(resetJumpCooldown)));
+            StartCoroutine(jumpTimer.Countdown(0.5f, new Delegates.EmptyDel(resetJumpCooldown)));
         }
 
         if (InputManager.IsPressed("up") || InputManager.IsPressed("down")) {

@@ -10,10 +10,8 @@ public class EnemyAI : MonoBehaviour
     public Rigidbody2D body;
     public EnemyHealthComponent health;
 
-    public delegate void AttackRoutine();
-
-    public List<AttackRoutine> RangedAttacks = new List<AttackRoutine>();
-    public List<AttackRoutine> MeleeAttacks = new List<AttackRoutine>();
+    public List<Delegates.EmptyDel> RangedAttacks = new List<Delegates.EmptyDel>();
+    public List<Delegates.EmptyDel> MeleeAttacks = new List<Delegates.EmptyDel>();
 
     public float MeleeRange = 0;
     public float AttackSpeed = 0;
@@ -42,12 +40,12 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void Start() {
         var hurtComponent = this.GetComponent<HurtComponent>();
-        hurtComponent.OnHurtReaction = new HurtComponent.OnHurtReactionDel(OnHurtWrapper);
+        hurtComponent.OnHurtReaction = new Delegates.EmptyDel(OnHurtWrapper);
         var healthComponent = this.GetComponent<EnemyHealthComponent>();
-        healthComponent.OnDeath = new EnemyHealthComponent.OnDeathDel(OnDeath);
+        healthComponent.OnDeath = new Delegates.EmptyDel(OnDeath);
     }
 
-    AttackRoutine RandomAttackRoutine(List<AttackRoutine> attacks) {
+    Delegates.EmptyDel RandomAttackRoutine(List<Delegates.EmptyDel> attacks) {
         var randChoice = (int)Mathf.Floor(Random.Range(0f, attacks.Count));
         return attacks[randChoice];
     }
@@ -112,7 +110,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     void OnHurtWrapper() {
-        Debug.Log("Test");
+        // TODO: Stagger the enemy
         var flicker = this.GetComponent<SpriteFlickerComponent>();
         flicker.StartFlicker();
     }
@@ -128,7 +126,7 @@ public class EnemyAI : MonoBehaviour
                 MeleeAttack();
             }
             hasJustAttacked = true;
-            StartCoroutine(attackTimer.Countdown(1f / AttackSpeed, new Timer.SideEffector(resetAttackCooldown)));
+            StartCoroutine(attackTimer.Countdown(1f / AttackSpeed, new Delegates.EmptyDel(resetAttackCooldown)));
         } else {
             if(RangedAttacks.Count == 0) {
                 ApproachPlayer();
@@ -146,7 +144,7 @@ public class EnemyAI : MonoBehaviour
                 if (chance < ApproachChance) {
                     // Every half second try to see if you can approach the player or not
                     isApproaching = true;
-                    StartCoroutine(approachTimer.Countdown(0.5f, new Timer.SideEffector(resetApproachCooldown)));
+                    StartCoroutine(approachTimer.Countdown(0.5f, new Delegates.EmptyDel(resetApproachCooldown)));
                 }
             }
             if(isApproaching) {

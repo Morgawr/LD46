@@ -5,9 +5,7 @@ using UnityEngine;
 public class HurtComponent : MonoBehaviour
 {
 
-    public delegate void OnHurtReactionDel();
-
-    public OnHurtReactionDel OnHurtReaction;
+    public Delegates.EmptyDel OnHurtReaction;
 
     // Start is called before the first frame update
     void Start() {

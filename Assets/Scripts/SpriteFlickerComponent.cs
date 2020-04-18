@@ -20,7 +20,7 @@ public class SpriteFlickerComponent : MonoBehaviour
             return;
         }
         sprite.enabled = !sprite.enabled;
-        StartCoroutine(flickerTimer.Countdown(FlickerDuration, new Timer.SideEffector(OnFlickerSwap)));
+        StartCoroutine(flickerTimer.Countdown(FlickerDuration, new Delegates.EmptyDel(OnFlickerSwap)));
     }
 
     // Start is called before the first frame update

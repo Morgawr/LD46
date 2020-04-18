@@ -27,7 +27,7 @@ public class ProjectileComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         Player = GameObject.FindGameObjectsWithTag("Avatar")[0].GetComponent<ControllableComponent>();
-        StartCoroutine(timer.Countdown(Duration, new Timer.SideEffector(OnDurationExpired)));
+        StartCoroutine(timer.Countdown(Duration, new Delegates.EmptyDel(OnDurationExpired)));
     }
 
     // Update is called once per frame

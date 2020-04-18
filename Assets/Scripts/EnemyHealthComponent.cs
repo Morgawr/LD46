@@ -8,10 +8,7 @@ public class EnemyHealthComponent : MonoBehaviour
     public int HP = 0;
     public int MaxHP = 0;
 
-    // TODO: refactor out all void delegate routines into Utils/Delegates.cs
-    public delegate void OnDeathDel();
-
-    public OnDeathDel OnDeath;
+    public Delegates.EmptyDel OnDeath;
 
     // Start is called before the first frame update
     void Start() {
