@@ -8,7 +8,9 @@ public class SpikeComponent : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger Spike");
-        controller.OnDeath();
+        var vulnerableComponent = other.GetComponent<AbstractVulnerableComponent>();
+        if(vulnerableComponent != null) {
+            vulnerableComponent.OnDeath();
+        }
     }
 }

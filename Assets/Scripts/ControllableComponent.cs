@@ -217,9 +217,7 @@ public class ControllableComponent : MonoBehaviour
 
     // This is what happens when the player dies
     public void OnDeath() {
-        // TODO: Have logic to respawn at the latest safe station
         Debug.Log("We have died");
-        // Temporary teleport to origin
         this.Respawn();
     }
 }
