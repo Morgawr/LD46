@@ -7,7 +7,9 @@ public class ControllableComponent : MonoBehaviour
 
     public Rigidbody2D body = null;
     public Collider2D avatarCollider = null;
-    public SlashComponent slashAttack = null;
+    public SlashComponent sideAttack = null;
+    public SlashComponent downAttack = null;
+    public SlashComponent upAttack = null;
 
     public Player Player;
 
@@ -76,13 +78,42 @@ public class ControllableComponent : MonoBehaviour
 
         var hurtComponent = this.GetComponent<HurtComponent>();
         hurtComponent.OnHurtReaction = new Delegates.EmptyDel(OnHurtWrapper);
+
+        // When we hit something with a down attack, we are launched upwards
+        downAttack.AttackHitCallback = new Delegates.EmptyDel(KnockbackOnDownAttack);
     }
 
     void FlipPlayer() {
-        // TODO: Deal with sprite flipping etc
         isFacingRight = !isFacingRight;
         var oldScale = this.gameObject.transform.localScale;
         this.gameObject.transform.localScale = new Vector3(-oldScale.x, oldScale.y, oldScale.z);
+    }
+
+    void KnockbackOnDownAttack() {
+        // Reset downfall velocity
+        body.velocity = new Vector2(0, 0);
+        body.AddForce(new Vector2(0f, 1f) * Player.downAttackKnockbackStrength, ForceMode2D.Impulse);
+    }
+
+    void HandleAttackLogic() {
+        bool haveAttacked = false;
+        // Attack down mid-air
+        if (isInAir && InputManager.IsPressed("down") && !downAttack.isActiveAndEnabled) {
+            downAttack.Slash(5);
+            haveAttacked = true;
+        }
+        else if(InputManager.IsPressed("up") && !upAttack.isActiveAndEnabled) {
+            upAttack.Slash(5);
+            haveAttacked = true;
+        }
+        else if (!sideAttack.isActiveAndEnabled) { // Attack side
+            sideAttack.Slash(5);
+            haveAttacked = true;
+        }
+        if (haveAttacked) {
+            isAttackCooldown = true;
+            StartCoroutine(attackTimer.Countdown(1 / Player.attackSpeed, new Delegates.EmptyDel(resetAttackCooldown)));
+        }
     }
 
     // Update is called once per frame
@@ -129,11 +160,7 @@ public class ControllableComponent : MonoBehaviour
         } else {
             // We should be able to attack here
             if(InputManager.IsPressed("attack") && !isAttackCooldown) {
-                if(!slashAttack.isActiveAndEnabled) {
-                    slashAttack.Slash(5);
-                    isAttackCooldown = true;
-                    StartCoroutine(attackTimer.Countdown(1/Player.attackSpeed, new Delegates.EmptyDel(resetAttackCooldown)));
-                }
+                HandleAttackLogic();
             }
         }
 

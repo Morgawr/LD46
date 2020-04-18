@@ -11,4 +11,6 @@ public class Player : MonoBehaviour
     public float climbSpeed = 0;
     // How many attackes we do per second
     public float attackSpeed = 0;
+    // How strong we are launched upwards when we hit an enemy with a down attack
+    public float downAttackKnockbackStrength = 0;
 }

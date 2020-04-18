@@ -8,6 +8,10 @@ public class SlashComponent : MonoBehaviour
     float speed = 0;
 
     public DamageDealerComponent DamageDealer = null;
+    public string AnimationName = null;
+
+    // Call this method when the attack hits something, if we need to
+    public Delegates.EmptyDel AttackHitCallback; 
 
     public void Slash(float speed = 0) {
         this.speed = speed;
@@ -17,7 +21,7 @@ public class SlashComponent : MonoBehaviour
     void OnEnable() {
         var anim = GetComponent<Animation>();
         if(speed != 0)
-            anim["SlashAttack"].speed = speed;
+            anim[AnimationName].speed = speed;
         anim.Play();
     }
 
@@ -27,9 +31,9 @@ public class SlashComponent : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Enemy") {
-            // TODO hit code here
-            Debug.Log("Hit enemy!");
             other.GetComponent<HurtComponent>().GetHurt(DamageDealer);
+            if(AttackHitCallback != null)
+                AttackHitCallback();
             EndSlash();
         } 
     }

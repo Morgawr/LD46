@@ -213,6 +213,8 @@ MonoBehaviour:
   maxVelocity: {x: 5, y: 20}
   jumpStrength: 8000
   climbSpeed: 5
+  attackSpeed: 1.5
+  downAttackKnockbackStrength: 100
 --- !u!1001 &1621490513
 PrefabInstance:
   m_ObjectHideFlags: 0
