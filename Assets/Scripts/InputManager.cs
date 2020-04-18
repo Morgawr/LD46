@@ -14,9 +14,9 @@ public static class InputManager {
             case "right":
                 return Input.GetKey("d") || Input.GetKey("right") || horizAxis > 0.2;
             case "up":
-                return Input.GetKey("w") || Input.GetKey("up") || vertAxis > 0.2;
+                return Input.GetKey("w") || Input.GetKey("up") || vertAxis < -0.2;
             case "down":
-                return Input.GetKey("s") || Input.GetKey("down") || vertAxis < -0.2;
+                return Input.GetKey("s") || Input.GetKey("down") || vertAxis > 0.2;
             case "jump":
                 return Input.GetKey("space") || Input.GetButton("Jump");
         }
