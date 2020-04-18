@@ -5,7 +5,7 @@ using UnityEngine;
 public class Totem : Interactable
 {
     public string message;
-    public float maxDisplayTime = 10;
+    public float maxDisplayTime = 5;
     float displayTime = 5;
     bool hidden = true;
 
@@ -23,7 +23,7 @@ public class Totem : Interactable
     {
         if (!hidden)
         {
-            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200f, 200f), message);
+            GUI.Label(new Rect((Screen.width-400f) / 2, Screen.height / 4, 400f, 200f), message);
         }
     }
 
