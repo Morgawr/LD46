@@ -15,6 +15,8 @@ public class FootholdComponent : MonoBehaviour
     void Update() {
         if(selfCollider.IsTouchingLayers(LayerMask.GetMask("FootholdLayer")))
             controller.SignalInAir(false);
+        else 
+            controller.SignalInAir(true);
     }
 
     void OnTriggerEnter2D(Collider2D other) {
