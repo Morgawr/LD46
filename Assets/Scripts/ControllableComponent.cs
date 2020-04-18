@@ -48,6 +48,10 @@ public class ControllableComponent : MonoBehaviour
     void Start() {
         Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         jumpTimer = new Timer();
+
+        var flicker = this.GetComponent<SpriteFlickerComponent>();
+        var hurtComponent = this.GetComponent<HurtComponent>();
+        hurtComponent.OnHurtReaction = new HurtComponent.OnHurtReactionDel(flicker.StartFlicker);
     }
 
     // Update is called once per frame

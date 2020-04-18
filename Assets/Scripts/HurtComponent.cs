@@ -23,6 +23,7 @@ public class HurtComponent : MonoBehaviour
         if(OnHurtReaction != null) {
             OnHurtReaction();
         }
+        // TODO get damage (???) logic
         Debug.Log("Got hit!");
     }
 }

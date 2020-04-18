@@ -6,6 +6,8 @@ public class ProjectileFactory : MonoBehaviour
 {
     public GameObject BaseProjectile;
 
+    // TODO: figure out sprite flip and origin flip for projectiles when origin target is flipped
+
     public ProjectileComponent SpawnProjectile(GameObject projectile, Transform target, Transform parent) {
         var proj = Instantiate(projectile, parent.position, Quaternion.identity).GetComponent<ProjectileComponent>();
         var flip = false;
