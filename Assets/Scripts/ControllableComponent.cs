@@ -12,6 +12,7 @@ public class ControllableComponent : MonoBehaviour
 
     bool isInAir = false;
     bool isJumpCooldown = false;
+    bool isWalltouching = false;
 
     bool isOnLadder = false;
 
@@ -27,6 +28,10 @@ public class ControllableComponent : MonoBehaviour
 
     public void SignalInAir(bool start){
         isInAir = start;
+    }
+
+    public void SignalIsWalltouching(bool start) {
+        isWalltouching = start;
     }
 
     public void SignalIsClimbing(bool start) {
@@ -52,12 +57,14 @@ public class ControllableComponent : MonoBehaviour
     // Update is called once per frame
     void Update() {
 
-        var actualMoveSpeed = isInAir ? Player.airSpeed : Player.moveSpeed;
+        if(!isWalltouching || CanMove()) {
+            var actualMoveSpeed = isInAir ? Player.airSpeed : Player.moveSpeed;
 
-        if(InputManager.IsPressed("left") ) //&& CanMove()) 
-            body.AddForce(new Vector2(-1, 0) * actualMoveSpeed * Time.deltaTime, ForceMode2D.Impulse);
-        else if (InputManager.IsPressed("right")) // && CanMove())
-            body.AddForce(new Vector2(1, 0) * actualMoveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            if(InputManager.IsPressed("left")) 
+                body.AddForce(new Vector2(-1, 0) * actualMoveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            else if (InputManager.IsPressed("right"))
+                body.AddForce(new Vector2(1, 0) * actualMoveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+        }
 
         if(InputManager.IsPressed("jump") && CanMove() && !isJumpCooldown) {
             body.AddForce(new Vector2(0, 1) * Player.jumpStrength);

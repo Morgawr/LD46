@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 9094524395320732402}
   - component: {fileID: 9094524395320732401}
   - component: {fileID: 9094524395320732403}
-  m_Layer: 0
-  m_Name: Platform
+  m_Layer: 12
+  m_Name: DefaultTmpPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
