@@ -43,6 +43,8 @@ public class EnemyAI : MonoBehaviour
     protected virtual void Start() {
         var hurtComponent = this.GetComponent<HurtComponent>();
         hurtComponent.OnHurtReaction = new HurtComponent.OnHurtReactionDel(OnHurtWrapper);
+        var healthComponent = this.GetComponent<EnemyHealthComponent>();
+        healthComponent.OnDeath = new EnemyHealthComponent.OnDeathDel(OnDeath);
     }
 
     AttackRoutine RandomAttackRoutine(List<AttackRoutine> attacks) {
@@ -96,6 +98,13 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void ApproachPlayer() {
         FollowPoint(Player.transform, AggroSpeed);
+    }
+
+    // We can override OnDeath in child classes for EnemyAI so we can have OnDeath
+    // effects (like enemy explodes, etc)
+    protected virtual void OnDeath() {
+        Destroy(this.patroller.gameObject);
+        Destroy(this.gameObject);
     }
 
     public virtual void PlayerSpotted(bool spotted) {

@@ -19,11 +19,16 @@ public class HurtComponent : MonoBehaviour
         
     }
 
-    public void GetHurt(Transform damageDealer) {
+    public void GetHurt(DamageDealerComponent damageDealer) {
         if(OnHurtReaction != null) {
             OnHurtReaction();
         }
-        // TODO get damage (???) logic
+        // TODO: Deal with player getting staggered or during a boss battle lose stamina
+        // This exists only if it's an enemy
+        var healthComponent = GetComponent<EnemyHealthComponent>();
+        if (healthComponent != null) {
+            healthComponent.GetDamaged(damageDealer.Damage);
+        }
         Debug.Log("Got hit! " + this.name);
     }
 }

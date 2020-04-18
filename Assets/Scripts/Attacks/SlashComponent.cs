@@ -7,8 +7,7 @@ public class SlashComponent : MonoBehaviour
 
     float speed = 0;
 
-    // GameObject that is causing the slash attack
-    public Transform DamageDealer = null;
+    public DamageDealerComponent DamageDealer = null;
 
     public void Slash(float speed = 0) {
         this.speed = speed;
@@ -32,6 +31,6 @@ public class SlashComponent : MonoBehaviour
             Debug.Log("Hit enemy!");
             other.GetComponent<HurtComponent>().GetHurt(DamageDealer);
             EndSlash();
-        }
+        } 
     }
 }

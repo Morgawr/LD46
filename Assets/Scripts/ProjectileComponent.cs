@@ -8,10 +8,12 @@ public class ProjectileComponent : MonoBehaviour
     public float Duration;
     public float Speed;
     public Vector2 Direction;
+    public DamageDealerComponent DamageDealer = null;
 
     Timer timer = new Timer();
 
     ControllableComponent Player;
+
 
     void Die() {
         Destroy(this.gameObject);
@@ -38,7 +40,7 @@ public class ProjectileComponent : MonoBehaviour
         if(other.gameObject == transform.parent.gameObject)
             return;
         if(other.gameObject == Player.gameObject) {
-            Player.GetComponent<HurtComponent>().GetHurt(this.GetComponentInParent<Transform>());
+            Player.GetComponent<HurtComponent>().GetHurt(DamageDealer);
         }
         Die();
     }

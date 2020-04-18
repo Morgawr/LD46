@@ -864,6 +864,7 @@ GameObject:
   - component: {fileID: 992561945}
   - component: {fileID: 992561948}
   - component: {fileID: 992561949}
+  - component: {fileID: 992561950}
   m_Layer: 16
   m_Name: AttackOrigin
   m_TagString: Untagged
@@ -883,7 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115548851aa81ee4982aeefdf0d3aa11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageDealer: {fileID: 966473630}
+  DamageDealer: {fileID: 992561950}
 --- !u!212 &992561946
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -979,6 +980,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.017965078, y: -0.0017962456}
   m_Size: {x: 0.1209538, y: 0.21796513}
   m_Direction: 0
+--- !u!114 &992561950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992561944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a350d4304daa8c47a31e31b5ca4b6ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
 --- !u!1 &1198090583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,7 +1017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198090583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.52, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1837271808}
@@ -1862,7 +1876,7 @@ PrefabInstance:
     - target: {fileID: 8622341871785127385, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
         type: 3}
       propertyPath: m_Name
-      value: EnemyBase1
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8622341871785127385, guid: 11ad2488bdbb03c4ba5b0f82efbf8b81,
         type: 3}
