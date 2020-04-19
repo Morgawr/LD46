@@ -9,11 +9,13 @@ public class PlayerVulnerableComponent : AbstractVulnerableComponent
 
     void Start()
     {
+        Debug.Log("Reload this!");
         Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         StaggerList = GameObject.FindGameObjectsWithTag("Stagger");
     }
 
     public override void GetDamaged(int value) {
+        
         Debug.Log(value);
 
         if (Player.IsInBossBattle)

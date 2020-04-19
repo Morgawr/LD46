@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseProjectile: {fileID: 1622483160}
-  LargerProjectile: {fileID: 3208059067798408164}
+  LargerProjectile: {fileID: 0}
 --- !u!4 &212902795
 Transform:
   m_ObjectHideFlags: 0
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 355707594}
   m_Layer: 0
   m_Name: Stagger
-  m_TagString: Untagged
+  m_TagString: Stagger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -390,7 +390,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 9726633087b8f4c46a28bfe018530dc9, type: 3}
   m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
   m_FlipX: 0
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 438758203}
   m_Layer: 0
   m_Name: Stagger (1)
-  m_TagString: Untagged
+  m_TagString: Stagger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -475,7 +475,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 9726633087b8f4c46a28bfe018530dc9, type: 3}
   m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
   m_FlipX: 0
@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 1319130783}
   m_Layer: 0
   m_Name: Stagger (2)
-  m_TagString: Untagged
+  m_TagString: Stagger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -779,7 +779,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 9726633087b8f4c46a28bfe018530dc9, type: 3}
   m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
   m_FlipX: 0
@@ -927,6 +927,10 @@ MonoBehaviour:
   MaxLife: 100
   IsTimeTicking: 0
   AccumulatedMana: 0
+  CurrentStag: 3
+  MaxStag: 3
+  isFlickering: 0
+  isExausted: 0
   isInteractCooldown: 0
 --- !u!114 &1524562722
 MonoBehaviour:
@@ -1414,12 +1418,6 @@ MonoBehaviour:
 --- !u!4 &3208059067798408163 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1336604718007536697, guid: 4598ced972f19b04e90dfdb32dbeb58b,
-    type: 3}
-  m_PrefabInstance: {fileID: 4470317760159352794}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3208059067798408164 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1336604718007536702, guid: 4598ced972f19b04e90dfdb32dbeb58b,
     type: 3}
   m_PrefabInstance: {fileID: 4470317760159352794}
   m_PrefabAsset: {fileID: 0}
