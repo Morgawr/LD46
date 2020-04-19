@@ -11,16 +11,11 @@ public class ProjectileFactory : MonoBehaviour
 
     public ProjectileComponent SpawnProjectile(GameObject projectile, Vector2 target, Transform parent) {
         var proj = Instantiate(projectile, parent.position, Quaternion.identity).GetComponent<ProjectileComponent>();
-        var flip = false;
         var heading = Vector3.zero;
-        if(target.x < parent.position.x) 
-            flip = true;
         heading = target - (Vector2)parent.position;
         var distance = Vector2.Distance(parent.position, target);
         proj.Direction = heading / distance;
-        if(flip)
-            proj.Direction.x *= -1;
-        proj.transform.SetParent(parent);
+        proj.transform.SetParent(parent.parent, true);
         return proj;
     }
 }

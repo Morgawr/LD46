@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TmpBossAI : EnemyAI {
 
+    protected bool isPhase2 = false;
+
     protected override void Start() {
         base.Start();
         projectileFactory = GameObject.FindGameObjectsWithTag("ProjectileFactory")[0].GetComponent<ProjectileFactory>();
@@ -11,7 +13,6 @@ public class TmpBossAI : EnemyAI {
         RangedAttacks.Add(new Delegates.EmptyDel(ShootLargerProjectile));
     }
 
-    // TODO: Add this to ranged attack list
     void ShootProjectiles() {
         List<ProjectileComponent> projectiles = new List<ProjectileComponent>();
 
@@ -44,20 +45,33 @@ public class TmpBossAI : EnemyAI {
         toShoot.gameObject.SetActive(true);
     }
 
+    // For this boss instead of approaching we teleport around
+    protected override void ApproachPlayer() {
+        // TODO: we need to set an animation timer here
+        // true = Random trigger
+        patroller.TriggerNextPoint(true);
+        transform.position = patroller.GetCurrentPoint().position;
+        // We need to reset this to false here because otherwise it will keep
+        // looping forever.
+        isApproaching = false;
+    }
+
     protected override void RunAI() {
         FollowPoint(Player.transform, 0);
-        //Phase 1
-        if(health.HP >= health.MaxHP / 2) {
-            // Chance to teleport
-            // Chance to shoot towards player
-            if(!hasJustAttacked) {
-                RangedAttack();
-                TriggerAttack();
-            }
-            // Chance to jump
-        } else {
-        //Phase 2
+        // Enter phase 2 (change parameters in this case) if we haven't yet
+        if(health.HP < health.MaxHP / 2 && !isPhase2) {
+            ApproachChance *= 2; // teleport around twice as likely
+            AttackSpeed *= 2; // Attack twice as fast
+            isPhase2 = true;
+        }
 
+        // Chance to teleport
+        // Chance to shoot towards player
+        if (!hasJustAttacked) {
+            RangedAttack();
+            TriggerAttack();
+        } else {
+            ResolveApproach();
         }
     }
 

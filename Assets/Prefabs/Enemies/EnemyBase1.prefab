@@ -210,7 +210,8 @@ MonoBehaviour:
   health: {fileID: 0}
   MeleeRange: 4
   AttackSpeed: 0.5
-  ApproachChance: 0.1
+  ApproachChance: 0.5
+  ApproachAttemptsPerSecond: 1
   MaxMovementSpeed: {x: 5, y: 5}
   PatrolSpeed: 30000
   AggroSpeed: 50000
