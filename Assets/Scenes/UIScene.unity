@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseProjectile: {fileID: 1622483160}
-  LargerProjectile: {fileID: 0}
+  LargerProjectile: {fileID: 1068531733}
 --- !u!4 &212902795
 Transform:
   m_ObjectHideFlags: 0
@@ -668,6 +668,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1068531733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1336604718007536702, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4470317760159352794}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1256951987
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +936,7 @@ MonoBehaviour:
   CurrentStag: 3
   MaxStag: 3
   isFlickering: 0
-  isExausted: 0
+  isExhausted: 0
   isInteractCooldown: 0
 --- !u!114 &1524562722
 MonoBehaviour:
@@ -1043,6 +1049,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 212902795}
     m_Modifications:
+    - target: {fileID: 3208059068759683625, guid: cc9c989cf8acaa14e873e931d738ab84,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 176a20587f06c2340b71df97482f9d93,
+        type: 3}
     - target: {fileID: 3208059068759683626, guid: cc9c989cf8acaa14e873e931d738ab84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1467,6 +1479,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336604718007536698, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336604718007536698, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1336604718007536700, guid: 4598ced972f19b04e90dfdb32dbeb58b,
         type: 3}
