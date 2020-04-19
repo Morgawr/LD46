@@ -893,7 +893,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1068531733 stripped
 GameObject:
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   moveSpeed: 5000
   airSpeed: 300
   maxVelocity: {x: 5, y: 20}
-  jumpStrength: 8000
+  jumpStrength: 10000
   climbSpeed: 5
   LifeLossPerSecond: 1
   MusicManager: {fileID: 1412685783}
@@ -1465,7 +1465,7 @@ PrefabInstance:
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
