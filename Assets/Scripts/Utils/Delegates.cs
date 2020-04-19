@@ -10,4 +10,7 @@ public class Delegates
 
     // Delegate used to start a transition countdown
     public delegate void TransitionDel(string name, float timeLeft);
+
+    // We use this in a timer to chek if we should continue or not
+    public delegate bool CheckAndMaybeContinueDel();
 }

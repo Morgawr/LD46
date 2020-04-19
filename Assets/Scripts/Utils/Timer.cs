@@ -24,4 +24,10 @@ public class Timer
         effector(name, 0);
     }
 
+    static public IEnumerator RefillableTicker(Delegates.CheckAndMaybeContinueDel effector) {
+        while(effector()) {
+            yield return null;
+        }
+    }
+
 }

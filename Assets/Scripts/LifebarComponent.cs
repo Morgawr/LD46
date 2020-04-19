@@ -25,8 +25,6 @@ public class LifebarComponent : MonoBehaviour
         else
             newX = chunks[chunks.Count - 1].localPosition.x + 300;
         var newChunk = Instantiate(LifechunkBase.gameObject, new Vector2(newX, LifechunkBase.localPosition.y), Quaternion.identity);
-        Debug.Log(LifeBegin.localPosition.y);
-        Debug.Log(LifeBegin.position.y);
         newChunk.SetActive(true);
         chunks.Add(newChunk.GetComponent<RectTransform>());
         newChunk.transform.SetParent(this.transform, false);

@@ -5,11 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    // Physics stats 
     public float moveSpeed = 0;
     public float airSpeed = 0;
     public Vector2 maxVelocity;
     public float jumpStrength = 0;
     public float climbSpeed = 0;
+
+    // Engine stats
+    public float LifeLossPerSecond = 1;
+
     // How many attackes we do per second
     public float attackSpeed = 0;
     // How strong we are launched upwards when we hit an enemy with a down attack
@@ -27,7 +32,7 @@ public class Player : MonoBehaviour
     // Logic for the lifebar 
     public int CurrentLife = 0;
     public int MaxLife = 0;
-
+    public bool IsTimeTicking = false;
 
 
     // HACK: This is terrible but we need this here so it doesn't get reset or 
