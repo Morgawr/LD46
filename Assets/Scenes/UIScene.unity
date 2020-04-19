@@ -960,6 +960,10 @@ MonoBehaviour:
     PortalName: Portal2
   - SceneName: BossTemplateScene
     PortalName: BossTemplatePortal
+  - SceneName: Scene_L0
+    PortalName: To_Boss_L0
+  - SceneName: Scene_L0_Boss
+    PortalName: Boss_L0
   NextSpawnPortal: 
 --- !u!4 &1004660965
 Transform:
