@@ -423,5 +423,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 7528301176463451567, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528301176463451567, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528301176463451567, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0f7ad07eefaaa249b5d22c66b938dbe, type: 3}
