@@ -13,7 +13,7 @@ public class PlayerVulnerableComponent : AbstractVulnerableComponent
         var staggerList = GameObject.FindGameObjectsWithTag("Stagger");
         Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
 
-        if (Player.CurrentStag > 0)
+        if (Player.CurrentStag > 0 && !Player.isFlickering)
         {
             staggerList[Player.CurrentStag - 1].SetActive(false);
             Player.CurrentStag--;

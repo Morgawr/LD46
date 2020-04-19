@@ -31,6 +31,7 @@ public class ControllableComponent : MonoBehaviour
     Timer jumpTimer = new Timer();
     Timer attackTimer = new Timer();
     Timer interactTimer = new Timer();
+    Timer flickerTimer = new Timer();
 
     void resetJumpCooldown() {
         isJumpCooldown = false;
@@ -38,6 +39,11 @@ public class ControllableComponent : MonoBehaviour
 
     void resetAttackCooldown() {
         isAttackCooldown = false;
+    }
+
+    void resetFlickerCooldown()
+    {
+        Player.isFlickering = false;
     }
 
     public bool CanMove() {
@@ -93,6 +99,8 @@ public class ControllableComponent : MonoBehaviour
     }
 
     void OnHurtWrapper() {
+        Player.isFlickering = true;
+
         var flicker = this.GetComponent<SpriteFlickerComponent>();
         flicker.StartFlicker();
         // Get thrown in a random direction 45 degrees
@@ -102,6 +110,8 @@ public class ControllableComponent : MonoBehaviour
 
         this.body.AddForce(new Vector2(x, y) * thrownForce, ForceMode2D.Impulse);
         SignalIsClimbing(false);
+
+        StartCoroutine(flickerTimer.Countdown(0.5f, new Delegates.EmptyDel(resetFlickerCooldown)));
     }
 
     // Start is called before the first frame update
