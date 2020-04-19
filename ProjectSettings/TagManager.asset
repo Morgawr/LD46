@@ -7,6 +7,8 @@ TagManager:
   - Avatar
   - ProjectileFactory
   - Enemy
+  - PortalManager
+  - Portal
   layers:
   - Default
   - TransparentFX

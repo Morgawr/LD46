@@ -28,8 +28,9 @@ public class ControllableComponent : MonoBehaviour
     // Enemy or platform?
     bool isTouchingSomething = false;
 
-    Timer jumpTimer;
-    Timer attackTimer;
+    Timer jumpTimer = new Timer();
+    Timer attackTimer = new Timer();
+    Timer interactTimer = new Timer();
 
     void resetJumpCooldown() {
         isJumpCooldown = false;
@@ -105,8 +106,6 @@ public class ControllableComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
-        jumpTimer = new Timer();
-        attackTimer = new Timer();
 
         var hurtComponent = this.GetComponent<HurtComponent>();
         hurtComponent.OnHurtReaction = new Delegates.EmptyDel(OnHurtWrapper);
@@ -234,10 +233,11 @@ public class ControllableComponent : MonoBehaviour
             }
         }
 
-        if(OnInteractable)
-        {
-            if (InputManager.IsPressed("up"))
-            {
+        if(OnInteractable) {
+
+            if (InputManager.IsPressed("up") && !Player.isInteractCooldown) {
+                Player.isInteractCooldown = true;
+                Player.StartCoroutine(interactTimer.Countdown(0.5f, new Delegates.EmptyDel(Player.resetInteractCooldown)));
                 OnInteractable.Interact();
             }
         }

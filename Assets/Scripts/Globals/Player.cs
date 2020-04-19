@@ -23,6 +23,15 @@ public class Player : MonoBehaviour
     // new scene we can interact with this.
     public Scene CurrentMainGameScene;
 
+    // HACK: This is terrible but we need this here so it doesn't get reset or 
+    // deleted when we travel between portals
+    public bool isInteractCooldown = false;
+
+    public void resetInteractCooldown() {
+        isInteractCooldown = false;
+    }
+
+    // TODO: Move transitions into a transition manager
     Dictionary<string, float> TransitionDictionary = new Dictionary<string, float>();
 
     void TransitionFrame(string name, float timeLeft) {
