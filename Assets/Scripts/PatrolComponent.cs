@@ -20,8 +20,12 @@ public class PatrolComponent : MonoBehaviour
         }
     }
 
-    public void TriggerNextPoint() {
-        currentPoint = (currentPoint + 1) %  Points.Count;
+    public void TriggerNextPoint(bool random = false) {
+        if(random) {
+            currentPoint = Random.Range(0, Points.Count);
+        } else {
+            currentPoint = (currentPoint + 1) %  Points.Count;
+        }
     }
 
     public Transform GetCurrentPoint() {

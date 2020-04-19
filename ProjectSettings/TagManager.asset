@@ -10,6 +10,7 @@ TagManager:
   - PortalManager
   - Portal
   - MainCineCamera
+  - Stagger
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - PlayerAttackLayer
   - Interactable
   - InstaKillLayer
-  - 
+  - PlayerProjectileLayer
   - 
   - 
   - 

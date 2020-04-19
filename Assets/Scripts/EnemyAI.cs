@@ -9,6 +9,8 @@ public class EnemyAI : MonoBehaviour
     public PatrolComponent patroller;
     public Rigidbody2D body;
     public EnemyHealthComponent health;
+    // If this is null then we don't use particles when we die
+    public ParticleSystem particleOnDeath; 
 
     public List<Delegates.EmptyDel> RangedAttacks = new List<Delegates.EmptyDel>();
     public List<Delegates.EmptyDel> MeleeAttacks = new List<Delegates.EmptyDel>();
@@ -16,6 +18,9 @@ public class EnemyAI : MonoBehaviour
     public float MeleeRange = 0;
     public float AttackSpeed = 0;
     public float ApproachChance = 0;
+    // This is used for bosses to do alternative phases and normal enemies
+    // to check if they can approach the player or not.
+    public float ApproachAttemptsPerSecond = 0;
     public Vector2 MaxMovementSpeed;
     public float PatrolSpeed = 0;
     public float AggroSpeed = 0;
@@ -30,13 +35,14 @@ public class EnemyAI : MonoBehaviour
     protected ProjectileFactory projectileFactory;
     protected bool hasJustAttacked = false;
     bool isPlayerSpotted = false;
-    bool hasTriedToApproach = false;
-    bool isApproaching = false;
+    protected bool hasTriedToApproach = false;
+    protected bool isApproaching = false;
 
     Timer attackTimer = new Timer();
     Timer approachTimer = new Timer();
 
     public void FlipX() {
+        Debug.Log("Flipped");
         isFacingRight = !isFacingRight;
         var oldScale = this.gameObject.transform.localScale;
         this.gameObject.transform.localScale = new Vector3(-oldScale.x, oldScale.y, oldScale.z);
@@ -108,6 +114,10 @@ public class EnemyAI : MonoBehaviour
     protected virtual void OnDeath() {
         var mana = GetComponent<EnemyHealthComponent>().ManaReward;
         Player.AcquireMana(mana);
+        if(particleOnDeath != null) {
+            particleOnDeath.transform.SetParent(this.transform.parent, true);
+            particleOnDeath.gameObject.SetActive(true);
+        }
         Destroy(this.patroller.gameObject);
         Destroy(this.gameObject);
     }
@@ -125,6 +135,21 @@ public class EnemyAI : MonoBehaviour
     protected void TriggerAttack() {
         hasJustAttacked = true;
         StartCoroutine(attackTimer.Countdown(1f / AttackSpeed, new Delegates.EmptyDel(resetAttackCooldown)));
+    }
+
+    protected void ResolveApproach() {
+        Debug.Log(hasTriedToApproach);
+        if (!hasTriedToApproach) {
+            var chance = Random.Range(0f, 1f);
+            if (chance < ApproachChance) {
+                isApproaching = true;
+            }
+            hasTriedToApproach = true;
+            StartCoroutine(approachTimer.Countdown(1/ApproachAttemptsPerSecond, new Delegates.EmptyDel(resetApproachCooldown)));
+        }
+        if(isApproaching) {
+            ApproachPlayer();
+        }
     }
 
     // This AI logic can be overridden by child classes (bosses, etc)
@@ -151,17 +176,7 @@ public class EnemyAI : MonoBehaviour
             //    return;
             //}
             // Try to approach the player if you can
-            if(!hasTriedToApproach) {
-                var chance = Random.Range(0f, 1f);
-                if (chance < ApproachChance) {
-                    // Every half second try to see if you can approach the player or not
-                    isApproaching = true;
-                    StartCoroutine(approachTimer.Countdown(0.5f, new Delegates.EmptyDel(resetApproachCooldown)));
-                }
-            }
-            if(isApproaching) {
-                ApproachPlayer();
-            }
+            ResolveApproach();
         }
     }
 
