@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     public int CurrentStag = 3;
     public int MaxStag = 3;
     public bool isFlickering = false;
+    public bool isExausted = false;
 
     // HACK: This is terrible but we need this here so it doesn't get reset or 
     // deleted when we travel between portals

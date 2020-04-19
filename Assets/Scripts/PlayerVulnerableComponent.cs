@@ -6,17 +6,51 @@ public class PlayerVulnerableComponent : AbstractVulnerableComponent
 {
 
     public Player Player;
-    public override void GetDamaged(int value) {
-        // Do nothing because player has no health
-        // TODO: add stamina values
+    GameObject[] StaggerList;
 
-        var staggerList = GameObject.FindGameObjectsWithTag("Stagger");
+    void Start()
+    {
         Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        StaggerList = GameObject.FindGameObjectsWithTag("Stagger");
 
-        if (Player.CurrentStag > 0 && !Player.isFlickering)
+    }
+
+    public override void GetDamaged(int value) {
+ 
+        
+        Timer exaustedTimer = new Timer();
+
+        void resetExaustedCooldown()
         {
-            staggerList[Player.CurrentStag - 1].SetActive(false);
+            Debug.Log("Rest Exauxted!");
+            Player.isExausted = false;
+            Player.CurrentStag = Player.MaxStag;
+
+            foreach(var stagger in StaggerList)
+            {
+                stagger.SetActive(true);
+            }
+        }
+
+        var currentStag = Player.CurrentStag;
+        if (currentStag > 0)
+        {
+            Debug.Log(currentStag);
+
+            if (Player.isFlickering)
+                return;
+
+            StaggerList[currentStag - 1].SetActive(false);
             Player.CurrentStag--;
+        }
+        else
+        {
+            Debug.Log("Exausted!");
+            if (Player.isExausted)
+                return;
+
+            Player.isExausted = true;
+            StartCoroutine(exaustedTimer.Countdown(5f, new Delegates.EmptyDel(resetExaustedCooldown)));
         }
     }
 }

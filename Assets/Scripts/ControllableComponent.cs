@@ -47,7 +47,7 @@ public class ControllableComponent : MonoBehaviour
     }
 
     public bool CanMove() {
-        return !isInAir || isOnLadder;
+        return !isInAir || isOnLadder && !Player.isExausted;
     }
 
     public void SignalInAir(bool start){
@@ -197,6 +197,9 @@ public class ControllableComponent : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if(Player.IsGamePaused)
+            return;
+
+        if (Player.isExausted)
             return;
 
         if(!isWalltouching || CanMove()) {
