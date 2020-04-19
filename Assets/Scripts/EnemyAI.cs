@@ -9,6 +9,8 @@ public class EnemyAI : MonoBehaviour
     public PatrolComponent patroller;
     public Rigidbody2D body;
     public EnemyHealthComponent health;
+    // If this is null then we don't use particles when we die
+    public ParticleSystem particleOnDeath; 
 
     public List<Delegates.EmptyDel> RangedAttacks = new List<Delegates.EmptyDel>();
     public List<Delegates.EmptyDel> MeleeAttacks = new List<Delegates.EmptyDel>();
@@ -112,6 +114,10 @@ public class EnemyAI : MonoBehaviour
     protected virtual void OnDeath() {
         var mana = GetComponent<EnemyHealthComponent>().ManaReward;
         Player.AcquireMana(mana);
+        if(particleOnDeath != null) {
+            particleOnDeath.transform.SetParent(this.transform.parent, true);
+            particleOnDeath.gameObject.SetActive(true);
+        }
         Destroy(this.patroller.gameObject);
         Destroy(this.gameObject);
     }
