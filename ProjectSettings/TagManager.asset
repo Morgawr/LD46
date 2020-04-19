@@ -30,7 +30,7 @@ TagManager:
   - PlayerAttackLayer
   - Interactable
   - InstaKillLayer
-  - 
+  - PlayerProjectileLayer
   - 
   - 
   - 
