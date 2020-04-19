@@ -67,10 +67,12 @@ public class ControllableComponent : MonoBehaviour
         OnInteractable = element;
     }
 
-    public void SetRespawn(string nameScene, string nameRespawn)
+    public void SetRespawn(string sceneName, string respawnName)
     {
-        Player.respawnSceneName = nameScene;
-        Player.respawnName = nameRespawn;
+        if(Player.respawnSceneName != sceneName || Player.respawnName != respawnName) {
+            Player.respawnSceneName = sceneName;
+            Player.respawnName = respawnName;
+        }
     }
 
     public void Respawn()

@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public int CurrentLife = 0;
     public int MaxLife = 0;
     public bool IsTimeTicking = false;
+    public int AccumulatedMana = 0;
 
 
     // HACK: This is terrible but we need this here so it doesn't get reset or 

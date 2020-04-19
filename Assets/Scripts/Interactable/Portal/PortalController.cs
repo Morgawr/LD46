@@ -8,7 +8,8 @@ public class PortalController : Interactable
     public PortalManager.PortalTuple SelfData;
     public string TeleportTo;
 
-    void Start() {
+    protected override void Start() {
+        base.Start();
         portalManager = GameObject.FindGameObjectsWithTag("PortalManager")[0].GetComponent<PortalManager>();
     }
 
