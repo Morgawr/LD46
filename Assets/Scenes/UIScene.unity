@@ -629,7 +629,7 @@ MonoBehaviour:
   IsGamePaused: 0
   CurrentMainGameScene:
     m_Handle: 0
-  IsInBossBattle: 1
+  IsInBossBattle: 0
   CurrentLife: 0
   MaxLife: 100
   IsTimeTicking: 0
