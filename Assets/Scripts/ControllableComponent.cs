@@ -81,7 +81,14 @@ public class ControllableComponent : MonoBehaviour
 
         foreach (var respawn in respawnList)
         {
+            Debug.Log(respawn.name);
             var checkpoint = respawn.GetComponent<Checkpoint>();
+
+            // HACK: this is a hack, sometimes the player variable is null when
+            // respawning so it's just faster to fetch it again.
+            if(Player == null) {
+                Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+            }
             if (checkpoint.GetTagName() == Player.respawnName) {
                 this.transform.position = respawn.transform.position;
                 return;
