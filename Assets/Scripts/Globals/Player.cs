@@ -61,6 +61,10 @@ public class Player : MonoBehaviour
         return TransitionDictionary.ContainsKey(name);
     }
 
+    void Awake() {
+        Application.targetFrameRate = 60;
+    }
+
     void Start() {
         CurrentLife = MaxLife;
     }

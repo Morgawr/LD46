@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PauseScene.unity
     guid: 727f7d8787df20943a2028917d6ef32d
+  - enabled: 1
+    path: Assets/Scenes/2DPlatformSceneTest2.unity
+    guid: c89d20e7849c851498e2f2e881ed65c1
   m_configObjects: {}
