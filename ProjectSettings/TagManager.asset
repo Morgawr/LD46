@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - PortalManager
   - Portal
+  - MainCineCamera
   layers:
   - Default
   - TransparentFX

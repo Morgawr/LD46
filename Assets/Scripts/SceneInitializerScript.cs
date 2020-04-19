@@ -13,17 +13,7 @@ public class SceneInitializerScript : MonoBehaviour
         if(portalManager.NextSpawnPortal == "")
             return;
 
-        ControllableComponent avatar = null;
-        
-        var currentScene = portalManager.PortalLookup[portalManager.NextSpawnPortal];
-        foreach (var a in GameObject.FindGameObjectsWithTag("Avatar")) {
-            if(a.gameObject.scene.name == currentScene) {
-                avatar = a.GetComponent<ControllableComponent>();
-                break;
-            }
-        }
-        if(avatar == null) 
-            throw new UnityException("Cannot find avatar for scene " + currentScene);
+        ControllableComponent avatar = GetComponent<ControllableComponent>();
 
         foreach (var p in GameObject.FindGameObjectsWithTag("Portal")) {
             if (p.GetComponent<PortalController>().SelfData.PortalName == portalManager.NextSpawnPortal) {
@@ -31,6 +21,12 @@ public class SceneInitializerScript : MonoBehaviour
                 break;
             }
         }
+
+        // Point camera to this component
+        var mainCamera = GameObject.FindGameObjectsWithTag("MainCineCamera")[0].GetComponent<Cinemachine.CinemachineVirtualCamera>();
+        mainCamera.Follow = this.transform;
+        mainCamera.LookAt = this.transform;
+
     }
 
 }
