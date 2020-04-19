@@ -75,4 +75,11 @@ public class Player : MonoBehaviour
     void Start() {
         CurrentLife = MaxLife;
     }
+
+    public Delegates.EmptyDel OnDeath;
+    // This function is called to bind Avatar-specific methods to the
+    // globally accessible player class.
+    public void RegisterAvatar(ControllableComponent avatar) {
+        OnDeath = new Delegates.EmptyDel(avatar.OnDeath);
+    }
 }

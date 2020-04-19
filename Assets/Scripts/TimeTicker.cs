@@ -27,8 +27,7 @@ public class TimeTicker : MonoBehaviour
         }
 
         if(Player.CurrentLife <= 0) {
-            // Handle game over
-            Debug.Log("Game over!");
+            Player.OnDeath();
             tickerCoroutine = null;
             return false;
         }
