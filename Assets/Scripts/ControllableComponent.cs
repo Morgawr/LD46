@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControllableComponent : MonoBehaviour
 {
@@ -165,8 +166,28 @@ public class ControllableComponent : MonoBehaviour
 
     }
 
+    void DoPause() {
+        Debug.Log("Pause called");
+        Player.IsGamePaused = true;
+        Player.StartTransitionEvent("Pause", .2f);
+        SceneManager.LoadSceneAsync("PauseScene", LoadSceneMode.Additive);
+    }
+
+    void LateUpdate() {
+        if (Player.IsGamePaused ||
+            (!Player.IsTransitionDone("Unpause") && Player.DoesTransitionExist("Unpause")))
+            return;
+
+        if(InputManager.IsPressed("pause")) { // Pause the game here
+            DoPause();
+            return;
+        }
+    }
+
     // Update is called once per frame
     void Update() {
+        if(Player.IsGamePaused)
+            return;
 
         if(!isWalltouching || CanMove()) {
             var actualMoveSpeed = (isInAir && !isOnLadder) ? Player.airSpeed : Player.moveSpeed;
@@ -221,6 +242,7 @@ public class ControllableComponent : MonoBehaviour
             }
         }
 
+
         body.velocity = VelocityClamper.ClampVelocity(body.velocity, Player.maxVelocity);
         HandleAnimationSet();
     }
@@ -235,7 +257,6 @@ public class ControllableComponent : MonoBehaviour
 
     // This is what happens when the player dies
     public void OnDeath() {
-        Debug.Log("We have died");
         this.Respawn();
     }
 }

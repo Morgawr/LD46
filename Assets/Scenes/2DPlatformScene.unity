@@ -1503,6 +1503,7 @@ MonoBehaviour:
   sideAttack: {fileID: 992561945}
   downAttack: {fileID: 1620640273}
   upAttack: {fileID: 907619044}
+  PlayerAnimator: {fileID: 966473637}
   Player: {fileID: 0}
 --- !u!70 &966473634
 CapsuleCollider2D:

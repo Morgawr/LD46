@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -16,4 +17,32 @@ public class Player : MonoBehaviour
 
     public string respawnName = null;
     public string respawnSceneName = null;
+
+    public bool IsGamePaused = false;
+    // This is the scene that is currently playing, if we need to pause/load a 
+    // new scene we can interact with this.
+    public Scene CurrentMainGameScene;
+
+    Dictionary<string, float> TransitionDictionary = new Dictionary<string, float>();
+
+    void TransitionFrame(string name, float timeLeft) {
+        TransitionDictionary[name] = timeLeft;
+    }
+
+    public void StartTransitionEvent(string name, float duration) {
+        name = name.ToLower();
+        TransitionDictionary[name] = duration;
+        StartCoroutine(Timer.TransitionCountdown(duration, name, new Delegates.TransitionDel(TransitionFrame)));
+    }
+
+    public bool IsTransitionDone(string name) {
+        name = name.ToLower();
+        return TransitionDictionary.ContainsKey(name) && TransitionDictionary[name] == 0;
+    }
+
+    public bool DoesTransitionExist(string name) {
+        name = name.ToLower();
+        return TransitionDictionary.ContainsKey(name);
+    }
+
 }

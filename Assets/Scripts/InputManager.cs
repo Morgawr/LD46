@@ -21,6 +21,10 @@ public static class InputManager {
                 return Input.GetKey("space") || Input.GetButton("Jump");
             case "attack":
                 return Input.GetKey("z") || Input.GetButton("Attack");
+            case "pause":
+                return Input.GetKey("escape") || Input.GetButton("Pause");
+            case "quit":
+                return Input.GetKey("q") || Input.GetButton("Quit");
         }
         return false;
     }
