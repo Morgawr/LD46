@@ -5,17 +5,18 @@ using UnityEngine;
 public class ProjectileFactory : MonoBehaviour
 {
     public GameObject BaseProjectile;
+    public GameObject LargerProjectile;
 
     // TODO: figure out sprite flip and origin flip for projectiles when origin target is flipped
 
-    public ProjectileComponent SpawnProjectile(GameObject projectile, Transform target, Transform parent) {
+    public ProjectileComponent SpawnProjectile(GameObject projectile, Vector2 target, Transform parent) {
         var proj = Instantiate(projectile, parent.position, Quaternion.identity).GetComponent<ProjectileComponent>();
         var flip = false;
         var heading = Vector3.zero;
-        if(target.position.x < parent.position.x) 
+        if(target.x < parent.position.x) 
             flip = true;
-        heading = target.position - parent.position;
-        var distance = Vector2.Distance(parent.position, target.position);
+        heading = target - (Vector2)parent.position;
+        var distance = Vector2.Distance(parent.position, target);
         proj.Direction = heading / distance;
         if(flip)
             proj.Direction.x *= -1;

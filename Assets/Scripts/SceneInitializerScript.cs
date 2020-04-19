@@ -41,6 +41,11 @@ public class SceneInitializerScript : MonoBehaviour
         mainCamera.Follow = this.transform;
         mainCamera.LookAt = this.transform;
 
+        // Bind the avatar controller to the player global class
+        var avatar = GetComponent<ControllableComponent>();
+        var Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        Player.RegisterAvatar(avatar);
+
         if(!InitializeRespawn()) {
             InitializePortal();
         }

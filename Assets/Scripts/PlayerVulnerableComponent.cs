@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerVulnerableComponent : AbstractVulnerableComponent
 {
+    Player player;
+
+    void Start() {
+        player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+    }
 
     public Player Player;
     GameObject[] StaggerList;
@@ -16,7 +21,14 @@ public class PlayerVulnerableComponent : AbstractVulnerableComponent
     }
 
     public override void GetDamaged(int value) {
- 
+        Debug.Log(value);
+
+        if (player.IsInBossBattle)
+        {
+            Debug.Log(value);
+            player.CurrentLife -= value;
+            return;
+        }
         
         Timer exaustedTimer = new Timer();
 

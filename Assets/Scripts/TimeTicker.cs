@@ -22,13 +22,14 @@ public class TimeTicker : MonoBehaviour
         // Update Player.CurrentLife
         // Dumb as fuck routine here
         while(timeAccumulator - 1 > 0) { // We tick every second
-            Player.CurrentLife -= Mathf.FloorToInt(Player.LifeLossPerSecond);
+            // This is a HACK but it works
+            if(!Player.IsInBossBattle)
+                Player.CurrentLife -= Mathf.FloorToInt(Player.LifeLossPerSecond);
             timeAccumulator--;
         }
 
         if(Player.CurrentLife <= 0) {
-            // Handle game over
-            Debug.Log("Game over!");
+            Player.OnDeath();
             tickerCoroutine = null;
             return false;
         }
@@ -36,7 +37,6 @@ public class TimeTicker : MonoBehaviour
     }
 
     public void StartTicking() {
-        Debug.Log("Started ticking");
         isTimerRunning = true;
         needToStop = false;
         if(tickerCoroutine != null) {

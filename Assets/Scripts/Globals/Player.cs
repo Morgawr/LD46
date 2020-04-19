@@ -30,6 +30,10 @@ public class Player : MonoBehaviour
     public Scene CurrentMainGameScene;
 
 
+    // This is the logic when we are in a boss fight
+    public bool IsInBossBattle = false;
+
+
     // Logic for the lifebar 
     public int CurrentLife = 0;
     public int MaxLife = 0;
@@ -77,5 +81,12 @@ public class Player : MonoBehaviour
 
     void Start() {
         CurrentLife = MaxLife;
+    }
+
+    public Delegates.EmptyDel OnDeath;
+    // This function is called to bind Avatar-specific methods to the
+    // globally accessible player class.
+    public void RegisterAvatar(ControllableComponent avatar) {
+        OnDeath = new Delegates.EmptyDel(avatar.OnDeath);
     }
 }
