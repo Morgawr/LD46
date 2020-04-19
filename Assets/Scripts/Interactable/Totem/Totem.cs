@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Totem : Interactable
 {
@@ -8,25 +9,26 @@ public class Totem : Interactable
     public float maxDisplayTime = 5;
     float displayTime = 5;
     bool hidden = true;
+    Timer messageTimer = new Timer();
+
+    void resetMessageCooldown()
+    {
+        hidden = true;
+        MessageBox.SetActive(false);
+    }
 
     void Update()
     {
-        if (!hidden)
-        {
-            displayTime -= Time.deltaTime;
-            if(displayTime<=0)
-                hidden = true;
-        }
     }
 
     void OnGUI()
     {
         if (!hidden)
         {
-            GUI.Label(new Rect((Screen.width-400f) / 2, Screen.height / 10, 400f, 200f), message);
+            
         }
         else 
-        { 
+        {
             base.OnGUI(); 
         }
     }
@@ -38,5 +40,10 @@ public class Totem : Interactable
         displayTime = maxDisplayTime;
         hidden = false;
         isOnTooltip = false;
+
+        
+        MessageBox.SetActive(true);
+        Lore.text = message;
+        StartCoroutine(messageTimer.Countdown(5f, new Delegates.EmptyDel(resetMessageCooldown)));
     }
 }

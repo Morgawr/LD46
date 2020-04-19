@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Interactable : MonoBehaviour
 {
     public ControllableComponent controller;
     public Player Player;
     public string tooltip = "Press up to interact";
+
+    protected GameObject MessageBox;
+    protected Text Lore;
 
     protected bool isOnTooltip = false;
 
@@ -28,11 +32,13 @@ public abstract class Interactable : MonoBehaviour
     {
         if (isOnTooltip)
         {
-            GUI.Label(new Rect((Screen.width - 150f) / 2, Screen.height / 10, 200f, 200f), tooltip);
+            GUI.Label(new Rect((Screen.width - 150f) / 2, (Screen.height / 10) * 8, 200f, 200f), tooltip);
         }
     }
 
     protected virtual void Start() {
         Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        MessageBox = GameObject.FindGameObjectsWithTag("MessageBox")[0];
+        Lore = GameObject.FindWithTag("Lore").GetComponent<Text>();
     }
 }
