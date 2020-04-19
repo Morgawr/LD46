@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerVulnerableComponent : AbstractVulnerableComponent
 {
-    Player player;
+    Player Player;
     GameObject[] StaggerList;
 
     void Start()
@@ -16,10 +16,10 @@ public class PlayerVulnerableComponent : AbstractVulnerableComponent
     public override void GetDamaged(int value) {
         Debug.Log(value);
 
-        if (player.IsInBossBattle)
+        if (Player.IsInBossBattle)
         {
             Debug.Log(value);
-            player.CurrentLife -= value;
+            Player.CurrentLife -= value;
             return;
         }
         
