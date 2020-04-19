@@ -4,19 +4,60 @@ using UnityEngine;
 
 public class PlayerVulnerableComponent : AbstractVulnerableComponent
 {
-    Player player;
+    Player Player;
+    GameObject[] StaggerList;
 
-    void Start() {
-        player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+    void Start()
+    {
+        Debug.Log("Reload this!");
+        Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        StaggerList = GameObject.FindGameObjectsWithTag("Stagger");
     }
 
     public override void GetDamaged(int value) {
-        // Do nothing because player has no health
-        // TODO: add stamina values
+        
         Debug.Log(value);
-        if(player.IsInBossBattle) {
+
+        if (Player.IsInBossBattle)
+        {
             Debug.Log(value);
-            player.CurrentLife -= value;
+            Player.CurrentLife -= value;
+            return;
+        }
+        
+        Timer exhaustedTimer = new Timer();
+
+        void resetExhaustedCooldown()
+        {
+            Debug.Log("Rest Exauxted!");
+            Player.isExhausted = false;
+            Player.CurrentStag = Player.MaxStag;
+
+            foreach(var stagger in StaggerList)
+            {
+                stagger.SetActive(true);
+            }
+        }
+
+        var currentStag = Player.CurrentStag;
+        if (currentStag > 0)
+        {
+            Debug.Log(currentStag);
+
+            if (Player.isFlickering)
+                return;
+
+            StaggerList[currentStag - 1].SetActive(false);
+            Player.CurrentStag--;
+        }
+        else
+        {
+            Debug.Log("Exhausted!");
+            if (Player.isExhausted)
+                return;
+
+            Player.isExhausted = true;
+            StartCoroutine(exhaustedTimer.Countdown(5f, new Delegates.EmptyDel(resetExhaustedCooldown)));
         }
     }
 }

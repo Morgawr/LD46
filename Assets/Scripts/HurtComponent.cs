@@ -18,12 +18,13 @@ public class HurtComponent : MonoBehaviour
     }
 
     public void GetHurt(DamageDealerComponent damageDealer) {
-        if(OnHurtReaction != null) {
-            OnHurtReaction();
-        }
+
         var healthComponent = GetComponent<AbstractVulnerableComponent>();
         if (healthComponent != null) {
             healthComponent.GetDamaged(damageDealer.Damage);
+        }
+        if(OnHurtReaction != null) {
+            OnHurtReaction();
         }
     }
 }
