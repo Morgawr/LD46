@@ -5,19 +5,12 @@ using UnityEngine;
 public class PlayerVulnerableComponent : AbstractVulnerableComponent
 {
     Player player;
-
-    void Start() {
-        player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
-    }
-
-    public Player Player;
     GameObject[] StaggerList;
 
     void Start()
     {
         Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         StaggerList = GameObject.FindGameObjectsWithTag("Stagger");
-
     }
 
     public override void GetDamaged(int value) {
