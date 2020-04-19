@@ -81,7 +81,6 @@ public class ControllableComponent : MonoBehaviour
 
         foreach (var respawn in respawnList)
         {
-            Debug.Log(respawn.name);
             var checkpoint = respawn.GetComponent<Checkpoint>();
 
             // HACK: this is a hack, sometimes the player variable is null when
@@ -164,11 +163,29 @@ public class ControllableComponent : MonoBehaviour
         if(!isInAir && !isOnLadder && Mathf.Abs(body.velocity.x) > 0.2) { // Running
             PlayerAnimator.SetBool("Idle", false);
             PlayerAnimator.SetBool("Running", true);
+            PlayerAnimator.SetBool("Jump", false);
+            PlayerAnimator.SetBool("Climb", false);
         }
 
         if(!isInAir && !isOnLadder && Mathf.Abs(body.velocity.x) < 0.2) { // Idle
             PlayerAnimator.SetBool("Idle", true);
             PlayerAnimator.SetBool("Running", false);
+            PlayerAnimator.SetBool("Jump", false);
+            PlayerAnimator.SetBool("Climb", false);
+        }
+
+        if(isInAir && !isOnLadder) { // Jump
+            PlayerAnimator.SetBool("Idle", false);
+            PlayerAnimator.SetBool("Running", false);
+            PlayerAnimator.SetBool("Jump", true);
+            PlayerAnimator.SetBool("Climb", false);
+        }
+  
+        if(isOnLadder) { // Climb
+            PlayerAnimator.SetBool("Idle", false);
+            PlayerAnimator.SetBool("Running", false);
+            PlayerAnimator.SetBool("Jump", false);
+            PlayerAnimator.SetBool("Climb", true);
         }
 
     }
