@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public string respawnName = null;
     public string respawnSceneName = null;
 
+    public bool WeDiedAndWeAreRespawning = false;
     public bool IsGamePaused = false;
     // This is the scene that is currently playing, if we need to pause/load a 
     // new scene we can interact with this.

@@ -16,7 +16,20 @@ public class SceneInitializerScript : MonoBehaviour
                 break;
             }
         }
+    }
 
+    bool InitializeRespawn() {
+        var Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        if(Player.WeDiedAndWeAreRespawning) {
+            // Remove all mana here
+            // Refill all life here
+            Player.AccumulatedMana = 0;
+            Player.CurrentLife = Player.MaxLife;
+            Player.WeDiedAndWeAreRespawning = false;
+            this.GetComponent<ControllableComponent>().Respawn();
+            return true;
+        }
+        return false;
     }
 
     // This component is used to set all the parameters for the player and 
@@ -28,7 +41,9 @@ public class SceneInitializerScript : MonoBehaviour
         mainCamera.Follow = this.transform;
         mainCamera.LookAt = this.transform;
 
-        InitializePortal();
+        if(!InitializeRespawn()) {
+            InitializePortal();
+        }
     }
 
 }

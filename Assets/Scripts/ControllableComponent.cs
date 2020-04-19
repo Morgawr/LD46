@@ -77,19 +77,18 @@ public class ControllableComponent : MonoBehaviour
 
     public void Respawn()
     {
-        GameObject respawnManager = GameObject.FindWithTag("Respawn");
+        var respawnList = GameObject.FindGameObjectsWithTag("Respawn");
 
-        Checkpoint[] respawnList = respawnManager.GetComponentsInChildren<Checkpoint>();
-        
-        foreach (Checkpoint respawn in respawnList)
+        foreach (var respawn in respawnList)
         {
-            if (respawn.GetTagName().Equals(Player.respawnName))
-            {
+            var checkpoint = respawn.GetComponent<Checkpoint>();
+            if (checkpoint.GetTagName() == Player.respawnName) {
                 this.transform.position = respawn.transform.position;
                 return;
             }
         }
-
+        // TODO: Have an exception here and have a default checkpoint to 
+        // respawn when the game begins
         this.transform.position = Vector3.zero;
     }
 
@@ -259,7 +258,14 @@ public class ControllableComponent : MonoBehaviour
 
     // This is what happens when the player dies
     public void OnDeath() {
-        this.Respawn();
+        // Destroy and reload current scene
+        Player.WeDiedAndWeAreRespawning = true;
+        SceneManager.UnloadSceneAsync(this.gameObject.scene.name);
+        var respawnScene = Player.respawnSceneName;
+        // TODO: This should be a crash/exception
+        if(respawnScene == null)
+            respawnScene = this.gameObject.scene.name;
+        SceneManager.LoadSceneAsync(respawnScene, LoadSceneMode.Additive);
     }
 
     public void AcquireMana(int value) {
