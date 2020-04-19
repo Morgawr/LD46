@@ -23,6 +23,13 @@ public class Player : MonoBehaviour
     // new scene we can interact with this.
     public Scene CurrentMainGameScene;
 
+
+    // Logic for the lifebar 
+    public int CurrentLife = 0;
+    public int MaxLife = 0;
+
+
+
     // HACK: This is terrible but we need this here so it doesn't get reset or 
     // deleted when we travel between portals
     public bool isInteractCooldown = false;
@@ -54,4 +61,7 @@ public class Player : MonoBehaviour
         return TransitionDictionary.ContainsKey(name);
     }
 
+    void Start() {
+        CurrentLife = MaxLife;
+    }
 }
