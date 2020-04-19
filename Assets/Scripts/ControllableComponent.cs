@@ -10,6 +10,7 @@ public class ControllableComponent : MonoBehaviour
     public SlashComponent sideAttack = null;
     public SlashComponent downAttack = null;
     public SlashComponent upAttack = null;
+    public Animator PlayerAnimator;
 
     public Player Player;
 
@@ -148,6 +149,22 @@ public class ControllableComponent : MonoBehaviour
         }
     }
 
+    void HandleAnimationSet() {
+        // This is very messy we have to be careful in manually toggling all the
+        // right boolean states for every type of animation but it's the best
+        // we can do in this jam
+        if(!isInAir && !isOnLadder && Mathf.Abs(body.velocity.x) > 0.2) { // Running
+            PlayerAnimator.SetBool("Idle", false);
+            PlayerAnimator.SetBool("Running", true);
+        }
+
+        if(!isInAir && !isOnLadder && Mathf.Abs(body.velocity.x) < 0.2) { // Idle
+            PlayerAnimator.SetBool("Idle", true);
+            PlayerAnimator.SetBool("Running", false);
+        }
+
+    }
+
     // Update is called once per frame
     void Update() {
 
@@ -205,6 +222,7 @@ public class ControllableComponent : MonoBehaviour
         }
 
         body.velocity = VelocityClamper.ClampVelocity(body.velocity, Player.maxVelocity);
+        HandleAnimationSet();
     }
 
     void OnCollisionEnter2D(Collision2D other) {
