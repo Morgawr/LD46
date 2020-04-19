@@ -35,7 +35,9 @@ public class Player : MonoBehaviour
     public int MaxLife = 0;
     public bool IsTimeTicking = false;
     public int AccumulatedMana = 0;
-
+    public int CurrentStag = 3;
+    public int MaxStag = 3;
+    public bool isFlickering = false;
 
     // HACK: This is terrible but we need this here so it doesn't get reset or 
     // deleted when we travel between portals

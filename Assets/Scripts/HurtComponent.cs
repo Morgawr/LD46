@@ -18,9 +18,6 @@ public class HurtComponent : MonoBehaviour
     }
 
     public void GetHurt(DamageDealerComponent damageDealer) {
-        if(OnHurtReaction != null) {
-            OnHurtReaction();
-        }
         // TODO: Deal with player getting staggered or during a boss battle lose stamina
         // This exists only if it's an enemy
         var healthComponent = GetComponent<EnemyHealthComponent>();
@@ -28,5 +25,16 @@ public class HurtComponent : MonoBehaviour
             healthComponent.GetDamaged(damageDealer.Damage);
         }
         Debug.Log("Got hit! " + this.name);
+
+        var playerHealthComponent = GetComponent<PlayerVulnerableComponent>();
+        if (playerHealthComponent != null)
+        {
+            playerHealthComponent.GetDamaged(damageDealer.Damage);
+        }
+
+        if (OnHurtReaction != null)
+        {
+            OnHurtReaction();
+        }
     }
 }
