@@ -25,12 +25,12 @@ public class PlayerVulnerableComponent : AbstractVulnerableComponent
             return;
         }
         
-        Timer exaustedTimer = new Timer();
+        Timer exhaustedTimer = new Timer();
 
-        void resetExaustedCooldown()
+        void resetExhaustedCooldown()
         {
             Debug.Log("Rest Exauxted!");
-            Player.isExausted = false;
+            Player.isExhausted = false;
             Player.CurrentStag = Player.MaxStag;
 
             foreach(var stagger in StaggerList)
@@ -52,12 +52,12 @@ public class PlayerVulnerableComponent : AbstractVulnerableComponent
         }
         else
         {
-            Debug.Log("Exausted!");
-            if (Player.isExausted)
+            Debug.Log("Exhausted!");
+            if (Player.isExhausted)
                 return;
 
-            Player.isExausted = true;
-            StartCoroutine(exaustedTimer.Countdown(5f, new Delegates.EmptyDel(resetExaustedCooldown)));
+            Player.isExhausted = true;
+            StartCoroutine(exhaustedTimer.Countdown(5f, new Delegates.EmptyDel(resetExhaustedCooldown)));
         }
     }
 }

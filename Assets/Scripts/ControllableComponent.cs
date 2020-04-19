@@ -47,7 +47,7 @@ public class ControllableComponent : MonoBehaviour
     }
 
     public bool CanMove() {
-        return !isInAir || isOnLadder && !Player.isExausted;
+        return !isInAir || isOnLadder && !Player.isExhausted;
     }
 
     public void SignalInAir(bool start){
@@ -223,7 +223,7 @@ public class ControllableComponent : MonoBehaviour
         if(Player.IsGamePaused)
             return;
 
-        if (Player.isExausted)
+        if (Player.isExhausted)
             return;
 
         if(!isWalltouching || CanMove()) {
