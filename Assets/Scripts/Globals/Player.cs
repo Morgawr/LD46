@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 
     // Engine stats
     public float LifeLossPerSecond = 1;
+    public MusicManager MusicManager;
 
     // How many attackes we do per second
     public float attackSpeed = 0;
@@ -55,6 +56,8 @@ public class Player : MonoBehaviour
     // TODO: Move transitions into a transition manager
     Dictionary<string, float> TransitionDictionary = new Dictionary<string, float>();
 
+    HashSet<EnemyAI> spotters = new HashSet<EnemyAI>();
+
     void TransitionFrame(string name, float timeLeft) {
         TransitionDictionary[name] = timeLeft;
     }
@@ -75,12 +78,35 @@ public class Player : MonoBehaviour
         return TransitionDictionary.ContainsKey(name);
     }
 
+    public bool IsInCombat() {
+        return spotters.Count > 0;
+    }
+
+    public void ClearSpotters() {
+        spotters.Clear();
+    }
+
+    public void RemoveSpotter(EnemyAI enemy) {
+        spotters.Remove(enemy);
+    }
+
+    public void AddSpotter(EnemyAI enemy) {
+        spotters.Add(enemy);
+    }
+
     void Awake() {
         Application.targetFrameRate = 60;
     }
 
     void Start() {
         CurrentLife = MaxLife;
+
+        // TODO: This should only be done when the trigger is set in the game
+        MusicManager.StartNormalTracks();
+    }
+
+    void LateUpdate() {
+        MusicManager.SetCombatMode(IsInCombat());
     }
 
     public Delegates.EmptyDel OnDeath;

@@ -45,6 +45,7 @@ public class SceneInitializerScript : MonoBehaviour
         var avatar = GetComponent<ControllableComponent>();
         var Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         Player.RegisterAvatar(avatar);
+        Player.ClearSpotters();
 
         if(!InitializeRespawn()) {
             InitializePortal();

@@ -114,6 +114,9 @@ public class EnemyAI : MonoBehaviour
     protected virtual void OnDeath() {
         var mana = GetComponent<EnemyHealthComponent>().ManaReward;
         Player.AcquireMana(mana);
+        // Try to remove the enemy that might have been spotting us so we can
+        // transition out of combat
+        Player.Player.RemoveSpotter(this);
         if(particleOnDeath != null) {
             particleOnDeath.transform.SetParent(this.transform.parent, true);
             particleOnDeath.gameObject.SetActive(true);
@@ -123,6 +126,11 @@ public class EnemyAI : MonoBehaviour
     }
 
     public virtual void PlayerSpotted(bool spotted) {
+        if(spotted) {
+            Player.Player.AddSpotter(this);
+        } else { // We are not spotted anymore
+            Player.Player.RemoveSpotter(this);
+        }
         isPlayerSpotted = spotted;
     }
 
