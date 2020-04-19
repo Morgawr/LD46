@@ -21,10 +21,14 @@ public class EnemyAI : MonoBehaviour
     public float AggroSpeed = 0;
     public bool isFlying = false;
 
+    // HACK: This is to check if we have a special attack pattern logic
+    // instead of using the default enemy logic.
+    public bool isBoss = false;
+
     bool isFacingRight = true;
 
-    protected ProjectileFactory projectileFactory; 
-    bool hasJustAttacked = false;
+    protected ProjectileFactory projectileFactory;
+    protected bool hasJustAttacked = false;
     bool isPlayerSpotted = false;
     bool hasTriedToApproach = false;
     bool isApproaching = false;
@@ -63,7 +67,7 @@ public class EnemyAI : MonoBehaviour
         return Vector2.Distance(transform.position, Player.transform.position);
     }
 
-    void FollowPoint(Transform targetPoint, float speed) {
+    protected void FollowPoint(Transform targetPoint, float speed) {
         if(this.transform.position.x < targetPoint.position.x && !isFacingRight) {
             FlipX();
         } else if(this.transform.position.x > targetPoint.position.x && isFacingRight) {
@@ -95,6 +99,10 @@ public class EnemyAI : MonoBehaviour
         FollowPoint(Player.transform, AggroSpeed);
     }
 
+    protected virtual void BossPhaseAttack() {
+        Debug.Log("Called phase attack on a boss with no unique AI.");
+    }
+
     // We can override OnDeath in child classes for EnemyAI so we can have OnDeath
     // effects (like enemy explodes, etc)
     protected virtual void OnDeath() {
@@ -114,7 +122,13 @@ public class EnemyAI : MonoBehaviour
         flicker.StartFlicker();
     }
 
-    void RunAI() {
+    protected void TriggerAttack() {
+        hasJustAttacked = true;
+        StartCoroutine(attackTimer.Countdown(1f / AttackSpeed, new Delegates.EmptyDel(resetAttackCooldown)));
+    }
+
+    // This AI logic can be overridden by child classes (bosses, etc)
+    protected virtual void RunAI() {
         if(!isPlayerSpotted) {
             Patrol();
         } else if(!hasJustAttacked) {
@@ -124,8 +138,7 @@ public class EnemyAI : MonoBehaviour
             } else {
                 MeleeAttack();
             }
-            hasJustAttacked = true;
-            StartCoroutine(attackTimer.Countdown(1f / AttackSpeed, new Delegates.EmptyDel(resetAttackCooldown)));
+            TriggerAttack();
         } else {
             if(RangedAttacks.Count == 0) {
                 ApproachPlayer();

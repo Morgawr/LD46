@@ -30,6 +30,10 @@ public class Player : MonoBehaviour
     public Scene CurrentMainGameScene;
 
 
+    // This is the logic when we are in a boss fight
+    public bool IsInBossBattle = false;
+
+
     // Logic for the lifebar 
     public int CurrentLife = 0;
     public int MaxLife = 0;

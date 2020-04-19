@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseProjectile: {fileID: 1622483160}
+  LargerProjectile: {fileID: 3208059067798408164}
 --- !u!4 &212902795
 Transform:
   m_ObjectHideFlags: 0
@@ -162,6 +163,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1622483165}
+  - {fileID: 3208059067798408163}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -479,6 +481,8 @@ MonoBehaviour:
     PortalName: Portal1
   - SceneName: 2DPlatformSceneTest2
     PortalName: Portal2
+  - SceneName: BossTemplateScene
+    PortalName: BossTemplatePortal
   NextSpawnPortal: 
 --- !u!4 &1004660965
 Transform:
@@ -621,9 +625,11 @@ MonoBehaviour:
   downAttackKnockbackStrength: 100
   respawnName: 
   respawnSceneName: 
+  WeDiedAndWeAreRespawning: 0
   IsGamePaused: 0
   CurrentMainGameScene:
     m_Handle: 0
+  IsInBossBattle: 1
   CurrentLife: 0
   MaxLife: 100
   IsTimeTicking: 0
@@ -1111,3 +1117,79 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1524562721}
   TextLabel: {fileID: 1862283117}
+--- !u!4 &3208059067798408163 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1336604718007536697, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4470317760159352794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3208059067798408164 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1336604718007536702, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4470317760159352794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4470317760159352794
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 212902795}
+    m_Modifications:
+    - target: {fileID: 1336604718007536697, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336604718007536697, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336604718007536697, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336604718007536697, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336604718007536697, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336604718007536697, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336604718007536697, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336604718007536697, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336604718007536700, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336604718007536702, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: m_Name
+      value: LargerProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336604718007536702, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4598ced972f19b04e90dfdb32dbeb58b, type: 3}

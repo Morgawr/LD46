@@ -12,7 +12,7 @@ public class TmpMonsterAI : EnemyAI
     }
 
     void BasicProjectileRoutine() {
-        var toShoot = projectileFactory.SpawnProjectile(projectileFactory.BaseProjectile, Player.transform, this.transform);
+        var toShoot = projectileFactory.SpawnProjectile(projectileFactory.BaseProjectile, Player.transform.position, this.transform);
         toShoot.Speed = 10;
         toShoot.Duration = 20;
         toShoot.gameObject.SetActive(true);
