@@ -307,8 +307,8 @@ PrefabInstance:
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
       propertyPath: message
-      value: There was peace before the worm start eating everything, he wont stop
-        now and we can't stop him. It's a tragedy.
+      value: "The Forest was at peace before the worm started eating everything...
+        He won\u2019t stop now and we can't stop him. It's a tragedy."
       objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
@@ -423,7 +423,7 @@ Transform:
   - {fileID: 318899968}
   - {fileID: 1133953803}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &76916929 stripped
 Transform:
@@ -875,6 +875,85 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9ed265f0138a0e4f89a7c046d3c469d, type: 3}
+--- !u!1001 &246461530
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 884020180}
+    m_Modifications:
+    - target: {fileID: 8556949912455563560, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_Name
+      value: TotemPrefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 10082435}
+    - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: message
+      value: "Beware\u2026 Bewaaaare... "
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 47.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6d29bc4b652cca04ab01046f53acce15, type: 3}
 --- !u!1001 &262947361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1460,7 +1539,7 @@ PrefabInstance:
     - target: {fileID: 984840421230389656, guid: 8cdcef1494bf3404f84940f794daa8f4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 984840421230389656, guid: 8cdcef1494bf3404f84940f794daa8f4,
         type: 3}
@@ -1990,7 +2069,7 @@ PrefabInstance:
     - target: {fileID: 8609819606701383574, guid: 2750fd12e014e0e40887a022699cc78c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8609819606701383574, guid: 2750fd12e014e0e40887a022699cc78c,
         type: 3}
@@ -2754,7 +2833,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &730962723
 PrefabInstance:
@@ -3034,7 +3113,8 @@ PrefabInstance:
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
       propertyPath: message
-      value: Please kill mobs and collect life I'm gonna die!
+      value: "Welcome guardian, my life is in danger, I\u2019ve summoned you to recollect
+        all my life energy, I\u2019m running out of time."
       objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
@@ -4178,6 +4258,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 738d9b0bcc2b2204f91afb4b29eafdb9, type: 3}
+--- !u!1001 &995408511
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1944167461}
+    m_Modifications:
+    - target: {fileID: 8556949912455563560, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_Name
+      value: TotemPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563562, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: message
+      value: "The Spirit of the Forest has awakened a guardian! It\u2019s been a thousand
+        year since the last one was summoned..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.4665375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.8821173
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -105.49609
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6d29bc4b652cca04ab01046f53acce15, type: 3}
 --- !u!1001 &1020421340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4447,7 +4607,7 @@ PrefabInstance:
     - target: {fileID: 984840421230389656, guid: 8cdcef1494bf3404f84940f794daa8f4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 984840421230389656, guid: 8cdcef1494bf3404f84940f794daa8f4,
         type: 3}
@@ -5492,8 +5652,8 @@ PrefabInstance:
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
       propertyPath: message
-      value: The spirit of the forest has awaken a guardian! This wasn't happen since
-        thousand year
+      value: "The Spirit of the Forest helped me with his life energy when I was sick.
+        He gave me relief and helped me recover. Now he couldn\u2019t do it anymore..."
       objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
@@ -6472,7 +6632,7 @@ PrefabInstance:
     - target: {fileID: 984840421230389656, guid: 8cdcef1494bf3404f84940f794daa8f4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 984840421230389656, guid: 8cdcef1494bf3404f84940f794daa8f4,
         type: 3}
@@ -6926,7 +7086,7 @@ PrefabInstance:
     - target: {fileID: 6960974373603855516, guid: c13d0ee98c075d24e89c6481ca4d4d93,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6960974373603855516, guid: c13d0ee98c075d24e89c6481ca4d4d93,
         type: 3}
@@ -7213,7 +7373,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 76916929}
     m_Modifications:
     - target: {fileID: 2071411891992861583, guid: c13d0ee98c075d24e89c6481ca4d4d93,
         type: 3}
@@ -7228,32 +7388,32 @@ PrefabInstance:
     - target: {fileID: 6960974373603855516, guid: c13d0ee98c075d24e89c6481ca4d4d93,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.99
+      value: 9.92654
       objectReference: {fileID: 0}
     - target: {fileID: 6960974373603855516, guid: c13d0ee98c075d24e89c6481ca4d4d93,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -33.5
+      value: 3.2278862
       objectReference: {fileID: 0}
     - target: {fileID: 6960974373603855516, guid: c13d0ee98c075d24e89c6481ca4d4d93,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 84.20775
+      value: -20.288345
       objectReference: {fileID: 0}
     - target: {fileID: 6960974373603855516, guid: c13d0ee98c075d24e89c6481ca4d4d93,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6960974373603855516, guid: c13d0ee98c075d24e89c6481ca4d4d93,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6960974373603855516, guid: c13d0ee98c075d24e89c6481ca4d4d93,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6960974373603855516, guid: c13d0ee98c075d24e89c6481ca4d4d93,
         type: 3}
@@ -7263,7 +7423,7 @@ PrefabInstance:
     - target: {fileID: 6960974373603855516, guid: c13d0ee98c075d24e89c6481ca4d4d93,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6960974373603855516, guid: c13d0ee98c075d24e89c6481ca4d4d93,
         type: 3}
@@ -8637,7 +8797,7 @@ PrefabInstance:
     - target: {fileID: 984840421230389656, guid: 8cdcef1494bf3404f84940f794daa8f4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 984840421230389656, guid: 8cdcef1494bf3404f84940f794daa8f4,
         type: 3}
@@ -9055,7 +9215,7 @@ PrefabInstance:
     - target: {fileID: 984840421230389656, guid: 8cdcef1494bf3404f84940f794daa8f4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 984840421230389656, guid: 8cdcef1494bf3404f84940f794daa8f4,
         type: 3}
@@ -9297,7 +9457,7 @@ PrefabInstance:
     - target: {fileID: 2016218588322290403, guid: 31c303d76b2d4444aa0b9b80ddf6e855,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2016218588322290403, guid: 31c303d76b2d4444aa0b9b80ddf6e855,
         type: 3}

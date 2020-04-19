@@ -1681,6 +1681,13 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 1288347374}
+    - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: message
+      value: "Some of us tried to oppose the first ones who fed on the Spirit\u2019s
+        life energy. We were once so many, beautiful creatures\u2026 We are now so
+        ugly and few. "
+      objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2600,8 +2607,8 @@ PrefabInstance:
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
       propertyPath: message
-      value: You manage to defeat the worm! But We can not be free untill you beat
-        the snail!
+      value: "You managed to defeat the worm, but it\u2019s not enough. We all took
+        so much from the Spirit that the Forest is now dwindling in darkness..."
       objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
@@ -5012,6 +5019,12 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 1288347374}
+    - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: message
+      value: "The Snail devoured and devoured\u2026 Now it has become half-machine
+        and its hunger grew even stronger."
+      objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
       propertyPath: m_LocalPosition.x

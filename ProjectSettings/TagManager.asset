@@ -11,6 +11,8 @@ TagManager:
   - Portal
   - MainCineCamera
   - Stagger
+  - MessageBox
+  - Lore
   layers:
   - Default
   - TransparentFX
