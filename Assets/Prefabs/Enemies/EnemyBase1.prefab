@@ -126,6 +126,9 @@ GameObject:
   - component: {fileID: 8622341871785126951}
   - component: {fileID: 8622341871785126948}
   - component: {fileID: 1837271811}
+  - component: {fileID: 6468997854095996710}
+  - component: {fileID: 5974424152250400540}
+  - component: {fileID: 6178548231644587508}
   m_Layer: 13
   m_Name: EnemyBase1
   m_TagString: Untagged
@@ -218,6 +221,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   patroller: {fileID: 0}
   body: {fileID: 1837271811}
+  health: {fileID: 0}
   MeleeRange: 4
   AttackSpeed: 0.5
   ApproachChance: 0.1
@@ -246,6 +250,48 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6468997854095996710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8622341871785127385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d1f0db24b087a49a9b7397d340f717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
+  MaxHP: 3
+  ManaReward: 4
+--- !u!114 &5974424152250400540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8622341871785127385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b27e62e7e241049af31e538df6adae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6178548231644587508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8622341871785127385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cded4a20d1b206f4ead1a91ce6f83bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 8622341871869138212}
+  FlickerDuration: 0.01
+  TotalDuration: 2
 --- !u!1 &8622341871869138214
 GameObject:
   m_ObjectHideFlags: 0

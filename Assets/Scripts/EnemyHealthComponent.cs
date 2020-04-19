@@ -8,6 +8,8 @@ public class EnemyHealthComponent : AbstractVulnerableComponent
     public int HP = 0;
     public int MaxHP = 0;
 
+    public int ManaReward = 0;
+
     // Start is called before the first frame update
     void Start() {
         HP = MaxHP;

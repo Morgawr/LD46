@@ -261,4 +261,9 @@ public class ControllableComponent : MonoBehaviour
     public void OnDeath() {
         this.Respawn();
     }
+
+    public void AcquireMana(int value) {
+        // TODO: Add particle effects and cool stuff here
+        Player.AccumulatedMana += value;
+    }
 }

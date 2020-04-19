@@ -98,6 +98,8 @@ public class EnemyAI : MonoBehaviour
     // We can override OnDeath in child classes for EnemyAI so we can have OnDeath
     // effects (like enemy explodes, etc)
     protected virtual void OnDeath() {
+        var mana = GetComponent<EnemyHealthComponent>().ManaReward;
+        Player.AcquireMana(mana);
         Destroy(this.patroller.gameObject);
         Destroy(this.gameObject);
     }
