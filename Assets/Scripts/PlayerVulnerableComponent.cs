@@ -42,8 +42,6 @@ public class PlayerVulnerableComponent : AbstractVulnerableComponent
         var currentStag = Player.CurrentStag;
         if (currentStag > 0)
         {
-            Debug.Log(currentStag);
-
             if (Player.isFlickering)
                 return;
 
