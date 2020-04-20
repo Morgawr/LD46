@@ -1169,6 +1169,11 @@ PrefabInstance:
       propertyPath: patroller
       value: 
       objectReference: {fileID: 1044765216}
+    - target: {fileID: 8315441146266510935, guid: ed9931d669c20064aa24525f3908a301,
+        type: 3}
+      propertyPath: EnemyName
+      value: WormBoss2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed9931d669c20064aa24525f3908a301, type: 3}
 --- !u!4 &693421298 stripped

@@ -128,10 +128,12 @@ public class EnemyAI : MonoBehaviour
             if(!bossManager.Bosses.Remove(this)){
                 Debug.Log("We failed removing boss " + this.gameObject.name + " from BossManager.");
             }
-            // Add Extra life to player
-            player.Player.MaxLife += 100;
-            player.Player.CurrentLife = player.Player.MaxLife;
-            player.Player.DefeatedBoss(this.EnemyName);
+            if (this.EnemyName != "SnailBoss2" && this.EnemyName != "WormBoss2") {
+                // Add Extra life to player
+                player.Player.MaxLife += 100;
+                player.Player.CurrentLife = player.Player.MaxLife;
+                player.Player.DefeatedBoss(this.EnemyName);
+            }
             if(this.EnemyName == "SnailBoss") {
                 player.ObtainDoubleJump();
             }
