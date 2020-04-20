@@ -79,6 +79,12 @@ public class MusicManager : MonoBehaviour
     //    }
     //}
 
+    public void StopGameMusic() {
+        BaseMusic.Stop();
+        CombatMusic.Stop();
+        BossMusic.Stop();
+    }
+
     public void SetCombatMode(bool mode) {
         if((isPlayingBase && !mode) || (!isPlayingBase && mode) || isInBossBattle)
             return;

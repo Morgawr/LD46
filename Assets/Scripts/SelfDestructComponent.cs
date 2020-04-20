@@ -6,6 +6,9 @@ public class SelfDestructComponent : MonoBehaviour
 {
 
     // If you add this to a component it will delete itself on load.
+    void Start(){
+        Player.GetInstance().EndGame();
+    }
 
     // Update is called once per frame
     void Update() {
