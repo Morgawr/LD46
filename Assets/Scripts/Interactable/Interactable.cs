@@ -16,6 +16,8 @@ public abstract class Interactable : MonoBehaviour
 
     public abstract void Interact();
 
+    public GUIStyle TooltipStyle;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         controller.SignalIsOnInteractable(this);
@@ -32,7 +34,7 @@ public abstract class Interactable : MonoBehaviour
     {
         if (isOnTooltip)
         {
-            GUI.Label(new Rect((Screen.width - 150f) / 2, (Screen.height / 10) * 8, 200f, 200f), tooltip);
+            GUI.Label(new Rect((Screen.width - 150f) / 2, (Screen.height / 10) * 8, 200f, 200f), tooltip, TooltipStyle);
         }
     }
 
