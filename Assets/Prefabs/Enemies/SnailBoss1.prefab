@@ -105,13 +105,14 @@ MonoBehaviour:
   particleOnDeath: {fileID: 0}
   MeleeRange: 0
   AttackSpeed: 0
-  ApproachChance: 0
-  ApproachAttemptsPerSecond: 0
+  ApproachChance: 1
+  ApproachAttemptsPerSecond: 1
   MaxMovementSpeed: {x: 0, y: 0}
-  PatrolSpeed: 0
-  AggroSpeed: 0
+  PatrolSpeed: 60000000
+  AggroSpeed: 150000000
   isFlying: 0
   isBoss: 1
+  isEnraged: 0
 --- !u!50 &8117794937098998816
 Rigidbody2D:
   serializedVersion: 4

@@ -1318,15 +1318,15 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 7.4710965, y: 2.792832}
-      - {x: 5.655441, y: -6.5645657}
-      - {x: -4.7034388, y: -6.4449735}
-      - {x: -6.584637, y: 2.6379583}
-      - {x: -7.333855, y: 2.261632}
-      - {x: -6.9894767, y: -7.3059697}
-      - {x: -5.1952105, y: -7.72118}
-      - {x: 4.392045, y: -7.6051226}
-      - {x: 7.911459, y: -7.4058957}
-      - {x: 8.171161, y: 2.7715235}
+      - {x: 8.381191, y: -0.07940597}
+      - {x: 8.250865, y: -3.1408083}
+      - {x: 7.5882077, y: -5.6534014}
+      - {x: 6.483764, y: -6.978729}
+      - {x: 6.0400987, y: -7.0351896}
+      - {x: 0.48741317, y: -7.245691}
+      - {x: 0.15242873, y: -4.9550467}
+      - {x: 3.594538, y: -4.1573377}
+      - {x: 4.538847, y: 3.3384607}
 --- !u!114 &1641827118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1626,6 +1626,31 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1834407964}
+    - target: {fileID: 7627608605322052099, guid: fef99efd468c1ce48833e0c60dcaee67,
+        type: 3}
+      propertyPath: patroller
+      value: 
+      objectReference: {fileID: 1029604628}
+    - target: {fileID: 8117794937098998816, guid: fef99efd468c1ce48833e0c60dcaee67,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117794937098998816, guid: fef99efd468c1ce48833e0c60dcaee67,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117794937098998816, guid: fef99efd468c1ce48833e0c60dcaee67,
+        type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117794937098998816, guid: fef99efd468c1ce48833e0c60dcaee67,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8117794937098998817, guid: fef99efd468c1ce48833e0c60dcaee67,
         type: 3}
       propertyPath: Player
@@ -1654,7 +1679,7 @@ PrefabInstance:
     - target: {fileID: 8117794937098998823, guid: fef99efd468c1ce48833e0c60dcaee67,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 8117794937098998823, guid: fef99efd468c1ce48833e0c60dcaee67,
         type: 3}

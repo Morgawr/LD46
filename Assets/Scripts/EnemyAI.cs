@@ -146,7 +146,6 @@ public class EnemyAI : MonoBehaviour
     }
 
     protected void ResolveApproach() {
-        Debug.Log(hasTriedToApproach);
         if (!hasTriedToApproach) {
             var chance = Random.Range(0f, 1f);
             if (chance < ApproachChance) {
