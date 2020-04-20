@@ -20,12 +20,14 @@ public class TmpMonsterAI : EnemyAI
 
     protected override void Patrol() {
         base.Patrol();
-        GetComponent<Animator>().SetTrigger("Walking");
+        if(!isFlying)
+            GetComponent<Animator>().SetTrigger("Walking");
     }
 
     protected override void ApproachPlayer() {
         base.ApproachPlayer();
-        GetComponent<Animator>().SetTrigger("Walking");
+        if(!isFlying)
+            GetComponent<Animator>().SetTrigger("Walking");
     }
 
     protected override void DoNothing() {

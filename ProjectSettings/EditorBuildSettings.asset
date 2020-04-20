@@ -6,21 +6,36 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MenuScene.unity
     guid: 220bccc36ad4c6440a5c56718827e9b3
   - enabled: 1
     path: Assets/Scenes/UIScene.unity
     guid: 5464667ed1631b64988eb020eddf87df
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/2DPlatformScene.unity
     guid: 4b18172e397dde647815f15cfd6e7cbb
   - enabled: 1
     path: Assets/Scenes/PauseScene.unity
     guid: 727f7d8787df20943a2028917d6ef32d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/2DPlatformSceneTest2.unity
     guid: c89d20e7849c851498e2f2e881ed65c1
+  - enabled: 1
+    path: Assets/Scenes/BossTemplateScene.unity
+    guid: e62ea58fa8a65af4f84e2e5b4fc8b79b
+  - enabled: 1
+    path: Assets/Scenes/Scene_L0.unity
+    guid: 52652b462f8f58d46b9556391e8707d6
+  - enabled: 1
+    path: Assets/Scenes/Scene_L0_Boss.unity
+    guid: 532d3cf183598454dab20635b6b6d454
+  - enabled: 1
+    path: Assets/Scenes/Scene_L1.unity
+    guid: 5f192e45cb55fb043ac4d4fe2fc743dd
+  - enabled: 1
+    path: Assets/Scenes/LastRoom.unity
+    guid: 1b0dc28091fcb6540a6107c70ca426a2
   m_configObjects: {}

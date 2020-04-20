@@ -11,6 +11,7 @@ public class MusicManager : MonoBehaviour
     public AudioSource BossMusic;
     public AudioSource BossMusicIntro;
     public AudioSource EndMusic;
+    public AudioSource MenuMusic;
 
     public AudioMixer BGMMixer;
 
@@ -20,6 +21,9 @@ public class MusicManager : MonoBehaviour
     bool isPlayingBase = true;
     bool isInBossBattle = false;
     bool stopTransition = false;
+
+    [Range(0.0f, 1f)]
+    public float BattleAndNormalBGMTransitionSpeed = .3f;
 
     // Start is called before the first frame update
     void Start() {
@@ -37,7 +41,7 @@ public class MusicManager : MonoBehaviour
             stopTransition = false;
             return false;
         }
-        float step = .3f * Time.deltaTime;
+        float step = BattleAndNormalBGMTransitionSpeed * Time.deltaTime;
         bool done = true;
         if(isPlayingBase) { // Lower combat + Raise base
             if(CombatMusic.volume > 0.0f) {
@@ -120,5 +124,14 @@ public class MusicManager : MonoBehaviour
             EndMusic.Play();
         BossMusic.Stop();
         BossMusicIntro.Stop();
+        MenuMusic.Stop();
+    }
+
+    public void StartNormalGame(){
+        MenuMusic.Stop();
+    }
+
+    public void StartMenu(){
+        MenuMusic.Play();
     }
 }
