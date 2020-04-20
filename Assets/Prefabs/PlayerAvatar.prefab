@@ -192,7 +192,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2388919258636796923, guid: 6c620ce4bd718c94b81c09d11ab20204,
+  m_Sprite: {fileID: 1548473527413583451, guid: a1af12bffb7b7784eb69315db5be9553,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -302,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageDealer: {fileID: 1143724736754792183}
   AnimationName: DownAttack
+  player: {fileID: 0}
 --- !u!111 &1143724736754792169
 Animation:
   m_ObjectHideFlags: 0
@@ -445,6 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageDealer: {fileID: 1143724737385005031}
   AnimationName: SideAttack
+  player: {fileID: 1143724737409221464}
 --- !u!111 &1143724737385005029
 Animation:
   m_ObjectHideFlags: 0
@@ -773,6 +775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageDealer: {fileID: 1143724737467817496}
   AnimationName: UpAttack
+  player: {fileID: 0}
 --- !u!111 &1143724737467817498
 Animation:
   m_ObjectHideFlags: 0

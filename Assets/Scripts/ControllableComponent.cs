@@ -19,6 +19,8 @@ public class ControllableComponent : MonoBehaviour
     bool isJumpCooldown = false;
     bool isWalltouching = false;
     bool isAttackCooldown = false;
+    bool isSideAttack = false;
+    bool isInAttackAnimation = false;
 
     bool isOnLadder = false;
     Interactable OnInteractable = null;
@@ -159,6 +161,7 @@ public class ControllableComponent : MonoBehaviour
         else if (!sideAttack.isActiveAndEnabled) { // Attack side
             sideAttack.Slash(5);
             haveAttacked = true;
+            isSideAttack = true;
         }
         if (haveAttacked) {
             isAttackCooldown = true;
@@ -166,7 +169,22 @@ public class ControllableComponent : MonoBehaviour
         }
     }
 
+
     void HandleAnimationSet() {
+        // Wait for attack animation to end before we try another animation
+        if(isInAttackAnimation) 
+            return;
+
+        if(isSideAttack) { // Side attack
+            PlayerAnimator.SetBool("Idle", false);
+            PlayerAnimator.SetBool("Running", false);
+            PlayerAnimator.SetBool("Jump", false);
+            PlayerAnimator.SetBool("Climb", false);
+            PlayerAnimator.SetBool("SideAttack", true);
+            isInAttackAnimation = true;
+            return;
+        }
+
         // This is very messy we have to be careful in manually toggling all the
         // right boolean states for every type of animation but it's the best
         // we can do in this jam
@@ -175,13 +193,16 @@ public class ControllableComponent : MonoBehaviour
             PlayerAnimator.SetBool("Running", true);
             PlayerAnimator.SetBool("Jump", false);
             PlayerAnimator.SetBool("Climb", false);
+            PlayerAnimator.SetBool("SideAttack", false);
         }
 
         if(!isInAir && !isOnLadder && Mathf.Abs(body.velocity.x) < 0.2) { // Idle
+            Debug.Log("Idle");
             PlayerAnimator.SetBool("Idle", true);
             PlayerAnimator.SetBool("Running", false);
             PlayerAnimator.SetBool("Jump", false);
             PlayerAnimator.SetBool("Climb", false);
+            PlayerAnimator.SetBool("SideAttack", false);
         }
 
         if(isInAir && !isOnLadder) { // Jump
@@ -189,6 +210,7 @@ public class ControllableComponent : MonoBehaviour
             PlayerAnimator.SetBool("Running", false);
             PlayerAnimator.SetBool("Jump", true);
             PlayerAnimator.SetBool("Climb", false);
+            PlayerAnimator.SetBool("SideAttack", false);
         }
   
         if(isOnLadder) { // Climb
@@ -196,6 +218,7 @@ public class ControllableComponent : MonoBehaviour
             PlayerAnimator.SetBool("Running", false);
             PlayerAnimator.SetBool("Jump", false);
             PlayerAnimator.SetBool("Climb", true);
+            PlayerAnimator.SetBool("SideAttack", false);
         }
 
     }
@@ -303,6 +326,14 @@ public class ControllableComponent : MonoBehaviour
         if(respawnScene == null)
             respawnScene = this.gameObject.scene.name;
         SceneManager.LoadSceneAsync(respawnScene, LoadSceneMode.Additive);
+    }
+
+    public void OnAttackAnimationEnd(SlashComponent attack) {
+        if(attack == this.sideAttack) {
+            isSideAttack = false;
+        }
+        Debug.Log("Finished slash");
+        isInAttackAnimation = false;
     }
 
     public void AcquireMana(int value) {
