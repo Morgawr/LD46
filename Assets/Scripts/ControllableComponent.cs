@@ -316,7 +316,7 @@ public class ControllableComponent : MonoBehaviour
         isTouchingSomething = false;
     }
 
-    // This is what happens when the player dies
+    // This is what happens when the pldamageDealerayer dies
     public void OnDeath() {
         // Destroy and reload current scene
         Player.WeDiedAndWeAreRespawning = true;
@@ -332,7 +332,6 @@ public class ControllableComponent : MonoBehaviour
         if(attack == this.sideAttack) {
             isSideAttack = false;
         }
-        Debug.Log("Finished slash");
         isInAttackAnimation = false;
     }
 
