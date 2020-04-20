@@ -77,7 +77,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        var PlayerLoreInfo = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        PlayerLoreInfo = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         MessageBox = PlayerLoreInfo.MessageBox;
         Lore = PlayerLoreInfo.Lore;
     }
@@ -98,7 +98,8 @@ public class EnemyAI : MonoBehaviour
 
     void resetMessageCooldown()
     {
-        MessageBox.SetActive(false);
+        if(MessageBox)
+            MessageBox.SetActive(false);
     }
 
     protected float CalculateDistanceFromPlayer() {
@@ -159,9 +160,12 @@ public class EnemyAI : MonoBehaviour
             if(this.EnemyName == "SnailBoss") {
                 player.ObtainDoubleJump();
 
-                MessageBox.SetActive(true);
-                Lore.text = "You've unlocked doublejump!";
-                StartCoroutine(messageTimer.Countdown(10f, new Delegates.EmptyDel(resetMessageCooldown)));
+                if (MessageBox)
+                {
+                    MessageBox.SetActive(true);
+                    Lore.text = "You've unlocked doublejump!";
+                    StartCoroutine(messageTimer.Countdown(10f, new Delegates.EmptyDel(resetMessageCooldown)));
+                }
             }
         } else {
             SFXManager.GetInstance().PlayFX("CombatWin");
