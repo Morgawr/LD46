@@ -310,7 +310,8 @@ public class ControllableComponent : MonoBehaviour
         Debug.Log("Pause called");
         Player.IsGamePaused = true;
         Player.StartTransitionEvent("Pause", .2f);
-        SceneManager.LoadSceneAsync("PauseScene", LoadSceneMode.Additive);
+        //SceneManager.LoadSceneAsync("PauseScene", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("CreditsScene", LoadSceneMode.Additive);
     }
 
     void LateUpdate() {

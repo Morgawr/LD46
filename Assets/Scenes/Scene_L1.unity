@@ -611,7 +611,7 @@ PrefabInstance:
     - target: {fileID: 4793983454200909387, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
         type: 3}
       propertyPath: TeleportTo
-      value: Boss_L1
+      value: FinalBossPortal
       objectReference: {fileID: 0}
     - target: {fileID: 4793983454200909387, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
         type: 3}
@@ -1898,7 +1898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205043306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1305181295}
@@ -2791,9 +2791,9 @@ PrefabInstance:
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
       propertyPath: message
-      value: "Some of us tried to oppose the first ones who fed on the Spirit\u2019s
-        life energy. We were once so many, beautiful creatures\u2026 We are now so
-        ugly and few. "
+      value: "Only in the direst of situations the Spirit of the Forest summons a
+        Guardian. They are the Forest\u2019s last hope of survival, but one oak cannot
+        live long without its acorn..."
       objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
@@ -4022,6 +4022,12 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 1288347374}
+    - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: message
+      value: "The forest does not seem to be back to its original lush\u2026 There
+        must be evil magic afoot within these lands! "
+      objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4474,12 +4480,12 @@ PrefabInstance:
     - target: {fileID: 1143724737409221479, guid: 8c2558ad570d62149ab1d8670b2ed4af,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.59
+      value: 79.32
       objectReference: {fileID: 0}
     - target: {fileID: 1143724737409221479, guid: 8c2558ad570d62149ab1d8670b2ed4af,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.75
+      value: 10.78
       objectReference: {fileID: 0}
     - target: {fileID: 1143724737409221479, guid: 8c2558ad570d62149ab1d8670b2ed4af,
         type: 3}
@@ -5001,8 +5007,9 @@ PrefabInstance:
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
       propertyPath: message
-      value: "You managed to defeat the worm, but it\u2019s not enough. We all took
-        so much from the Spirit that the Forest is now dwindling in darkness..."
+      value: "You managed to beat the Snail and the Worm, but it\u2019s not over yet.
+        We all took so much from the Spirit that the Forest is still dwindling in
+        darkness... "
       objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
@@ -8858,7 +8865,7 @@ PrefabInstance:
     - target: {fileID: 4793983454200909387, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
         type: 3}
       propertyPath: TeleportTo
-      value: Scene_L0_end
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4793983454200909387, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
         type: 3}
@@ -10231,8 +10238,9 @@ PrefabInstance:
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
       propertyPath: message
-      value: "The Snail devoured and devoured\u2026 Now it has become half-machine
-        and its hunger grew even stronger."
+      value: "Some of us tried to oppose the first ones who fed on the Spirit\u2019s
+        life energy. We once  were so many, beautiful creatures\u2026 We are now so
+        ugly and few."
       objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
@@ -15873,7 +15881,7 @@ PrefabInstance:
     - target: {fileID: 8545256835807490031, guid: 0b524a3b715e28c499f97a7d5cacd7c1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8545256835807490031, guid: 0b524a3b715e28c499f97a7d5cacd7c1,
         type: 3}

@@ -1052,8 +1052,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738891637}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 281.99997, y: 4.9999695, z: -8279.249}
-  m_LocalScale: {x: 91.991646, y: 91.991646, z: 91.991646}
+  m_LocalPosition: {x: 281.99997, y: 5, z: 0}
+  m_LocalScale: {x: 91.991646, y: 140, z: 91.991646}
   m_Children: []
   m_Father: {fileID: 848502878}
   m_RootOrder: 2
@@ -1212,7 +1212,7 @@ RectTransform:
   m_GameObject: {fileID: 848502877}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.0634375, z: 1}
   m_Children:
   - {fileID: 2096610416}
   - {fileID: 1161847927}
@@ -1223,8 +1223,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 68, y: -169}
-  m_SizeDelta: {x: 691.7, y: 132.29999}
+  m_AnchoredPosition: {x: 67, y: -171.1}
+  m_SizeDelta: {x: 693.7, y: 136.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &848502879
 MonoBehaviour:
@@ -1926,8 +1926,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161847926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -278.9999, y: 4.9999695, z: -8279.249}
-  m_LocalScale: {x: 91.991646, y: 91.991646, z: 91.991646}
+  m_LocalPosition: {x: -275, y: 5, z: 0}
+  m_LocalScale: {x: 91.991646, y: 140, z: 91.991646}
   m_Children: []
   m_Father: {fileID: 848502878}
   m_RootOrder: 1
@@ -3348,7 +3348,7 @@ PrefabInstance:
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.38
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
@@ -3378,7 +3378,7 @@ PrefabInstance:
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
@@ -3398,7 +3398,7 @@ PrefabInstance:
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30171.986
+      value: 28715.896
       objectReference: {fileID: 0}
     - target: {fileID: 7528301176463451564, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
@@ -3748,7 +3748,7 @@ Transform:
   m_GameObject: {fileID: 2025167938}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 6.769989, y: 2.460022, z: 0}
-  m_LocalScale: {x: 144.2429, y: 89.991005, z: 91.991646}
+  m_LocalScale: {x: 144.2429, y: 140, z: 91.991646}
   m_Children: []
   m_Father: {fileID: 848502878}
   m_RootOrder: 3
@@ -3915,8 +3915,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.9999697, y: -11.000085}
-  m_SizeDelta: {x: 635.3, y: 88.8}
+  m_AnchoredPosition: {x: -2.9999697, y: -20}
+  m_SizeDelta: {x: 635.3, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2096610417
 MonoBehaviour:
@@ -3949,8 +3949,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is a sample messsage to test if this is good or not and if we can scroll
-    past this point
+  m_Text: Guardian, thank you for saving my life... What an adventure you had! Now
+    the Forest can heal back and, in time, be as bountiful and full of life as it
+    once was.
 --- !u!222 &2096610418
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4004,7 +4005,7 @@ PrefabInstance:
     - target: {fileID: 2518228899469125938, guid: b7f02b3685d2e844a8308694257fb8f8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2518228899469125938, guid: b7f02b3685d2e844a8308694257fb8f8,
         type: 3}
