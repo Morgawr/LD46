@@ -414,7 +414,7 @@ public class ControllableComponent : MonoBehaviour
         isTouchingSomething = false;
     }
 
-    // This is what happens when the pldamageDealerayer dies
+    // This is what happens when the player dies
     public void OnDeath() {
         // Destroy and reload current scene
         Player.WeDiedAndWeAreRespawning = true;
@@ -424,6 +424,7 @@ public class ControllableComponent : MonoBehaviour
         // TODO: This should be a crash/exception
         if(respawnScene == null)
             respawnScene = this.gameObject.scene.name;
+        Player.IsInBossBattle = false;
         SceneManager.LoadSceneAsync(respawnScene, LoadSceneMode.Additive);
     }
 

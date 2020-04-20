@@ -19,11 +19,15 @@ public class PortalController : Interactable
 
     protected override void Update() {
         if(Player.IsInBossBattle && WeAreRendering) {
-            GetComponent<SpriteRenderer>().enabled = false;
+            var renderer = GetComponent<SpriteRenderer>();
+            if(renderer != null)
+                renderer.enabled = false;
             WeAreRendering = false;
         }
         if(!Player.IsInBossBattle && !WeAreRendering) {
-            GetComponent<SpriteRenderer>().enabled = true;
+            var renderer = GetComponent<SpriteRenderer>();
+            if(renderer != null)
+                renderer.enabled = true;
             WeAreRendering = true;
         }
     }
