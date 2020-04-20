@@ -3398,7 +3398,7 @@ PrefabInstance:
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28715.896
+      value: 50930.332
       objectReference: {fileID: 0}
     - target: {fileID: 7528301176463451564, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
@@ -3948,7 +3948,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.7
   m_Text: Guardian, thank you for saving my life... What an adventure you had! Now
     the Forest can heal back and, in time, be as bountiful and full of life as it
     once was.

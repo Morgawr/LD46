@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -42,6 +43,12 @@ public class EnemyAI : MonoBehaviour
     Timer attackTimer = new Timer();
     Timer approachTimer = new Timer();
 
+    public Player PlayerLoreInfo;
+    protected GameObject MessageBox;
+    protected Text Lore;
+
+    Timer messageTimer = new Timer();
+
     public void FlipX() {
         Debug.Log("Flipped");
         isFacingRight = !isFacingRight;
@@ -54,7 +61,7 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void Start() {
         if(isBoss) {
-            if(Player.GetInstance() .HasDefeated(this.EnemyName)){
+            if(Player.GetInstance().HasDefeated(this.EnemyName)){
                 GameObject.Destroy(this.gameObject);
                 Debug.Log("We should die here");
             }
@@ -69,6 +76,10 @@ public class EnemyAI : MonoBehaviour
                 this.player = p.GetComponent<ControllableComponent>();
             }
         }
+
+        var PlayerLoreInfo = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        MessageBox = PlayerLoreInfo.MessageBox;
+        Lore = PlayerLoreInfo.Lore;
     }
 
     Delegates.EmptyDel RandomAttackRoutine(List<Delegates.EmptyDel> attacks) {
@@ -83,6 +94,11 @@ public class EnemyAI : MonoBehaviour
     void resetApproachCooldown() {
         hasTriedToApproach = false;
         isApproaching = false;
+    }
+
+    void resetMessageCooldown()
+    {
+        MessageBox.SetActive(false);
     }
 
     protected float CalculateDistanceFromPlayer() {
@@ -142,6 +158,10 @@ public class EnemyAI : MonoBehaviour
             }
             if(this.EnemyName == "SnailBoss") {
                 player.ObtainDoubleJump();
+
+                MessageBox.SetActive(true);
+                Lore.text = "You've unlocked doublejump!";
+                StartCoroutine(messageTimer.Countdown(10f, new Delegates.EmptyDel(resetMessageCooldown)));
             }
         } else {
             SFXManager.GetInstance().PlayFX("CombatWin");

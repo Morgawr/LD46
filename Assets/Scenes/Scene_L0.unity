@@ -541,7 +541,7 @@ PrefabInstance:
     - target: {fileID: 782812937346089581, guid: 1e2a6bcfbb2355e4088fbc3f18edc6b6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -104.49609
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 782812937346089581, guid: 1e2a6bcfbb2355e4088fbc3f18edc6b6,
         type: 3}
@@ -2410,8 +2410,8 @@ PrefabInstance:
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
       propertyPath: message
-      value: " Aphids and flies everywhere, that\u2019s one thing. But beware of the
-        creature that lies ahead\u2026 Bewaaaare\u2026"
+      value: "Aphids and flies everywhere, that\u2019s one thing. But beware of the
+        creature that lies ahead... Bewaaaare..."
       objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
@@ -5201,7 +5201,7 @@ PrefabInstance:
     - target: {fileID: 6640854382971152505, guid: 39178b6279065b04db8ad033087f4221,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -105.49609
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6640854382971152505, guid: 39178b6279065b04db8ad033087f4221,
         type: 3}
@@ -5459,7 +5459,7 @@ PrefabInstance:
     - target: {fileID: 782812937346089581, guid: 1e2a6bcfbb2355e4088fbc3f18edc6b6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -104.49609
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 782812937346089581, guid: 1e2a6bcfbb2355e4088fbc3f18edc6b6,
         type: 3}
@@ -7193,6 +7193,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -5.92
       objectReference: {fileID: 0}
+    - target: {fileID: 4635029821139676580, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5487441869368297076, guid: 269618033dd3106419c2d963f95b56d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7202,6 +7207,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487441869368297076, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5487441869368297078, guid: 269618033dd3106419c2d963f95b56d8,
         type: 3}
@@ -7797,6 +7807,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BigRoom - 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4158035516488821302, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635029821139676580, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487441869368297076, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9200682877911437698, guid: 269618033dd3106419c2d963f95b56d8,
         type: 3}
@@ -9547,7 +9572,7 @@ PrefabInstance:
     - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -105.49609
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
@@ -12671,7 +12696,7 @@ PrefabInstance:
         type: 3}
       propertyPath: message
       value: "The Spirit of the Forest helped me with his life energy when I was sick.
-        He gave me relief and helped me recover. Now he couldn\u2019t do it anymore\u2026"
+        He gave me relief and helped me recover. Now he couldn\u2019t do it anymore..."
       objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563565, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
@@ -13035,6 +13060,95 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b18ef739aec8b844483354aca94dd62b, type: 3}
+--- !u!1001 &1366130493
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 341398465}
+    m_Modifications:
+    - target: {fileID: 8358174697777116865, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: m_Name
+      value: InvisibleTips (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116868, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -35.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116868, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116868, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116868, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116868, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116868, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116868, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116868, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116868, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116868, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116868, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: tooltip
+      value: If only you could use double jump...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: message
+      value: If only you could use double jump...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 10082435}
+    - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
+        type: 3}
+      propertyPath: maxDisplayTime
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8fb6d404255f3bb48a029bfc050ef460, type: 3}
 --- !u!1001 &1371866116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18849,7 +18963,7 @@ PrefabInstance:
     - target: {fileID: 6640854382971152505, guid: 39178b6279065b04db8ad033087f4221,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -105.49609
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6640854382971152505, guid: 39178b6279065b04db8ad033087f4221,
         type: 3}

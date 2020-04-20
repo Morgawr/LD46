@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScrollCredits : MonoBehaviour
 {
+    public float delayStart = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -12,8 +13,9 @@ public class ScrollCredits : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.position.y);
-        if(transform.position.y < 2195/2)
+        delayStart = delayStart - Time.deltaTime;
+        Debug.Log(delayStart);
+        if(delayStart < 0 && transform.position.y < 2195/2)
             transform.Translate(Vector3.up * Time.deltaTime * 100);
     }
 }

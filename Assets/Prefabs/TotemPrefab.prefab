@@ -5047,4 +5047,4 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   message: Hello there here some message for you!
-  maxDisplayTime: 5
+  maxDisplayTime: 10

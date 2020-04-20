@@ -1686,9 +1686,9 @@ PrefabInstance:
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
       propertyPath: message
-      value: "It seems like there was some sort of nefarious spell tied to the first
-        ones who fed\u2026 Noone ever knew why they started acting like they did,
-        until now!"
+      value: It seems like there was some sort of nefarious spell tied to the first
+        ones who fed... Noone ever knew why they started acting like they did, until
+        now!
       objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
@@ -1776,6 +1776,11 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 1084382315}
+    - target: {fileID: 6541074133938247536, guid: 6081dff9ea2a28446955d04d8987f25d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6541074133938247537, guid: 6081dff9ea2a28446955d04d8987f25d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2846,3 +2851,95 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31c303d76b2d4444aa0b9b80ddf6e855, type: 3}
+--- !u!1 &2045959187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6541074133938247540, guid: 6081dff9ea2a28446955d04d8987f25d,
+    type: 3}
+  m_PrefabInstance: {fileID: 966823334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2045959188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045959187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2984ea4ba180535418b55ed0bf113fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1084382315}
+  Player: {fileID: 0}
+  tooltip: Press up to interact
+  TooltipStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 12800000, guid: 9d430b9deda59f4458617c332d8e0884, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  message: Guardian, thank you for saving my life... What an adventure you had! Now
+    the Forest can heal back and, in time, be as bountiful and full of life as it
+    once was.
+  maxDisplayTime: 10
