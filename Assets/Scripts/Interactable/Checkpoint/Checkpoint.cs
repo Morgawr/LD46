@@ -36,7 +36,7 @@ public class Checkpoint : Interactable
         }
         Player.AccumulatedMana += toRefill;
         Light.color = ChargingColor;
-        StartCoroutine(timer.Countdown(0.3f, new Delegates.EmptyDel(resetTimer)));
+        StartCoroutine(timer.Countdown(0.1f, new Delegates.EmptyDel(resetTimer)));
     }
 
     public override void Interact()

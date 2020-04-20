@@ -274,7 +274,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   tagName: Spawn1
-  ManaRefillPerInterval: 2
+  ManaRefillPerInterval: 10
   Light: {fileID: 6710351019572410172}
   ChargingColor: {r: 0.8490566, g: 0.34524, b: 0.17221431, a: 0}
 --- !u!61 &6640854382971152504
