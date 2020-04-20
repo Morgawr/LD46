@@ -101,7 +101,7 @@ MonoBehaviour:
     SceneName: 
     PortalName: 
   TeleportTo: 
-  IsBossPortal: 0
+  IsBossPortal: 1
 --- !u!61 &4793983454200909492
 BoxCollider2D:
   m_ObjectHideFlags: 0
