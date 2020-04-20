@@ -314,6 +314,14 @@ public class ControllableComponent : MonoBehaviour
     }
 
     void LateUpdate() {
+        if(Player.RespawnRoutineHasStarted)
+            return;
+
+        if(Player.WeDiedAndWeAreRespawning) {
+            Player.RespawnRoutineHasStarted = true;
+            SceneManager.UnloadSceneAsync(this.gameObject.scene.name);
+            SceneManager.LoadSceneAsync(Player.respawnSceneName, LoadSceneMode.Additive);
+        }
         if (Player.IsGamePaused ||
             (!Player.IsTransitionDone("Unpause") && Player.DoesTransitionExist("Unpause")))
             return;
@@ -416,6 +424,8 @@ public class ControllableComponent : MonoBehaviour
 
     // This is what happens when the player dies
     public void OnDeath() {
+        if(Player.RespawnRoutineHasStarted)
+            return;
         // Destroy and reload current scene
         Player.WeDiedAndWeAreRespawning = true;
         SFXManager.PlayFX("Staggered");
@@ -424,8 +434,6 @@ public class ControllableComponent : MonoBehaviour
         if(respawnScene == null)
             respawnScene = this.gameObject.scene.name;
         Player.IsInBossBattle = false;
-        SceneManager.UnloadSceneAsync(this.gameObject.scene.name);
-        SceneManager.LoadSceneAsync(respawnScene, LoadSceneMode.Additive);
     }
 
     public void OnAttackAnimationEnd(SlashComponent attack) {
