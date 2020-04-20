@@ -1714,11 +1714,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 8315441146266510933, guid: ed9931d669c20064aa24525f3908a301,
-        type: 3}
-      propertyPath: MaxHP
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8315441146266510934, guid: ed9931d669c20064aa24525f3908a301,
         type: 3}
       propertyPath: m_Constraints
