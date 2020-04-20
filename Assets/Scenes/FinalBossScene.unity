@@ -227,6 +227,11 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 1184754916}
+    - target: {fileID: 4793983454200909387, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
+        type: 3}
+      propertyPath: TeleportTo
+      value: FinalBossPortal
+      objectReference: {fileID: 0}
     - target: {fileID: 4793983454200909493, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1298,7 +1303,7 @@ PrefabInstance:
     - target: {fileID: 4914555931714250438, guid: f556e2307b99c124f9d1a196653dba30,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30.039062
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 4914555931714250438, guid: f556e2307b99c124f9d1a196653dba30,
         type: 3}
@@ -2051,7 +2056,7 @@ PrefabInstance:
     - target: {fileID: 4793983454200909493, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.521247
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 4793983454200909493, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
         type: 3}
@@ -2667,7 +2672,7 @@ PrefabInstance:
     - target: {fileID: 4914555931714250438, guid: f556e2307b99c124f9d1a196653dba30,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30.039062
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 4914555931714250438, guid: f556e2307b99c124f9d1a196653dba30,
         type: 3}
@@ -2867,6 +2872,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigRoom (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4158035516488821302, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635029821139676580, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487441869368297076, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9200682877911437698, guid: 269618033dd3106419c2d963f95b56d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2880,7 +2900,7 @@ PrefabInstance:
     - target: {fileID: 9200682877911437698, guid: 269618033dd3106419c2d963f95b56d8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.82
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 9200682877911437698, guid: 269618033dd3106419c2d963f95b56d8,
         type: 3}
@@ -3077,6 +3097,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 4158035516488821302, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635029821139676580, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487441869368297076, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9200682877911437698, guid: 269618033dd3106419c2d963f95b56d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3090,7 +3125,7 @@ PrefabInstance:
     - target: {fileID: 9200682877911437698, guid: 269618033dd3106419c2d963f95b56d8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.7382812
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 9200682877911437698, guid: 269618033dd3106419c2d963f95b56d8,
         type: 3}
