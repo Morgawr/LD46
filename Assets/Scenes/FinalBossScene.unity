@@ -1157,7 +1157,7 @@ PrefabInstance:
     - target: {fileID: 8315441146266510933, guid: ed9931d669c20064aa24525f3908a301,
         type: 3}
       propertyPath: MaxHP
-      value: 30
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8315441146266510935, guid: ed9931d669c20064aa24525f3908a301,
         type: 3}
@@ -2354,7 +2354,7 @@ PrefabInstance:
     - target: {fileID: 8117794937098998819, guid: fef99efd468c1ce48833e0c60dcaee67,
         type: 3}
       propertyPath: MaxHP
-      value: 30
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8117794937098998822, guid: fef99efd468c1ce48833e0c60dcaee67,
         type: 3}

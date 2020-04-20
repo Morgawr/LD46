@@ -63,6 +63,12 @@ public class EnemyAI : MonoBehaviour
         hurtComponent.OnHurtReaction = new Delegates.EmptyDel(OnHurtWrapper);
         var healthComponent = this.GetComponent<EnemyHealthComponent>();
         healthComponent.OnDeath = new Delegates.EmptyDel(OnDeath);
+        var players = GameObject.FindGameObjectsWithTag("Avatar");
+        foreach(var p in players) {
+            if(p.scene == this.gameObject.scene) {
+                this.player = p.GetComponent<ControllableComponent>();
+            }
+        }
     }
 
     Delegates.EmptyDel RandomAttackRoutine(List<Delegates.EmptyDel> attacks) {
