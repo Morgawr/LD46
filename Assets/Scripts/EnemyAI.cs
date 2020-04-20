@@ -163,7 +163,7 @@ public class EnemyAI : MonoBehaviour
                 if (MessageBox)
                 {
                     MessageBox.SetActive(true);
-                    Lore.text = "You've unlocked doublejump!";
+                    Lore.text = "You've unlocked double jump!";
                     StartCoroutine(messageTimer.Countdown(10f, new Delegates.EmptyDel(resetMessageCooldown)));
                 }
             }
