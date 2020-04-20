@@ -102,9 +102,6 @@ public class Player : MonoBehaviour
 
     void Start() {
         CurrentLife = MaxLife;
-
-        // TODO: This should only be done when the trigger is set in the game
-        MusicManager.StartNormalTracks();
     }
 
     void LateUpdate() {

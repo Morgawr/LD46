@@ -38,7 +38,7 @@ TagManager:
   - PlayerProjectileLayer
   - LightMapping
   - EnemyMeleeLayer
-  - 
+  - ActionTriggerLayer
   - 
   - 
   - 
