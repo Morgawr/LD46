@@ -1950,6 +1950,8 @@ MonoBehaviour:
     PortalName: Scene_L0_end
   - SceneName: Scene_L1
     PortalName: Scene_L1
+  - SceneName: LastRoom
+    PortalName: EndPortal
   NextSpawnPortal: 
 --- !u!4 &1004660965
 Transform:
@@ -3585,7 +3587,7 @@ PrefabInstance:
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9467.756
+      value: 15200.134
       objectReference: {fileID: 0}
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
