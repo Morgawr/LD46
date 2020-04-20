@@ -94,6 +94,7 @@ public class TmpBossAI : EnemyAI {
         var anim = GetComponent<Animator>();
         anim.SetTrigger("GoUp");
         transform.position = patroller.GetCurrentPoint().position;
+        SFXManager.GetInstance().PlayFX("WormOut");
     }
 
 }
