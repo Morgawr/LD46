@@ -207,6 +207,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4158035516488821302, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635029821139676580, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487441869368297076, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9200682877911437698, guid: 269618033dd3106419c2d963f95b56d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1817,6 +1832,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4158035516488821302, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635029821139676580, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487441869368297076, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9200682877911437698, guid: 269618033dd3106419c2d963f95b56d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2098,7 +2128,7 @@ PrefabInstance:
     - target: {fileID: 4914555931714250438, guid: f556e2307b99c124f9d1a196653dba30,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.34375
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4914555931714250438, guid: f556e2307b99c124f9d1a196653dba30,
         type: 3}
@@ -5008,6 +5038,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TotemPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556949912455563562, guid: 6d29bc4b652cca04ab01046f53acce15,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8556949912455563564, guid: 6d29bc4b652cca04ab01046f53acce15,
         type: 3}
@@ -8157,6 +8192,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 4158035516488821302, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635029821139676580, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487441869368297076, guid: 269618033dd3106419c2d963f95b56d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9200682877911437698, guid: 269618033dd3106419c2d963f95b56d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8856,6 +8906,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PortalPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793983454200909386, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4793983454200909387, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
         type: 3}
