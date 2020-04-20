@@ -431,4 +431,9 @@ public class ControllableComponent : MonoBehaviour
         // TODO: Add particle effects and cool stuff here
         Player.AccumulatedMana += value;
     }
+
+    public void ObtainDoubleJump() {
+        // TODO: Display a notice here
+        Player.HasDoubleJump = true;
+    }
 }

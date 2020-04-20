@@ -2751,7 +2751,7 @@ MonoBehaviour:
   IsGamePaused: 0
   CurrentMainGameScene:
     m_Handle: 0
-  HasDoubleJump: 1
+  HasDoubleJump: 0
   MessageBox: {fileID: 848502877}
   Lore: {fileID: 2096610417}
   IsInBossBattle: 0
@@ -3589,7 +3589,7 @@ PrefabInstance:
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16526.668
+      value: 17171.348
       objectReference: {fileID: 0}
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}

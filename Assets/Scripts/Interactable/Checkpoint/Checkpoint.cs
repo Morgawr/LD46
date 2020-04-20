@@ -7,6 +7,21 @@ public class Checkpoint : Interactable
 {
     public string tagName;
     public int ManaRefillPerInterval = 0;
+    public Light Light;
+
+    Timer timer = new Timer();
+    Color oldColor;
+    public Color ChargingColor;
+
+
+    void resetTimer() {
+        Light.color = oldColor;
+    }
+
+    protected override void Start() {
+        base.Start();
+        oldColor = Light.color;
+    }
 
     void RefillLife() {
         int toRefill = Player.AccumulatedMana - ManaRefillPerInterval > 0 ? ManaRefillPerInterval : Player.AccumulatedMana;
@@ -20,6 +35,8 @@ public class Checkpoint : Interactable
             toRefill -= maxAmountCanRefill; // We leave some leftover to put back 
         }
         Player.AccumulatedMana += toRefill;
+        Light.color = ChargingColor;
+        StartCoroutine(timer.Countdown(0.3f, new Delegates.EmptyDel(resetTimer)));
     }
 
     public override void Interact()

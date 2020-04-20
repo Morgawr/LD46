@@ -132,6 +132,9 @@ public class EnemyAI : MonoBehaviour
             Player.Player.MaxLife += 100;
             Player.Player.CurrentLife = Player.Player.MaxLife;
             Player.Player.DefeatedBoss(this.EnemyName);
+            if(this.EnemyName == "SnailBoss") {
+                Player.ObtainDoubleJump();
+            }
         } else {
             SFXManager.GetInstance().PlayFX("CombatWin");
         }

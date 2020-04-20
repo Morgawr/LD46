@@ -205,8 +205,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   Player: {fileID: 0}
+  tooltip: Press up to interact
   tagName: Spawn1
   ManaRefillPerInterval: 2
+  Light: {fileID: 6710351019572410172}
+  ChargingColor: {r: 0.8490566, g: 0.34524, b: 0.17221431, a: 0}
 --- !u!61 &6640854382971152504
 BoxCollider2D:
   m_ObjectHideFlags: 0
