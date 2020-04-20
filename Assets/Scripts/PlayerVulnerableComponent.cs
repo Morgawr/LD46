@@ -18,7 +18,6 @@ public class PlayerVulnerableComponent : AbstractVulnerableComponent
         
         if (Player.IsInBossBattle)
         {
-            Debug.Log(value);
             Player.CurrentLife -= value;
             return;
         }

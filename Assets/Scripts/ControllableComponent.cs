@@ -419,12 +419,12 @@ public class ControllableComponent : MonoBehaviour
         // Destroy and reload current scene
         Player.WeDiedAndWeAreRespawning = true;
         SFXManager.PlayFX("Staggered");
-        SceneManager.UnloadSceneAsync(this.gameObject.scene.name);
         var respawnScene = Player.respawnSceneName;
         // TODO: This should be a crash/exception
         if(respawnScene == null)
             respawnScene = this.gameObject.scene.name;
         Player.IsInBossBattle = false;
+        SceneManager.UnloadSceneAsync(this.gameObject.scene.name);
         SceneManager.LoadSceneAsync(respawnScene, LoadSceneMode.Additive);
     }
 
