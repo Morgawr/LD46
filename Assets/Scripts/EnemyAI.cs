@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
 
-    public ControllableComponent Player;
+    public ControllableComponent player;
     public PatrolComponent patroller;
     public Rigidbody2D body;
     public EnemyHealthComponent health;
@@ -54,7 +54,7 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void Start() {
         if(isBoss) {
-            if(Player.Player.HasDefeated(this.EnemyName)){
+            if(Player.GetInstance() .HasDefeated(this.EnemyName)){
                 GameObject.Destroy(this.gameObject);
                 Debug.Log("We should die here");
             }
@@ -80,7 +80,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     protected float CalculateDistanceFromPlayer() {
-        return Vector2.Distance(transform.position, Player.transform.position);
+        return Vector2.Distance(transform.position, player.transform.position);
     }
 
     protected void FollowPoint(Transform targetPoint, float speed) {
@@ -112,7 +112,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     protected virtual void ApproachPlayer() {
-        FollowPoint(Player.transform, AggroSpeed);
+        FollowPoint(player.transform, AggroSpeed);
     }
 
     protected virtual void BossPhaseAttack() {
@@ -129,20 +129,20 @@ public class EnemyAI : MonoBehaviour
                 Debug.Log("We failed removing boss " + this.gameObject.name + " from BossManager.");
             }
             // Add Extra life to player
-            Player.Player.MaxLife += 100;
-            Player.Player.CurrentLife = Player.Player.MaxLife;
-            Player.Player.DefeatedBoss(this.EnemyName);
+            player.Player.MaxLife += 100;
+            player.Player.CurrentLife = player.Player.MaxLife;
+            player.Player.DefeatedBoss(this.EnemyName);
             if(this.EnemyName == "SnailBoss") {
-                Player.ObtainDoubleJump();
+                player.ObtainDoubleJump();
             }
         } else {
             SFXManager.GetInstance().PlayFX("CombatWin");
         }
         var mana = GetComponent<EnemyHealthComponent>().ManaReward;
-        Player.AcquireMana(mana);
+        player.AcquireMana(mana);
         // Try to remove the enemy that might have been spotting us so we can
         // transition out of combat
-        Player.Player.RemoveSpotter(this);
+        player.Player.RemoveSpotter(this);
         if(particleOnDeath != null) {
             particleOnDeath.transform.SetParent(this.transform.parent, true);
             particleOnDeath.gameObject.SetActive(true);
@@ -153,9 +153,9 @@ public class EnemyAI : MonoBehaviour
 
     public virtual void PlayerSpotted(bool spotted) {
         if(spotted) {
-            Player.Player.AddSpotter(this);
+            player.Player.AddSpotter(this);
         } else { // We are not spotted anymore
-            Player.Player.RemoveSpotter(this);
+            player.Player.RemoveSpotter(this);
         }
         isPlayerSpotted = spotted;
     }

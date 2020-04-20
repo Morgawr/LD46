@@ -21,19 +21,19 @@ public class TmpBossAI : EnemyAI {
         int spread = 2;
         
         // Face level
-        var toShoot = projectileFactory.SpawnProjectile(projectileFactory.BaseProjectile, Player.transform.position, this.transform);
+        var toShoot = projectileFactory.SpawnProjectile(projectileFactory.BaseProjectile, player.transform.position, this.transform);
         toShoot.Speed = 15;
         toShoot.Duration = 5;
         projectiles.Add(toShoot);
 
         // Above level
-        toShoot = projectileFactory.SpawnProjectile(projectileFactory.BaseProjectile, new Vector2(Player.transform.position.x, Player.transform.position.y + spread), this.transform);
+        toShoot = projectileFactory.SpawnProjectile(projectileFactory.BaseProjectile, new Vector2(player.transform.position.x, player.transform.position.y + spread), this.transform);
         toShoot.Speed = 15;
         toShoot.Duration = 5;
         projectiles.Add(toShoot);
 
         // Below level
-        toShoot = projectileFactory.SpawnProjectile(projectileFactory.BaseProjectile, new Vector2(Player.transform.position.x, Player.transform.position.y - spread), this.transform);
+        toShoot = projectileFactory.SpawnProjectile(projectileFactory.BaseProjectile, new Vector2(player.transform.position.x, player.transform.position.y - spread), this.transform);
         toShoot.Speed = 15;
         toShoot.Duration = 5;
         projectiles.Add(toShoot);
@@ -43,7 +43,7 @@ public class TmpBossAI : EnemyAI {
     }
 
     void ShootLargerProjectile() {
-        var toShoot = projectileFactory.SpawnProjectile(projectileFactory.LargerProjectile, Player.transform.position, this.transform);
+        var toShoot = projectileFactory.SpawnProjectile(projectileFactory.LargerProjectile, player.transform.position, this.transform);
         toShoot.gameObject.SetActive(true);
     }
 
@@ -59,7 +59,7 @@ public class TmpBossAI : EnemyAI {
     }
 
     protected override void RunAI() {
-        FollowPoint(Player.transform, 0);
+        FollowPoint(player.transform, 0);
         if(isAnimating)
             return;
         // Enter phase 2 (change parameters in this case) if we haven't yet

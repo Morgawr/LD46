@@ -1623,6 +1623,11 @@ PrefabInstance:
       propertyPath: patroller
       value: 
       objectReference: {fileID: 1029604628}
+    - target: {fileID: 7627608605322052099, guid: fef99efd468c1ce48833e0c60dcaee67,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1834407964}
     - target: {fileID: 8117794937098998816, guid: fef99efd468c1ce48833e0c60dcaee67,
         type: 3}
       propertyPath: m_Simulated

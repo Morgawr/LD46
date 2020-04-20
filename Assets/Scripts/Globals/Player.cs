@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+
+    public static Player GetInstance() {
+        return GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
     // Physics stats 
     public float moveSpeed = 0;
     public float airSpeed = 0;

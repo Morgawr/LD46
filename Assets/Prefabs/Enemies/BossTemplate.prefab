@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 8315441146266510940}
   - component: {fileID: 8315441146266510941}
   - component: {fileID: 5095988766402236687}
+  - component: {fileID: 371159314358504236}
+  - component: {fileID: 8285505365169477197}
   m_Layer: 13
   m_Name: BossTemplate
   m_TagString: Enemy
@@ -99,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b82c7faf180258547b09454ced1f7f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  player: {fileID: 0}
   patroller: {fileID: 0}
   body: {fileID: 8315441146266510934}
   health: {fileID: 8315441146266510933}
@@ -211,3 +213,38 @@ PolygonCollider2D:
       - {x: 0.65346956, y: 0.9948833}
       - {x: 1.138591, y: 3.8683028}
       - {x: 0.18972635, y: 4.5578723}
+--- !u!95 &371159314358504236
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8315441146266510932}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: abfc6e3799ec0f443afda20a19e524dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &8285505365169477197
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8315441146266510932}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2557218, y: -0.41309118}
+  m_Size: {x: 1.5398946, y: 9.413817}
+  m_Direction: 0
