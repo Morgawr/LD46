@@ -107,6 +107,12 @@ public class ControllableComponent : MonoBehaviour
     }
 
     void OnHurtWrapper() {
+
+        // If we are already hit, don't get hit again
+        if(Player.isFlickering)  {
+            return;
+        }
+
         Player.isFlickering = true;
 
         var flicker = this.GetComponent<SpriteFlickerComponent>();
@@ -171,8 +177,18 @@ public class ControllableComponent : MonoBehaviour
 
 
     void HandleAnimationSet() {
+
+        if(Player.isExhausted) { // Extra case for idle
+            PlayerAnimator.SetBool("Idle", true);
+            PlayerAnimator.SetBool("Running", false);
+            PlayerAnimator.SetBool("Jump", false);
+            PlayerAnimator.SetBool("Climb", false);
+            PlayerAnimator.SetBool("SideAttack", false);
+            return;
+        }
+
         // Wait for attack animation to end before we try another animation
-        if(isInAttackAnimation) 
+        if(isInAttackAnimation && !Player.isExhausted) 
             return;
 
         if(isSideAttack) { // Side attack

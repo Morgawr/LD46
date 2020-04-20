@@ -23,7 +23,9 @@ public class MeleeAttackCollider : MonoBehaviour
             return;
         }
 
-        // TODO: have damage cooldown logic
+        // We do not get damaged if we are flickering
+        if(controller.Player.isFlickering)
+            return;
 
         var hurtComponent = other.GetComponent<HurtComponent>();
         if(hurtComponent != null) {

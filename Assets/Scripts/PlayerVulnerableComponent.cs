@@ -16,8 +16,6 @@ public class PlayerVulnerableComponent : AbstractVulnerableComponent
 
     public override void GetDamaged(int value) {
         
-        Debug.Log(value);
-
         if (Player.IsInBossBattle)
         {
             Debug.Log(value);
@@ -29,7 +27,6 @@ public class PlayerVulnerableComponent : AbstractVulnerableComponent
 
         void resetExhaustedCooldown()
         {
-            Debug.Log("Rest Exauxted!");
             Player.isExhausted = false;
             Player.CurrentStag = Player.MaxStag;
 

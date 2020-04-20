@@ -18,6 +18,9 @@ public class PlayerDetectorComponent : MonoBehaviour
     }
 
     void OnTriggerStay2D(Collider2D other) {
+        if(player != null && player.Player.isExhausted) {
+            ai.PlayerSpotted(false);
+        }
         if (selfCollider.IsTouchingLayers(LayerMask.GetMask("PlayerLayer"))) {
             if (!HasLOS) {
                 ai.PlayerSpotted(true);
