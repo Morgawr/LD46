@@ -34,6 +34,9 @@ public class ProjectileComponent : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        if(Player == null) {
+            Player = GameObject.FindGameObjectsWithTag("Avatar")[0].GetComponent<ControllableComponent>();
+        }
         this.transform.Translate(Direction * Speed * Time.deltaTime);
         // TODO: rotate projectile towards direction
     }
@@ -41,6 +44,7 @@ public class ProjectileComponent : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject == transform.parent.gameObject)
             return;
+        
         if(other.gameObject == Player.gameObject) {
             Player.GetComponent<HurtComponent>().GetHurt(DamageDealer);
         }
