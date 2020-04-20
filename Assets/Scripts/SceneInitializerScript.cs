@@ -26,6 +26,7 @@ public class SceneInitializerScript : MonoBehaviour
             Player.AccumulatedMana = 0;
             Player.CurrentLife = Player.MaxLife;
             Player.WeDiedAndWeAreRespawning = false;
+            Player.RespawnRoutineHasStarted = false;
             this.GetComponent<ControllableComponent>().Respawn();
             return true;
         }
