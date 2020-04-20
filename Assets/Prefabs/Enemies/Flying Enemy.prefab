@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591aa92030447494486989d0b1940ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  player: {fileID: 0}
   patroller: {fileID: 0}
   body: {fileID: 4963956193678756099}
   health: {fileID: 2100362556294559014}
@@ -97,6 +97,7 @@ MonoBehaviour:
   isFlying: 0
   EnemyName: 
   isBoss: 0
+  PlayerLoreInfo: {fileID: 0}
 --- !u!50 &4963956193678756099
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 0
   MaxHP: 3
-  ManaReward: 4
+  ManaReward: 20
 --- !u!114 &1588337760487750940
 MonoBehaviour:
   m_ObjectHideFlags: 0
