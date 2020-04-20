@@ -28,7 +28,7 @@ public abstract class Interactable : MonoBehaviour
         isOnTooltip = false;
     }
 
-    protected void OnGUI()
+    protected virtual void OnGUI()
     {
         if (isOnTooltip)
         {

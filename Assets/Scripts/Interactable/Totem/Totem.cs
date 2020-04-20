@@ -17,11 +17,11 @@ public class Totem : Interactable
         MessageBox.SetActive(false);
     }
 
-    void Update()
+    protected override void Update()
     {
     }
 
-    void OnGUI()
+    protected override void OnGUI()
     {
         if (!hidden)
         {

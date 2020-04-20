@@ -13,13 +13,19 @@ public class SpriteFlickerComponent : MonoBehaviour
     float startFlickerTime;
 
     Timer flickerTimer;
+    Color normalColor = Color.white;
+    Color newColor = Color.red;
 
     void OnFlickerSwap() {
         if(Time.time - startFlickerTime >= TotalDuration) {
-            sprite.enabled = true;
+            sprite.color = normalColor;
             return;
         }
-        sprite.enabled = !sprite.enabled;
+        if(sprite.color == normalColor) {
+            sprite.color = newColor;
+        } else {
+            sprite.color = normalColor;
+        }
         StartCoroutine(flickerTimer.Countdown(FlickerDuration, new Delegates.EmptyDel(OnFlickerSwap)));
     }
 
