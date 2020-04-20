@@ -10324,8 +10324,18 @@ PrefabInstance:
     - target: {fileID: 4793983454200909387, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
         type: 3}
       propertyPath: SelfData.PortalName
-      value: From_Boss_L1
+      value: To_Bonus
       objectReference: {fileID: 0}
+    - target: {fileID: 4793983454200909387, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
+        type: 3}
+      propertyPath: TeleportTo
+      value: Bonus
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793983454200909387, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 1288347374}
     - target: {fileID: 4793983454200909493, guid: 738d9b0bcc2b2204f91afb4b29eafdb9,
         type: 3}
       propertyPath: m_LocalPosition.x
