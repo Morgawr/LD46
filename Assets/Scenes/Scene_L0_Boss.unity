@@ -1776,6 +1776,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CeilingTile_Long
       objectReference: {fileID: 0}
+    - target: {fileID: 5791144116558785182, guid: 1e2a6bcfbb2355e4088fbc3f18edc6b6,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e2a6bcfbb2355e4088fbc3f18edc6b6, type: 3}
 --- !u!1001 &5791422867340849559

@@ -19,6 +19,7 @@ public class HurtComponent : MonoBehaviour
 
     public void GetHurt(DamageDealerComponent damageDealer) {
 
+        SFXManager.GetInstance().PlayFX("Impact");
         var healthComponent = GetComponent<AbstractVulnerableComponent>();
         if (healthComponent != null) {
             healthComponent.GetDamaged(damageDealer.Damage);

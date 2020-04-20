@@ -25,6 +25,7 @@ public class PortalManager : MonoBehaviour
 
     public void GoToNewPortal(string newPortal, string oldScene) {
         NextSpawnPortal = newPortal;
+        SFXManager.GetInstance().PlayFX("Door");
         var newScene = PortalLookup[NextSpawnPortal];
         SceneManager.LoadSceneAsync(newScene, LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync(oldScene);

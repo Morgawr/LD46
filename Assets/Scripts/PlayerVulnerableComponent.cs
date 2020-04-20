@@ -47,10 +47,10 @@ public class PlayerVulnerableComponent : AbstractVulnerableComponent
         }
         else
         {
-            Debug.Log("Exhausted!");
             if (Player.isExhausted)
                 return;
 
+            SFXManager.GetInstance().PlayFX("Staggered");
             Player.isExhausted = true;
             StartCoroutine(exhaustedTimer.Countdown(5f, new Delegates.EmptyDel(resetExhaustedCooldown)));
         }

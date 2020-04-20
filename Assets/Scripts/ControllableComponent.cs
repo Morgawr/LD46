@@ -14,6 +14,7 @@ public class ControllableComponent : MonoBehaviour
     public Animator PlayerAnimator;
 
     public Player Player;
+    public SFXManager SFXManager;
 
     bool isInAir = false;
     bool isJumpCooldown = false;
@@ -131,6 +132,7 @@ public class ControllableComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        SFXManager = SFXManager.GetInstance();
 
         var hurtComponent = this.GetComponent<HurtComponent>();
         hurtComponent.OnHurtReaction = new Delegates.EmptyDel(OnHurtWrapper);
@@ -155,6 +157,7 @@ public class ControllableComponent : MonoBehaviour
 
     void HandleAttackLogic() {
         bool haveAttacked = false;
+
         // Attack down mid-air
         if (isInAir && InputManager.IsPressed("down") && !downAttack.isActiveAndEnabled) {
             downAttack.Slash(5);
@@ -170,6 +173,7 @@ public class ControllableComponent : MonoBehaviour
             isSideAttack = true;
         }
         if (haveAttacked) {
+            SFXManager.PlayFX("MCAttack");
             isAttackCooldown = true;
             StartCoroutine(attackTimer.Countdown(1 / Player.attackSpeed, new Delegates.EmptyDel(resetAttackCooldown)));
         }
@@ -267,6 +271,17 @@ public class ControllableComponent : MonoBehaviour
         if(!isWalltouching || CanMove()) {
             var actualMoveSpeed = (isInAir && !isOnLadder) ? Player.airSpeed : Player.moveSpeed;
 
+
+            // HACK: This is terrible code
+            if((InputManager.IsPressed("left") || InputManager.IsPressed("right")) && !Player.isExhausted) { // We are walking
+                if(!SFXManager.IsFXPlaying("Steps") && !isInAir)
+                    SFXManager.PlayFX("Steps", true); // Want to loop
+                if(SFXManager.IsFXPlaying("Steps") && isInAir)
+                    SFXManager.StopFX("Steps");
+            } else if(SFXManager.IsFXPlaying("Steps")) {
+                SFXManager.StopFX("Steps");
+            }
+
             if(InputManager.IsPressed("left"))  {
                 if(isFacingRight) 
                     FlipPlayer();
@@ -280,6 +295,7 @@ public class ControllableComponent : MonoBehaviour
         }
 
         if(InputManager.IsPressed("jump") && CanMove() && !isJumpCooldown) {
+            SFXManager.PlayFX("Jump");
             body.AddForce(new Vector2(0, 1) * Player.jumpStrength);
             isJumpCooldown = true;
             this.SignalIsClimbing(false);
@@ -315,6 +331,8 @@ public class ControllableComponent : MonoBehaviour
                 Player.isInteractCooldown = true;
                 Player.StartCoroutine(interactTimer.Countdown(0.5f, new Delegates.EmptyDel(Player.resetInteractCooldown)));
                 OnInteractable.Interact();
+                if(!SFXManager.IsFXPlaying("Interaction"))
+                    SFXManager.PlayFX("Interaction"); // TODO: Maybe we want to have a different sound for the mana refill station
             }
         }
 
@@ -335,6 +353,7 @@ public class ControllableComponent : MonoBehaviour
     public void OnDeath() {
         // Destroy and reload current scene
         Player.WeDiedAndWeAreRespawning = true;
+        SFXManager.PlayFX("Staggered");
         SceneManager.UnloadSceneAsync(this.gameObject.scene.name);
         var respawnScene = Player.respawnSceneName;
         // TODO: This should be a crash/exception

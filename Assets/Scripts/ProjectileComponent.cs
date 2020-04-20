@@ -8,6 +8,7 @@ public class ProjectileComponent : MonoBehaviour
     public float Duration;
     public float Speed;
     public Vector2 Direction;
+    public string SFXAttack;
     public DamageDealerComponent DamageDealer = null;
 
     Timer timer = new Timer();
@@ -28,6 +29,7 @@ public class ProjectileComponent : MonoBehaviour
     void Start() {
         Player = GameObject.FindGameObjectsWithTag("Avatar")[0].GetComponent<ControllableComponent>();
         StartCoroutine(timer.Countdown(Duration, new Delegates.EmptyDel(OnDurationExpired)));
+        SFXManager.GetInstance().PlayFX(SFXAttack);
     }
 
     // Update is called once per frame

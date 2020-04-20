@@ -112,6 +112,11 @@ public class EnemyAI : MonoBehaviour
     // We can override OnDeath in child classes for EnemyAI so we can have OnDeath
     // effects (like enemy explodes, etc)
     protected virtual void OnDeath() {
+        if(isBoss) {
+            SFXManager.GetInstance().PlayFX("BossWin");
+        } else {
+            SFXManager.GetInstance().PlayFX("CombatWin");
+        }
         var mana = GetComponent<EnemyHealthComponent>().ManaReward;
         Player.AcquireMana(mana);
         // Try to remove the enemy that might have been spotting us so we can
