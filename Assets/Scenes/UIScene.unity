@@ -2844,6 +2844,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 212902795}
     m_Modifications:
+    - target: {fileID: -1314850025738236368, guid: cc9c989cf8acaa14e873e931d738ab84,
+        type: 3}
+      propertyPath: Damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3208059068759683625, guid: cc9c989cf8acaa14e873e931d738ab84,
         type: 3}
       propertyPath: m_Sprite
@@ -3402,7 +3407,7 @@ PrefabInstance:
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 61101.145
+      value: 61798.047
       objectReference: {fileID: 0}
     - target: {fileID: 7528301176463451564, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
@@ -4115,6 +4120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037484933614858275, guid: 4598ced972f19b04e90dfdb32dbeb58b,
+        type: 3}
+      propertyPath: Damage
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4598ced972f19b04e90dfdb32dbeb58b, type: 3}

@@ -6183,12 +6183,12 @@ PrefabInstance:
     - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
         type: 3}
       propertyPath: tooltip
-      value: Press z to attack the monster
+      value: Press z to attack an enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
         type: 3}
       propertyPath: message
-      value: Press z to attack the monster
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
         type: 3}
@@ -9117,7 +9117,7 @@ PrefabInstance:
     - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
         type: 3}
       propertyPath: message
-      value: Spike are deadly, beware!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
         type: 3}
@@ -11273,7 +11273,7 @@ PrefabInstance:
     - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
         type: 3}
       propertyPath: message
-      value: Spike are deadly, beware!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
         type: 3}
@@ -19376,7 +19376,7 @@ PrefabInstance:
     - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
         type: 3}
       propertyPath: message
-      value: Press up to climb the ladder
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
         type: 3}
@@ -20868,7 +20868,7 @@ PrefabInstance:
     - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
         type: 3}
       propertyPath: message
-      value: Press spacebar to jump
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8358174697777116869, guid: 8fb6d404255f3bb48a029bfc050ef460,
         type: 3}

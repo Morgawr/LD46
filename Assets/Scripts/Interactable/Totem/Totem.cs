@@ -39,7 +39,8 @@ public class Totem : Interactable
         hidden = false;
         isOnTooltip = false;
 
-        MessageBox.SetActive(true);
+        if(message != "")
+            MessageBox.SetActive(true);
         Lore.text = message;
         StartCoroutine(messageTimer.Countdown(maxDisplayTime, new Delegates.EmptyDel(resetMessageCooldown)));
     }
