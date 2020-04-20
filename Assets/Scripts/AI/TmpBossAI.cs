@@ -6,6 +6,8 @@ public class TmpBossAI : EnemyAI {
 
     protected bool isPhase2 = false;
 
+    protected bool isAnimating = false;
+
     protected override void Start() {
         base.Start();
         projectileFactory = GameObject.FindGameObjectsWithTag("ProjectileFactory")[0].GetComponent<ProjectileFactory>();
@@ -47,17 +49,19 @@ public class TmpBossAI : EnemyAI {
 
     // For this boss instead of approaching we teleport around
     protected override void ApproachPlayer() {
-        // TODO: we need to set an animation timer here
         // true = Random trigger
         patroller.TriggerNextPoint(true);
-        transform.position = patroller.GetCurrentPoint().position;
         // We need to reset this to false here because otherwise it will keep
         // looping forever.
         isApproaching = false;
+        isAnimating = true;
+        GetComponent<Animator>().SetTrigger("GoDown");
     }
 
     protected override void RunAI() {
         FollowPoint(Player.transform, 0);
+        if(isAnimating)
+            return;
         // Enter phase 2 (change parameters in this case) if we haven't yet
         if(health.HP < health.MaxHP / 2 && !isPhase2) {
             ApproachChance *= 2; // teleport around twice as likely
@@ -79,4 +83,17 @@ public class TmpBossAI : EnemyAI {
         var globalPlayer = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().IsInBossBattle = false;
         base.OnDeath();
     }
+
+    public void OnGoUpFinished() {
+        var anim = GetComponent<Animator>();
+        anim.SetTrigger("Idle");
+        isAnimating = false;
+    }
+
+    public void OnGoDownFinished() {
+        var anim = GetComponent<Animator>();
+        anim.SetTrigger("GoUp");
+        transform.position = patroller.GetCurrentPoint().position;
+    }
+
 }

@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 8315441146266510935}
   - component: {fileID: 8315441146266510934}
   - component: {fileID: 8315441146266510933}
-  - component: {fileID: 8315441146266510930}
   - component: {fileID: 8315441146266510940}
   - component: {fileID: 8315441146266510941}
+  - component: {fileID: 5095988766402236687}
   m_Layer: 13
-  m_Name: Boss
+  m_Name: BossTemplate
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 8315441146266510932}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.222006, y: -1.7687845, z: 1.2042068}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,9 +75,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e793d52422c19c49bdd6aca8fdfa8ea, type: 3}
+  m_Sprite: {fileID: 4544863566876412581, guid: 1c1ed2f60585be44b9c846c7c33fb990,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 5, y: 5}
@@ -120,7 +121,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8315441146266510932}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -148,22 +149,6 @@ MonoBehaviour:
   HP: 0
   MaxHP: 20
   ManaReward: 100
---- !u!58 &8315441146266510930
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8315441146266510932}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.4999998
 --- !u!114 &8315441146266510940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,3 +176,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b27e62e7e241049af31e538df6adae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!60 &5095988766402236687
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8315441146266510932}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 10.24}
+    newSize: {x: 5, y: 5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.70636845, y: 3.5778399}
+      - {x: -1.4673667, y: 0.97331834}
+      - {x: -1.1010494, y: -4.2030287}
+      - {x: -0.1326189, y: -4.646659}
+      - {x: 0.9569044, y: -4.323104}
+      - {x: 0.8194504, y: -1.6278348}
+      - {x: 0.65346956, y: 0.9948833}
+      - {x: 1.138591, y: 3.8683028}
+      - {x: 0.18972635, y: 4.5578723}

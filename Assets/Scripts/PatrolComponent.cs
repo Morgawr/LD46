@@ -22,7 +22,11 @@ public class PatrolComponent : MonoBehaviour
 
     public void TriggerNextPoint(bool random = false) {
         if(random) {
-            currentPoint = Random.Range(0, Points.Count);
+            var point = currentPoint;
+            while(point == currentPoint && Points.Count > 1) {
+                point = Random.Range(0, Points.Count);
+            }
+            currentPoint = point;
         } else {
             currentPoint = (currentPoint + 1) %  Points.Count;
         }
