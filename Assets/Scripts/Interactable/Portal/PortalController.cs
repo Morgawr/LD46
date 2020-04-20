@@ -10,9 +10,22 @@ public class PortalController : Interactable
 
     public bool IsBossPortal = false;
 
+    bool WeAreRendering = true;
+
     protected override void Start() {
         base.Start();
         portalManager = GameObject.FindGameObjectsWithTag("PortalManager")[0].GetComponent<PortalManager>();
+    }
+
+    protected override void Update() {
+        if(Player.IsInBossBattle && WeAreRendering) {
+            GetComponent<SpriteRenderer>().enabled = false;
+            WeAreRendering = false;
+        }
+        if(!Player.IsInBossBattle && !WeAreRendering) {
+            GetComponent<SpriteRenderer>().enabled = true;
+            WeAreRendering = true;
+        }
     }
 
     public override void Interact() {
