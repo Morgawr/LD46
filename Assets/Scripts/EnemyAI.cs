@@ -114,6 +114,13 @@ public class EnemyAI : MonoBehaviour
     protected virtual void OnDeath() {
         if(isBoss) {
             SFXManager.GetInstance().PlayFX("BossWin");
+            var bossManager = GameObject.FindGameObjectWithTag("BossManager").GetComponent<BossRoomManager>();
+            if(!bossManager.Bosses.Remove(this)){
+                Debug.Log("We failed removing boss " + this.gameObject.name + " from BossManager.");
+            }
+            // Add Extra life to player
+            Player.Player.MaxLife += 100;
+            Player.Player.CurrentLife = Player.Player.MaxLife;
         } else {
             SFXManager.GetInstance().PlayFX("CombatWin");
         }

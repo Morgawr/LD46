@@ -79,10 +79,10 @@ public class TmpBossAI : EnemyAI {
         }
     }
 
-    protected override void OnDeath() {
-        var globalPlayer = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().IsInBossBattle = false;
-        base.OnDeath();
-    }
+    //protected override void OnDeath() {
+    //    //var globalPlayer = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().IsInBossBattle = false;
+    //    base.OnDeath();
+    //}
 
     public void OnGoUpFinished() {
         var anim = GetComponent<Animator>();

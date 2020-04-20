@@ -8,6 +8,8 @@ public class MusicManager : MonoBehaviour
 
     public AudioSource BaseMusic;
     public AudioSource CombatMusic;
+    public AudioSource BossMusic;
+    public AudioSource BossMusicIntro;
 
     public AudioMixer BGMMixer;
 
@@ -15,6 +17,8 @@ public class MusicManager : MonoBehaviour
 
     bool isInTransition = false;
     bool isPlayingBase = true;
+    bool isInBossBattle = false;
+    bool stopTransition = false;
 
     // Start is called before the first frame update
     void Start() {
@@ -27,6 +31,11 @@ public class MusicManager : MonoBehaviour
     }
 
     bool UpdateAudioInTransition() {
+        // Exit early
+        if(stopTransition) {
+            stopTransition = false;
+            return false;
+        }
         float step = .3f * Time.deltaTime;
         bool done = true;
         if(isPlayingBase) { // Lower combat + Raise base
@@ -55,23 +64,42 @@ public class MusicManager : MonoBehaviour
         return !done;
     }
 
-    public void ToggleAudio() {
-        playMusic = !playMusic;
+    //public void ToggleAudio() {
+    //    playMusic = !playMusic;
 
-        if(!playMusic) {
-            BGMMixer.SetFloat("MixerVolume", -80f); // silent
-        } else {
-            BGMMixer.SetFloat("MixerVolume", 0f); // normal volume
-        }
-    }
+    //    if(!playMusic) {
+    //        BGMMixer.SetFloat("MixerVolume", -80f); // silent
+    //    } else {
+    //        BGMMixer.SetFloat("MixerVolume", 0f); // normal volume
+    //    }
+    //}
 
     public void SetCombatMode(bool mode) {
-        if((isPlayingBase && !mode) || (!isPlayingBase && mode))
+        if((isPlayingBase && !mode) || (!isPlayingBase && mode) || isInBossBattle)
             return;
         isPlayingBase = !isPlayingBase;
         if(!isInTransition) {
             StartCoroutine(Timer.RefillableTicker(new Delegates.CheckAndMaybeContinueDel(UpdateAudioInTransition)));
         }
+    }
+
+    public void StartBossMusic() {
+        if(isInBossBattle)
+            return;
+
+        BaseMusic.volume = 0;
+        CombatMusic.volume = 0;
+        BossMusicIntro.Play();
+        BossMusic.PlayDelayed(BossMusicIntro.clip.length);
+    }
+
+    // We go back to normal playing
+    public void StopBossMusic() {
+        isInBossBattle = false;
+        BaseMusic.volume = 1;
+        CombatMusic.volume = 0;
+        BossMusicIntro.Stop();
+        BossMusic.Stop();
     }
 
     // Audio is not running at first, we only start once we hit a certain
@@ -83,5 +111,4 @@ public class MusicManager : MonoBehaviour
             CombatMusic.Play();
         }
     }
-
 }

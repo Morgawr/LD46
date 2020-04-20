@@ -32,8 +32,4 @@ public class SnailBoss : EnemyAI {
         ResolveApproach();
     }
 
-    protected override void OnDeath() {
-        var globalPlayer = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().IsInBossBattle = false;
-        base.OnDeath();
-    }
 }
