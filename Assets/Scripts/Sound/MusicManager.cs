@@ -10,6 +10,7 @@ public class MusicManager : MonoBehaviour
     public AudioSource CombatMusic;
     public AudioSource BossMusic;
     public AudioSource BossMusicIntro;
+    public AudioSource EndMusic;
 
     public AudioMixer BGMMixer;
 
@@ -110,5 +111,14 @@ public class MusicManager : MonoBehaviour
         if(!CombatMusic.isPlaying) {
             CombatMusic.Play();
         }
+    }
+
+    public void StartEndgame() {
+        BaseMusic.Stop();
+        CombatMusic.Stop();
+        if(!EndMusic.isPlaying)
+            EndMusic.Play();
+        BossMusic.Stop();
+        BossMusicIntro.Stop();
     }
 }

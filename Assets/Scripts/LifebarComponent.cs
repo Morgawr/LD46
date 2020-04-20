@@ -10,6 +10,9 @@ public class LifebarComponent : MonoBehaviour
     public RectTransform LifeBegin;
     public RectTransform LifeEnd;
     public RectTransform LifechunkBase;
+    // This is a hack to reference staggers so we can remove them when 
+    // the game ends.
+    public GameObject Staggers;
     List<RectTransform> chunks = new List<RectTransform>();
 
     // Start is called before the first frame update
@@ -50,6 +53,10 @@ public class LifebarComponent : MonoBehaviour
             RepositionLifeBar();
         }
         RefreshLifeFill();
+        if(Player.hasGameEnded) {
+            GameObject.Destroy(this.gameObject);
+            GameObject.Destroy(Staggers);
+        }
     }
 
     int CalculateNumberOfChunks() {

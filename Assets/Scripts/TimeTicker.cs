@@ -54,5 +54,7 @@ public class TimeTicker : MonoBehaviour
     void Update() {
         if(isTimerRunning && tickerCoroutine == null)
             StartTicking();
+        if(Player.hasGameEnded)
+            StopTicking();
     }
 }

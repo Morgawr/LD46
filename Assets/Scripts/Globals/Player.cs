@@ -51,6 +51,8 @@ public class Player : MonoBehaviour
     public bool isFlickering = false;
     public bool isExhausted = false;
 
+    public bool hasGameEnded = false;
+
     // HACK: This is terrible but we need this here so it doesn't get reset or 
     // deleted when we travel between portals
     public bool isInteractCooldown = false;
@@ -120,6 +122,9 @@ public class Player : MonoBehaviour
 
     void LateUpdate() {
         MusicManager.SetCombatMode(IsInCombat());
+        if(hasGameEnded) {
+            EndGame();
+        }
     }
 
     public Delegates.EmptyDel OnDeath;
@@ -127,5 +132,12 @@ public class Player : MonoBehaviour
     // globally accessible player class.
     public void RegisterAvatar(ControllableComponent avatar) {
         OnDeath = new Delegates.EmptyDel(avatar.OnDeath);
+    }
+
+    public void EndGame() {
+        // when we get here we have killed all the bosses and the life bar is not
+        // depleting anymore.
+        hasGameEnded = true;
+        MusicManager.StartEndgame();
     }
 }
