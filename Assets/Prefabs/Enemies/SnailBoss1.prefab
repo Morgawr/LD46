@@ -58,16 +58,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 7.4710965, y: 2.792832}
-      - {x: 8.381191, y: -0.07940597}
-      - {x: 8.250865, y: -3.1408083}
-      - {x: 7.5882077, y: -5.6534014}
-      - {x: 6.483764, y: -6.978729}
-      - {x: 6.0400987, y: -7.0351896}
-      - {x: 0.48741317, y: -7.245691}
-      - {x: 0.15242873, y: -4.9550467}
-      - {x: 3.594538, y: -4.1573377}
-      - {x: 4.538847, y: 3.3384607}
+    - - {x: 3.894796, y: 1.4396372}
+      - {x: 4.0799675, y: -1.0218087}
+      - {x: 3.3213716, y: -3.5515997}
+      - {x: 2.562057, y: -3.7927592}
+      - {x: -2.4086547, y: -3.6682355}
+      - {x: -2.3931997, y: -2.9272792}
+      - {x: 0.24577089, y: -2.5820026}
+      - {x: 0.9498467, y: -2.4419715}
+      - {x: 1.4680886, y: -2.4658449}
+      - {x: 2.3640697, y: 1.5261465}
 --- !u!114 &3452192400010756457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 8117794937098998826}
   - component: {fileID: 8117794937098998827}
   - component: {fileID: 274247706805924363}
+  - component: {fileID: 425661824196004442}
   m_Layer: 13
   m_Name: SnailBoss1
   m_TagString: Enemy
@@ -126,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 8117794937098998818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4109117784930342640}
   m_Father: {fileID: 0}
@@ -170,7 +171,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 60fa835f835ecd946905d24712e5163c, type: 3}
+  m_Sprite: {fileID: 8696935252123940958, guid: 1d8d86c6ec406de4e847720b0ab35611,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -289,7 +291,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.48, y: 20.48}
+    oldSize: {x: 10.24, y: 10.24}
     newSize: {x: 5, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -297,11 +299,30 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 8.044026, y: 2.643833}
-      - {x: 7.973486, y: -1.4258574}
-      - {x: 5.4854994, y: -7.467433}
-      - {x: -5.87079, y: -7.4421496}
-      - {x: -7.4839425, y: -4.7804527}
-      - {x: -7.237389, y: 1.5175055}
-      - {x: -5.2844486, y: 5.117136}
-      - {x: 0.1890087, y: 5.180956}
+    - - {x: 4.056935, y: 1.4114591}
+      - {x: 4.2038727, y: -0.53178257}
+      - {x: 3.1657374, y: -3.6494923}
+      - {x: -2.8744307, y: -3.74503}
+      - {x: -3.7868218, y: -2.484855}
+      - {x: -3.66109, y: 0.7200875}
+      - {x: -2.7955368, y: 2.4107478}
+      - {x: 0.454815, y: 2.5953882}
+--- !u!95 &425661824196004442
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8117794937098998818}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 53afacbf25826794aa7d76e4dae0d0bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
