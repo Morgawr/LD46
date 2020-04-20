@@ -445,8 +445,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7, y: 56.1}
-  m_SizeDelta: {x: 917.1, y: 360.8}
+  m_AnchoredPosition: {x: 3.5, y: 19.7}
+  m_SizeDelta: {x: 910.1, y: 287.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &644654038
 MonoBehaviour:
@@ -479,7 +479,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Tale of a \nLittle Guardian"
+  m_Text: 
 --- !u!222 &644654039
 CanvasRenderer:
   m_ObjectHideFlags: 0
