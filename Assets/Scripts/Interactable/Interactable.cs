@@ -16,6 +16,8 @@ public abstract class Interactable : MonoBehaviour
 
     public abstract void Interact();
 
+    SpriteRenderer renderer;
+
     public GUIStyle TooltipStyle;
 
     void OnTriggerEnter2D(Collider2D other)
@@ -32,7 +34,7 @@ public abstract class Interactable : MonoBehaviour
 
     protected virtual void OnGUI()
     {
-        if (isOnTooltip)
+        if (isOnTooltip && (renderer == null || renderer.enabled))
         {
             GUI.Label(new Rect((Screen.width - 150f) / 2, (Screen.height / 10) * 8, 200f, 200f), tooltip, TooltipStyle);
         }
@@ -44,6 +46,7 @@ public abstract class Interactable : MonoBehaviour
 
     protected virtual void Start() {
         Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        renderer = GetComponent<SpriteRenderer>();
         MessageBox = Player.MessageBox;
         Lore = Player.Lore;
     }
