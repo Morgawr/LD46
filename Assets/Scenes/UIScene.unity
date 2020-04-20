@@ -1119,6 +1119,27 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: -5
   m_TargetDisplay: 0
+--- !u!1 &667918780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7528301176809867978, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1820822061}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &667918783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667918780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Offset: {x: 0, y: 1.8, z: 0}
+  m_ApplyAfter: 0
+  m_PreserveComposition: 0
 --- !u!1 &738891637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,7 +2749,7 @@ MonoBehaviour:
   IsGamePaused: 0
   CurrentMainGameScene:
     m_Handle: 0
-  HasDoubleJump: 0
+  HasDoubleJump: 1
   IsInBossBattle: 0
   CurrentLife: 0
   MaxLife: 100
@@ -3564,7 +3585,7 @@ PrefabInstance:
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.46
+      value: 9467.756
       objectReference: {fileID: 0}
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
@@ -3630,6 +3651,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528301176463451567, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
+        type: 3}
+      propertyPath: orthographic size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528301176463451567, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
+        type: 3}
+      propertyPath: far clip plane
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528301176463451567, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0f7ad07eefaaa249b5d22c66b938dbe, type: 3}
