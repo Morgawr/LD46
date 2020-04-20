@@ -24,6 +24,7 @@ public class StarterComponent : MonoBehaviour
         SceneManager.UnloadSceneAsync(this.gameObject.scene);
         SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
         SceneManager.LoadScene("Scene_L0", LoadSceneMode.Additive);
+        //SceneManager.LoadScene("LastRoom", LoadSceneMode.Additive);
         GameObject.Destroy(MusicManager.gameObject);
         GameObject.Destroy(MainCamera.gameObject);
         GameObject.Destroy(Canvas);

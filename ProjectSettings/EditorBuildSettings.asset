@@ -38,4 +38,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LastRoom.unity
     guid: 1b0dc28091fcb6540a6107c70ca426a2
+  - enabled: 1
+    path: Assets/Scenes/FinalBossScene.unity
+    guid: 1464501b4f93ab447beb4bce992e85bf
+  - enabled: 1
+    path: Assets/Scenes/CreditsScene.unity
+    guid: db7adfe4d9171204d90b5cd676b68ab8
+  - enabled: 1
+    path: Assets/Scenes/Bonus.unity
+    guid: cbc006b41ef4615478da3d2f4687d089
   m_configObjects: {}

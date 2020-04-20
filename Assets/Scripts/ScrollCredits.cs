@@ -15,7 +15,7 @@ public class ScrollCredits : MonoBehaviour
     {
         delayStart = delayStart - Time.deltaTime;
         Debug.Log(delayStart);
-        if(delayStart < 0 && transform.position.y < 2195/2)
+        if(delayStart < 0 && transform.position.y < 10195/2)
             transform.Translate(Vector3.up * Time.deltaTime * 100);
     }
 }
