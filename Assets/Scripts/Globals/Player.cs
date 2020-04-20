@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     // new scene we can interact with this.
     public Scene CurrentMainGameScene;
 
+    public bool HasDoubleJump = false;
+
 
     // This is the logic when we are in a boss fight
     public bool IsInBossBattle = false;

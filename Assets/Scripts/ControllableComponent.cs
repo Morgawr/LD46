@@ -31,6 +31,8 @@ public class ControllableComponent : MonoBehaviour
     // Enemy or platform?
     bool isTouchingSomething = false;
 
+    int jumpCounter = 0;
+
     Timer jumpTimer = new Timer();
     Timer attackTimer = new Timer();
     Timer interactTimer = new Timer();
@@ -49,11 +51,23 @@ public class ControllableComponent : MonoBehaviour
         Player.isFlickering = false;
     }
 
+    public void RefillJumps() {
+        if(isJumpCooldown) {
+            return; // Can't refill on a cooldown
+        }
+        jumpCounter = 1;
+        if(Player.HasDoubleJump) {
+            jumpCounter++;
+        }
+    }
+
     public bool CanMove() {
         return !isInAir || isOnLadder && !Player.isExhausted;
     }
 
     public void SignalInAir(bool start){
+        if(!start)
+            RefillJumps();
         isInAir = start;
     }
 
@@ -65,6 +79,7 @@ public class ControllableComponent : MonoBehaviour
         if(start) {
             body.gravityScale = 0;
             body.velocity = new Vector2(0, 0);
+            RefillJumps();
         } else {
             body.gravityScale = 1;
         }
@@ -141,6 +156,7 @@ public class ControllableComponent : MonoBehaviour
 
         // When we hit something with a down attack, we are launched upwards
         downAttack.AttackHitCallback = new Delegates.EmptyDel(KnockbackOnDownAttack);
+        RefillJumps();
     }
 
     void FlipPlayer() {
@@ -294,10 +310,12 @@ public class ControllableComponent : MonoBehaviour
             }
         }
 
-        if(InputManager.IsPressed("jump") && CanMove() && !isJumpCooldown) {
+        if(InputManager.IsPressed("jump") && !Player.isExhausted && !isJumpCooldown && jumpCounter > 0) {
             SFXManager.PlayFX("Jump");
             body.AddForce(new Vector2(0, 1) * Player.jumpStrength);
             isJumpCooldown = true;
+            jumpCounter--;
+            Debug.Log(jumpCounter);
             this.SignalIsClimbing(false);
             StartCoroutine(jumpTimer.Countdown(0.5f, new Delegates.EmptyDel(resetJumpCooldown)));
         }

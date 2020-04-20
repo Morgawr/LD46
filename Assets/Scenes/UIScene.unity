@@ -2728,6 +2728,7 @@ MonoBehaviour:
   IsGamePaused: 0
   CurrentMainGameScene:
     m_Handle: 0
+  HasDoubleJump: 0
   IsInBossBattle: 0
   CurrentLife: 0
   MaxLife: 100
