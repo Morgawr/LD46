@@ -1663,6 +1663,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnailBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 8117794937098998819, guid: fef99efd468c1ce48833e0c60dcaee67,
+        type: 3}
+      propertyPath: MaxHP
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8117794937098998823, guid: fef99efd468c1ce48833e0c60dcaee67,
         type: 3}
       propertyPath: m_LocalPosition.x
