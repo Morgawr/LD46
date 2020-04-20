@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
@@ -32,6 +33,9 @@ public class Player : MonoBehaviour
 
     public bool HasDoubleJump = false;
 
+    // HACK
+    public GameObject MessageBox;
+    public Text Lore;
 
     // This is the logic when we are in a boss fight
     public bool IsInBossBattle = false;
@@ -60,8 +64,18 @@ public class Player : MonoBehaviour
 
     HashSet<EnemyAI> spotters = new HashSet<EnemyAI>();
 
+    HashSet<string> bossesDefeated = new HashSet<string>();
+
     void TransitionFrame(string name, float timeLeft) {
         TransitionDictionary[name] = timeLeft;
+    }
+
+    public bool HasDefeated(string name) {
+        return bossesDefeated.Contains(name);
+    }
+
+    public void DefeatedBoss(string name){
+        bossesDefeated.Add(name);
     }
 
     public void StartTransitionEvent(string name, float duration) {

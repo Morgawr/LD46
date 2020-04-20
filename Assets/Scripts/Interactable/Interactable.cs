@@ -36,9 +36,16 @@ public abstract class Interactable : MonoBehaviour
         }
     }
 
+    //protected void Update() {
+    //    //if(MessageBox == null)
+    //    //    MessageBox = GameObject.FindGameObjectsWithTag("MessageBox")[0];
+    //    //if(Lore == null)
+    //    //    Lore = GameObject.FindWithTag("Lore").GetComponent<Text>();
+    //}
+
     protected virtual void Start() {
         Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
-        MessageBox = GameObject.FindGameObjectsWithTag("MessageBox")[0];
-        Lore = GameObject.FindWithTag("Lore").GetComponent<Text>();
+        MessageBox = Player.MessageBox;
+        Lore = Player.Lore;
     }
 }

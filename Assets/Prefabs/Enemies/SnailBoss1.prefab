@@ -206,6 +206,7 @@ MonoBehaviour:
   PatrolSpeed: 60000000
   AggroSpeed: 150000000
   isFlying: 0
+  EnemyName: SnailBoss
   isBoss: 1
   isEnraged: 0
 --- !u!50 &8117794937098998816

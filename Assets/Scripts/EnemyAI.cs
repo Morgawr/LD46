@@ -25,6 +25,7 @@ public class EnemyAI : MonoBehaviour
     public float PatrolSpeed = 0;
     public float AggroSpeed = 0;
     public bool isFlying = false;
+    public string EnemyName;
 
     // HACK: This is to check if we have a special attack pattern logic
     // instead of using the default enemy logic.
@@ -48,7 +49,16 @@ public class EnemyAI : MonoBehaviour
         this.gameObject.transform.localScale = new Vector3(-oldScale.x, oldScale.y, oldScale.z);
     }
 
+    void Awake(){
+    }
+
     protected virtual void Start() {
+        if(isBoss) {
+            if(Player.Player.HasDefeated(this.EnemyName)){
+                GameObject.Destroy(this.gameObject);
+                Debug.Log("We should die here");
+            }
+        }
         var hurtComponent = this.GetComponent<HurtComponent>();
         hurtComponent.OnHurtReaction = new Delegates.EmptyDel(OnHurtWrapper);
         var healthComponent = this.GetComponent<EnemyHealthComponent>();
@@ -121,6 +131,7 @@ public class EnemyAI : MonoBehaviour
             // Add Extra life to player
             Player.Player.MaxLife += 100;
             Player.Player.CurrentLife = Player.Player.MaxLife;
+            Player.Player.DefeatedBoss(this.EnemyName);
         } else {
             SFXManager.GetInstance().PlayFX("CombatWin");
         }

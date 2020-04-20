@@ -112,6 +112,7 @@ MonoBehaviour:
   PatrolSpeed: 0
   AggroSpeed: 0
   isFlying: 0
+  EnemyName: WormBoss
   isBoss: 1
 --- !u!50 &8315441146266510934
 Rigidbody2D:
