@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3287778247571851872}
   - component: {fileID: 8126730130038896177}
   - component: {fileID: 115630850998820671}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: ParticleOnDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4807,7 +4807,7 @@ GameObject:
   - component: {fileID: 8622341871199795442}
   - component: {fileID: 8622341871199795443}
   - component: {fileID: 8622341871199795440}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: PlayerDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
