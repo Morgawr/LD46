@@ -171,6 +171,10 @@ public class EnemyAI : MonoBehaviour
         StartCoroutine(attackTimer.Countdown(1f / AttackSpeed, new Delegates.EmptyDel(resetAttackCooldown)));
     }
 
+    protected virtual void DoNothing() {
+
+    }
+
     protected void ResolveApproach() {
         if (!hasTriedToApproach) {
             var chance = Random.Range(0f, 1f);
@@ -182,6 +186,8 @@ public class EnemyAI : MonoBehaviour
         }
         if(isApproaching) {
             ApproachPlayer();
+        } else {
+            DoNothing();
         }
     }
 

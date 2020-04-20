@@ -17,4 +17,20 @@ public class TmpMonsterAI : EnemyAI
         toShoot.Duration = 20;
         toShoot.gameObject.SetActive(true);
     }
+
+    protected override void Patrol() {
+        base.Patrol();
+        GetComponent<Animator>().SetTrigger("Walking");
+    }
+
+    protected override void ApproachPlayer() {
+        base.ApproachPlayer();
+        GetComponent<Animator>().SetTrigger("Walking");
+    }
+
+    protected override void DoNothing() {
+        base.DoNothing();
+        GetComponent<Animator>().SetTrigger("Idle");
+    }
+
 }

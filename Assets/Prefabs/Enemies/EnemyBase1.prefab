@@ -4895,6 +4895,7 @@ GameObject:
   - component: {fileID: 6468997854095996710}
   - component: {fileID: 5974424152250400540}
   - component: {fileID: 6178548231644587508}
+  - component: {fileID: 8288723916231688376}
   m_Layer: 13
   m_Name: EnemyBase1
   m_TagString: Enemy
@@ -4984,6 +4985,7 @@ MonoBehaviour:
   PatrolSpeed: 30000
   AggroSpeed: 50000
   isFlying: 0
+  EnemyName: 
   isBoss: 0
 --- !u!50 &1837271811
 Rigidbody2D:
@@ -5048,6 +5050,25 @@ MonoBehaviour:
   sprite: {fileID: 8622341871869138212}
   FlickerDuration: 0.01
   TotalDuration: 2
+--- !u!95 &8288723916231688376
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8622341871785127385}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8a21094323df064498f2e236172f7229, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8622341871869138214
 GameObject:
   m_ObjectHideFlags: 0
