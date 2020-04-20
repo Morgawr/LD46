@@ -203,13 +203,14 @@ public class ControllableComponent : MonoBehaviour
     void HandleAnimationSet() {
 
         if(Player.isExhausted) { // Extra case for idle
-            PlayerAnimator.SetBool("Idle", true);
+            PlayerAnimator.SetBool("Idle", false);
             PlayerAnimator.SetBool("Running", false);
             PlayerAnimator.SetBool("Jump", false);
             PlayerAnimator.SetBool("Climb", false);
             PlayerAnimator.SetBool("SideAttack", false);
             PlayerAnimator.SetBool("UpAttack", false);
             PlayerAnimator.SetBool("DownAttack", false);
+            PlayerAnimator.SetBool("Staggered", true);
             return;
         }
 
@@ -225,6 +226,7 @@ public class ControllableComponent : MonoBehaviour
             PlayerAnimator.SetBool("SideAttack", true);
             PlayerAnimator.SetBool("UpAttack", false);
             PlayerAnimator.SetBool("DownAttack", false);
+            PlayerAnimator.SetBool("Staggered", false);
             isInAttackAnimation = true;
             return;
         }
@@ -237,6 +239,7 @@ public class ControllableComponent : MonoBehaviour
             PlayerAnimator.SetBool("SideAttack", false);
             PlayerAnimator.SetBool("UpAttack", true);
             PlayerAnimator.SetBool("DownAttack", false);
+            PlayerAnimator.SetBool("Staggered", false);
             isInAttackAnimation = true;
             return;
         }
@@ -249,6 +252,7 @@ public class ControllableComponent : MonoBehaviour
             PlayerAnimator.SetBool("SideAttack", false);
             PlayerAnimator.SetBool("UpAttack", false);
             PlayerAnimator.SetBool("DownAttack", true);
+            PlayerAnimator.SetBool("Staggered", false);
             isInAttackAnimation = true;
             return;
         }
@@ -264,6 +268,7 @@ public class ControllableComponent : MonoBehaviour
             PlayerAnimator.SetBool("SideAttack", false);
             PlayerAnimator.SetBool("UpAttack", false);
             PlayerAnimator.SetBool("DownAttack", false);
+            PlayerAnimator.SetBool("Staggered", false);
         }
 
         if(!isInAir && !isOnLadder && Mathf.Abs(body.velocity.x) < 0.2) { // Idle
@@ -274,6 +279,7 @@ public class ControllableComponent : MonoBehaviour
             PlayerAnimator.SetBool("SideAttack", false);
             PlayerAnimator.SetBool("UpAttack", false);
             PlayerAnimator.SetBool("DownAttack", false);
+            PlayerAnimator.SetBool("Staggered", false);
         }
 
         if(isInAir && !isOnLadder) { // Jump
@@ -284,6 +290,7 @@ public class ControllableComponent : MonoBehaviour
             PlayerAnimator.SetBool("SideAttack", false);
             PlayerAnimator.SetBool("UpAttack", false);
             PlayerAnimator.SetBool("DownAttack", false);
+            PlayerAnimator.SetBool("Staggered", false);
         }
   
         if(isOnLadder) { // Climb
@@ -294,6 +301,7 @@ public class ControllableComponent : MonoBehaviour
             PlayerAnimator.SetBool("SideAttack", false);
             PlayerAnimator.SetBool("UpAttack", false);
             PlayerAnimator.SetBool("DownAttack", false);
+            PlayerAnimator.SetBool("Staggered", false);
         }
 
     }
@@ -321,6 +329,7 @@ public class ControllableComponent : MonoBehaviour
         if(Player.IsGamePaused)
             return;
 
+        HandleAnimationSet();
         if (Player.isExhausted)
             return;
 
@@ -395,7 +404,6 @@ public class ControllableComponent : MonoBehaviour
 
 
         body.velocity = VelocityClamper.ClampVelocity(body.velocity, Player.maxVelocity);
-        HandleAnimationSet();
     }
 
     void OnCollisionEnter2D(Collision2D other) {
