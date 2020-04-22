@@ -433,6 +433,10 @@ public class ControllableComponent : MonoBehaviour
         // TODO: This should be a crash/exception
         if(respawnScene == null)
             respawnScene = this.gameObject.scene.name;
+        if(Player.IsInBossBattle) {
+            Player.MusicManager.StopBossMusic();
+            Player.MusicManager.StartNormalTracks();
+        }
         Player.IsInBossBattle = false;
     }
 
