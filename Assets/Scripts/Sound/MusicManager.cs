@@ -117,9 +117,12 @@ public class MusicManager : MonoBehaviour
     // Audio is not running at first, we only start once we hit a certain
     // checkpoint, so we start both tracks (combat is muted) when we trigger it.
     public void StartNormalTracks() {
-        if(!BaseMusic.isPlaying)
+        if(!BaseMusic.isPlaying) {
+            BaseMusic.Stop();
             BaseMusic.Play();
+        }
         if(!CombatMusic.isPlaying) {
+            CombatMusic.Stop();
             CombatMusic.Play();
         }
     }

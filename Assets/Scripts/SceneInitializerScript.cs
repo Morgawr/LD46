@@ -49,8 +49,9 @@ public class SceneInitializerScript : MonoBehaviour
         Player.ClearSpotters();
 
         // Make sure MessageBox is not active so we don't carry across displayed text
-        var messageBox = GameObject.FindGameObjectsWithTag("MessageBox")[0];
-        messageBox.SetActive(false);
+        var messageBox = GameObject.FindGameObjectWithTag("MessageBox");
+        if(messageBox != null)
+            messageBox.SetActive(false);
 
         if(!InitializeRespawn()) {
             InitializePortal();

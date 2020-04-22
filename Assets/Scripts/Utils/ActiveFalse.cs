@@ -10,7 +10,7 @@ public class ActiveFalse : MonoBehaviour
 
     void Start()
     {
-        MessageBox = GameObject.FindGameObjectsWithTag("MessageBox")[0];
+        MessageBox = GameObject.FindGameObjectWithTag("MessageBox");
         
     }
 
