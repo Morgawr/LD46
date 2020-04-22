@@ -10,6 +10,7 @@ public class SpiritEnd : Interactable
     public float maxDisplayTime = 5;
     float displayTime = 5;
     bool hidden = true;
+    bool hasBeenToggledAlready = false;
     Timer messageTimer = new Timer();
     Timer creditsTimer = new Timer();
 
@@ -41,14 +42,15 @@ public class SpiritEnd : Interactable
 
     public override void Interact()
     {
-        // TODO: Implement interaction with totem
-        Debug.Log("Trigger Ending tree interaction");
-        hidden = false;
-        isOnTooltip = false;
+        if(!hasBeenToggledAlready) {
+            hasBeenToggledAlready = true;
+            hidden = false;
+            isOnTooltip = false;
 
-        MessageBox.SetActive(true);
-        Lore.text = message;
-        StartCoroutine(messageTimer.Countdown(maxDisplayTime, new Delegates.EmptyDel(resetMessageCooldown)));
-        StartCoroutine(creditsTimer.Countdown(maxDisplayTime, new Delegates.EmptyDel(showCredits)));
+            MessageBox.SetActive(true);
+            Lore.text = message;
+            StartCoroutine(messageTimer.Countdown(maxDisplayTime, new Delegates.EmptyDel(resetMessageCooldown)));
+            StartCoroutine(creditsTimer.Countdown(maxDisplayTime, new Delegates.EmptyDel(showCredits)));
+        }
     }
 }
