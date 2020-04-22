@@ -33,6 +33,8 @@ public class PortalController : Interactable
     }
 
     public override void Interact() {
+        // Do not call base.Interact() here becase we have our own interact FX
+        // in PortalManager
         // When there is a boss fight, if this is a boss portal then we can't go 
         // back unless the boss is dead.
         if(!(IsBossPortal && Player.IsInBossBattle))

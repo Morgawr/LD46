@@ -34,8 +34,7 @@ public class Totem : Interactable
 
     public override void Interact()
     {
-        // TODO: Implement interaction with totem
-        Debug.Log("Trigger Totem interaction");
+        base.Interact();
         hidden = false;
         isOnTooltip = false;
 

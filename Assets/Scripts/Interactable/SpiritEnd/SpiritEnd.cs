@@ -43,6 +43,7 @@ public class SpiritEnd : Interactable
     public override void Interact()
     {
         if(!hasBeenToggledAlready) {
+            base.Interact();
             hasBeenToggledAlready = true;
             hidden = false;
             isOnTooltip = false;

@@ -410,8 +410,6 @@ public class ControllableComponent : MonoBehaviour
                 Player.isInteractCooldown = true;
                 Player.StartCoroutine(interactTimer.Countdown(0.5f, new Delegates.EmptyDel(Player.resetInteractCooldown)));
                 OnInteractable.Interact();
-                if(!SFXManager.IsFXPlaying("Interaction"))
-                    SFXManager.PlayFX("Interaction"); // TODO: Maybe we want to have a different sound for the mana refill station
             }
         }
 

@@ -41,6 +41,7 @@ public class Checkpoint : Interactable
 
     public override void Interact()
     {
+        base.Interact();
         // SetRespawn does nothing if the respawn is the same already so 
         // we can keep calling this without problems.
         controller.SetRespawn(this.gameObject.scene.name, this.tagName);

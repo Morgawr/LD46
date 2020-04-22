@@ -14,9 +14,8 @@ public abstract class Interactable : MonoBehaviour
 
     protected bool isOnTooltip = false;
 
-    public abstract void Interact();
 
-    SpriteRenderer renderer;
+    SpriteRenderer spriteRenderer;
 
     public GUIStyle TooltipStyle;
 
@@ -32,9 +31,17 @@ public abstract class Interactable : MonoBehaviour
         isOnTooltip = false;
     }
 
+    public virtual void Interact(){
+
+        if(spriteRenderer == null || !spriteRenderer.enabled || spriteRenderer.sprite == null) 
+            return;
+        if(!controller.SFXManager.IsFXPlaying("Interaction"))
+            controller.SFXManager.PlayFX("Interaction"); 
+    }
+
     protected virtual void OnGUI()
     {
-        if (isOnTooltip && (renderer == null || renderer.enabled))
+        if (isOnTooltip && (spriteRenderer == null || spriteRenderer.enabled))
         {
             GUI.Label(new Rect((Screen.width - 150f) / 2, (Screen.height / 10) * 8, 200f, 200f), tooltip, TooltipStyle);
         }
@@ -46,7 +53,7 @@ public abstract class Interactable : MonoBehaviour
 
     protected virtual void Start() {
         Player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
-        renderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         MessageBox = Player.MessageBox;
         Lore = Player.Lore;
     }
