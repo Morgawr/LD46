@@ -131,6 +131,11 @@ public class ControllableComponent : MonoBehaviour
             return;
         }
 
+        // Don't do anything if staggered
+        if(Player.isExhausted) {
+            return;
+        }
+
         Player.isFlickering = true;
 
         var flicker = this.GetComponent<SpriteFlickerComponent>();

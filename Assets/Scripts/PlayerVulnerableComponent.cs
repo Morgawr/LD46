@@ -27,6 +27,11 @@ public class PlayerVulnerableComponent : AbstractVulnerableComponent
     }
 
     public override void GetDamaged(int value) {
+
+        // We shouldn't get damaged when flickering (i-frames)
+        if(Player.isFlickering) {
+            return;
+        }
         
         if (Player.IsInBossBattle)
         {
