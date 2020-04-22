@@ -15334,6 +15334,11 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 10082435}
+    - target: {fileID: 6640854382971152507, guid: 39178b6279065b04db8ad033087f4221,
+        type: 3}
+      propertyPath: tagName
+      value: Spawn5
+      objectReference: {fileID: 0}
     - target: {fileID: 6640854382971152510, guid: 39178b6279065b04db8ad033087f4221,
         type: 3}
       propertyPath: m_Name
