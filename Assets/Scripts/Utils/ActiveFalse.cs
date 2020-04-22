@@ -16,7 +16,6 @@ public class ActiveFalse : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("is it working");
         if (start)
         {
             MessageBox.SetActive(false);
