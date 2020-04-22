@@ -21,6 +21,7 @@ public class MusicManager : MonoBehaviour
     bool isPlayingBase = true;
     bool isInBossBattle = false;
     bool stopTransition = false;
+    bool endMusicAlreadyStarted = false;
 
     [Range(0.0f, 1f)]
     public float BattleAndNormalBGMTransitionSpeed = .3f;
@@ -126,8 +127,10 @@ public class MusicManager : MonoBehaviour
     public void StartEndgame() {
         BaseMusic.Stop();
         CombatMusic.Stop();
-        if(!EndMusic.isPlaying)
+        if(!EndMusic.isPlaying && !endMusicAlreadyStarted) {
+            endMusicAlreadyStarted = true;
             EndMusic.Play();
+        }
         BossMusic.Stop();
         BossMusicIntro.Stop();
         MenuMusic.Stop();
