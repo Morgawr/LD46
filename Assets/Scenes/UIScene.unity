@@ -1179,6 +1179,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: bcf09fd09b26b4b44aaa25ff60a6f913, type: 3}
+    - target: {fileID: 4530543999702529801, guid: 5dc571b24836ac1449a012222d24ac91,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.356
+      objectReference: {fileID: 0}
     - target: {fileID: 5887297018204935871, guid: 5dc571b24836ac1449a012222d24ac91,
         type: 3}
       propertyPath: m_Name
@@ -2516,6 +2521,7 @@ MonoBehaviour:
   respawnName: Spawn2
   respawnSceneName: Scene_L0
   WeDiedAndWeAreRespawning: 0
+  RespawnRoutineHasStarted: 0
   IsGamePaused: 0
   CurrentMainGameScene:
     m_Handle: 0
@@ -3407,7 +3413,7 @@ PrefabInstance:
     - target: {fileID: 7528301176463451472, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 61798.047
+      value: 71042.09
       objectReference: {fileID: 0}
     - target: {fileID: 7528301176463451564, guid: f0f7ad07eefaaa249b5d22c66b938dbe,
         type: 3}
